@@ -56,6 +56,10 @@ export const FormContainer = styled.div`
         outline: none;
       }
     }
+
+    span {
+      color: ${(props) => props.theme.colors.error};
+    }
   }
 `
 

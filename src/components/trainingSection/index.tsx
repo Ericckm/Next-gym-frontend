@@ -1,13 +1,27 @@
-import {
-  ButtonContainer,
-  Container,
-  ExerciseContainer,
-  ExerciseDesc,
-  MainContent,
-  Title
-} from './styles'
+import { useEffect, useState } from 'react'
+import { handleExerciseRequestCall } from '../../services/exerciseRequestCall'
+import { ExerciseList } from '../exerciseList'
+import { Container, MainContent, Title } from './styles'
 
 export const TrainingSection = () => {
+  const [data, setData] = useState([])
+  const [error, setError] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function getData() {
+      const responseApi = await handleExerciseRequestCall()
+      if (responseApi.status !== 500) {
+        setData(responseApi.data)
+        setLoading(false)
+        setError(false)
+      } else {
+        setError(true)
+      }
+    }
+    getData()
+  }, [])
+
   return (
     <>
       <Container>
@@ -24,140 +38,16 @@ export const TrainingSection = () => {
         <MainContent>
           <ul>
             <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
-            </li>
-            <li>
-              <ExerciseContainer>
-                <ExerciseDesc>
-                  <p>nome exercicio</p>
-                  <span>carga</span>
-                  <span>repeticao</span>
-                  <span>serie</span>
-                  <span>obs</span>
-                </ExerciseDesc>
-                <ButtonContainer>
-                  <button>check to localstorage</button>
-                  <button>edit log</button>
-                </ButtonContainer>
-              </ExerciseContainer>
+              {data?.map((i) => (
+                <ExerciseList
+                  key={i._id}
+                  name={i.name}
+                  videoUrl={i.videoUrl}
+                  type={i.type}
+                  liked={i.liked}
+                  id={i._id}
+                />
+              ))}
             </li>
           </ul>
         </MainContent>

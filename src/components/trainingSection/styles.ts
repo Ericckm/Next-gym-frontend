@@ -17,13 +17,6 @@ export const Title = styled.div`
   align-items: center;
 `
 
-export const ExerciseContainer = styled.div`
-  display: flex;
-  height: 84px;
-  width: 300px;
-  border: 1px solid;
-`
-
 export const MainContent = styled.div`
   width: 100%;
   height: 100%;
@@ -41,36 +34,7 @@ export const MainContent = styled.div`
 
     li {
       display: flex;
-      margin: 0px 15px;
+      margin: 0 15px;
     }
-  }
-`
-
-export const ExerciseDesc = styled.div`
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  font-size: 12px;
-  gap: 2px;
-  padding: 5px;
-
-  p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  span {
-    font-size: 10px;
-  }
-`
-
-export const ButtonContainer = styled.div`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-
-  button {
-    height: 100%;
   }
 `
