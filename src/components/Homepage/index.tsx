@@ -1,9 +1,12 @@
+import Login from '../login'
 import { HomepageMain } from './styles'
 
 const Homepage = () => {
   return (
     <>
-      <HomepageMain>fasdfas</HomepageMain>
+      <HomepageMain>
+        <Login />
+      </HomepageMain>
     </>
   )
 }
