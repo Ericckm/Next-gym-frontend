@@ -1,4 +1,4 @@
-import Login from '../login'
+import { Login } from '../../login'
 import { HomepageMain } from './styles'
 
 const Homepage = () => {

@@ -3,8 +3,33 @@ import styled from 'styled-components'
 export const TopbarMain = styled.div`
   width: 100%;
   height: 70px;
-  background-color: white;
+  background-color: none;
   position: fixed;
   top: 0;
-  z-index: 3;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  gap: 200px;
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    .icon {
+      font-size: 22px;
+    }
+  }
+`
+
+export const MenuContainer = styled.div`
+  width: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 10px;
 `

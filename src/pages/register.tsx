@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Homepage from '../components/pages/Homepage'
+import Register from '../components/pages/Register'
 
-const Home = () => {
+const Registerpage = () => {
   return (
     <>
       <Head>
@@ -9,11 +9,11 @@ const Home = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <title>Home</title>
+        <title>Register</title>
       </Head>
-      <Homepage />
+      <Register />
     </>
   )
 }
 
-export default Home
+export default Registerpage

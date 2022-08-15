@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Homepage from '../components/pages/Homepage'
+import Training from '../components/pages/Traning'
 
-const Home = () => {
+const Trainingpage = () => {
   return (
     <>
       <Head>
@@ -9,11 +9,11 @@ const Home = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <title>Home</title>
+        <title>Training</title>
       </Head>
-      <Homepage />
+      <Training />
     </>
   )
 }
 
-export default Home
+export default Trainingpage
