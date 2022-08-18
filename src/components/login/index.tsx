@@ -10,7 +10,7 @@ import {
 } from './styles'
 
 import { useDispatch } from 'react-redux'
-import { login } from '../../redux/userslice'
+import { login } from '../../redux/userSlice'
 import { handleLoginApiCall } from '../../services/loginRequestCall'
 import { useRouter } from 'next/router'
 import { validateEmail } from '../../utils/validateEmail'

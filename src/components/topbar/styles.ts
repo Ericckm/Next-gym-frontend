@@ -4,13 +4,12 @@ export const TopbarMain = styled.div`
   width: 100%;
   height: 70px;
   background-color: none;
-  position: fixed;
+  position: absolute;
   top: 0;
   z-index: 2;
   display: flex;
-  justify-content: center;
-  padding: 5px;
-  gap: 200px;
+  justify-content: space-around;
+  padding: 2px;
 
   div {
     display: flex;
@@ -25,7 +24,7 @@ export const TopbarMain = styled.div`
 `
 
 export const MenuContainer = styled.div`
-  width: 10%;
+  width: 112px;
   display: flex;
   align-items: center;
   justify-content: center;
