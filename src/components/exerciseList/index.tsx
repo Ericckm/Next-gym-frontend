@@ -6,14 +6,14 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
       <ExerciseContainer>
         <ExerciseDesc>
           <p>{name}</p>
-          <span>carga</span>
-          <span>repeticao</span>
-          <span>serie</span>
-          <span>obs</span>
+          <span>Load - kg</span>
+          <span>Sets - </span>
+          <span>Reps -</span>
+          <span>Rest - seconds</span>
         </ExerciseDesc>
         <ButtonContainer>
-          <button>check to localstorage</button>
-          <button>edit log</button>
+          <button>fav</button>
+          <button>edit</button>
         </ButtonContainer>
       </ExerciseContainer>
     </>

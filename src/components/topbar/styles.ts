@@ -9,7 +9,7 @@ export const TopbarMain = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-around;
-  padding: 2px;
+  padding: 10px;
 
   div {
     display: flex;

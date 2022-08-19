@@ -12,7 +12,7 @@ export const Container = styled.div`
 `
 
 export const Left = styled.div`
-  flex: 2;
+  flex: 8;
   height: 100%;
   width: 100%;
 
@@ -25,7 +25,7 @@ export const Left = styled.div`
 `
 
 export const Right = styled.div`
-  flex: 1;
+  flex: 6;
   display: flex;
   width: 100%;
   height: 100%;
@@ -71,10 +71,12 @@ export const ButtonContainer = styled.div`
   font-size: 12px;
 
   button {
-    width: 180px;
+    width: 76px;
+    font-size: 14px;
+    font-weight: 600;
     border: none;
     border-radius: 10px;
-    padding: 4px;
+    padding: 8px;
     color: ${(props) => props.theme.colors.secundary};
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};

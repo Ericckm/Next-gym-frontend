@@ -11,6 +11,7 @@ export const TrainingSection = () => {
   useEffect(() => {
     async function getData() {
       const responseApi = await handleExerciseRequestCall()
+      console.log(responseApi)
       if (responseApi.status !== 500) {
         setData(responseApi.data)
         setLoading(false)

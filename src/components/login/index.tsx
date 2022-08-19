@@ -69,7 +69,7 @@ export const Login = () => {
           </Title>
           <FormContainer>
             <form action="">
-              <p>Enter your credentials to proceed</p>
+              <p>Login to your account</p>
               <input
                 type="email"
                 placeholder="email"

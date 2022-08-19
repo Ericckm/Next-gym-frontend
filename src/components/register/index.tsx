@@ -20,14 +20,14 @@ export const Register = () => {
         </Title>
         <FormContainer>
           <form action="">
-            <span>Enter your information to create an account</span>
+            <p>Create an account</p>
             <input type="name" placeholder="name" />
             <input type="email" placeholder="email" />
             <input type="password" placeholder="password" />
           </form>
         </FormContainer>
         <ButtonContainer>
-          <button>Login</button>
+          <button>Register</button>
           <Link href={'/'}>already have an account?</Link>
         </ButtonContainer>
       </Right>
