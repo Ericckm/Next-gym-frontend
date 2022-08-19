@@ -40,7 +40,6 @@ export const Login = () => {
       dispatch(
         login({
           email: email,
-          password: password,
           loggedIn: true,
           name: responseApi.data.user.name
         })

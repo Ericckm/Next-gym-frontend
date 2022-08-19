@@ -12,7 +12,7 @@ export const Title = styled.div`
   padding: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 `
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { handleExerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
 import { Container, MainContent, Title } from './styles'
@@ -28,7 +29,7 @@ export const TrainingSection = () => {
       <Container>
         <Title>
           <h2>
-            Welcome to our app ' Erick ', We've divided your training into three
+            Welcome to our app ' erick ', We've divided your training into three
             parts
           </h2>
           <p>Train ' A '</p>
