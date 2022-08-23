@@ -6,16 +6,14 @@ export const TopbarMain = styled.div`
   background-color: none;
   position: absolute;
   top: 0;
-  z-index: 2;
   display: flex;
   justify-content: space-around;
-  padding: 10px;
 
   div {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    margin: 5px 0;
 
     .icon {
       font-size: 22px;

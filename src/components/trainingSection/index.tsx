@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
 import { handleExerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
 import { Container, MainContent, Title } from './styles'

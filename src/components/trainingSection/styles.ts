@@ -5,10 +5,13 @@ export const Container = styled.div`
   height: 100%;
   width: 100%;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export const Title = styled.div`
   flex: 1;
+  width: 70%;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -21,12 +24,15 @@ export const MainContent = styled.div`
   justify-content: center;
   display: flex;
 
+  overflow: hidden;
+
   ul {
     padding: 15px;
-    width: 90%;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 
     li {
       flex-wrap: wrap;

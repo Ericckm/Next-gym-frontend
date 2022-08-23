@@ -15,6 +15,14 @@ export const ExerciseDesc = styled.div`
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    font-size: 12px;
+
+    a {
+      font-size: inherit;
+      margin-left: 4px;
+      text-decoration: none;
+      font-weight: 400;
+    }
   }
 
   span {
