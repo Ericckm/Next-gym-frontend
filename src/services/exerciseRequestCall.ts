@@ -1,27 +1,21 @@
 import axios from 'axios'
+import {
+  getExerciseFailure,
+  getExerciseStart,
+  getExerciseSuccess
+} from '../redux/exerciseSlice'
 
-type handleExerciseRequestCall = {
-  status: number
-  data: any
-}
-
-export async function handleExerciseRequestCall(): Promise<handleExerciseRequestCall> {
+export async function handleExerciseRequestCall(dispatch) {
   const token = await sessionStorage.getItem('token')
+  dispatch(getExerciseStart())
   try {
     const request = await axios.get('http://localhost:2500/exercise', {
       headers: {
         Authorization: token
       }
     })
-
-    return {
-      status: request.status,
-      data: request.data
-    }
+    dispatch(getExerciseSuccess(request.data))
   } catch (e) {
-    return {
-      status: 500,
-      data: {}
-    }
+    dispatch(getExerciseFailure)
   }
 }

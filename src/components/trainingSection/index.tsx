@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { handleExerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
 import { Container, MainContent, Title } from './styles'
@@ -7,21 +8,28 @@ export const TrainingSection = () => {
   const [data, setData] = useState([])
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(true)
+  const dispatch = useDispatch()
+
+  // const exercises = useSelector((state) => state.state.exercise)
+
+  // useEffect(() => {
+  //   async function getData() {
+  //     const responseApi = await handleExerciseRequestCall()
+  //     console.log(responseApi)
+  //     if (responseApi.status !== 500) {
+  //       setData(responseApi.data)
+  //       setLoading(false)
+  //       setError(false)
+  //     } else {
+  //       setError(true)
+  //     }
+  //   }
+  //   getData()
+  // }, [])
 
   useEffect(() => {
-    async function getData() {
-      const responseApi = await handleExerciseRequestCall()
-      console.log(responseApi)
-      if (responseApi.status !== 500) {
-        setData(responseApi.data)
-        setLoading(false)
-        setError(false)
-      } else {
-        setError(true)
-      }
-    }
-    getData()
-  }, [])
+    handleExerciseRequestCall(dispatch)
+  }, [dispatch])
 
   return (
     <>

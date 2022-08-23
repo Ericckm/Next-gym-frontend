@@ -15,10 +15,11 @@ export const Overlay = styled.div`
 export const Container = styled.div`
   width: 40%;
   height: 60%;
-  background-color: lightskyblue;
+  background-color: white;
   display: flex;
   justify-content: center;
   flex-direction: column;
+  border-radius: 10px;
 `
 
 export const Top = styled.div`
@@ -41,15 +42,20 @@ export const Button = styled.div`
   justify-content: center;
 
   button {
-    padding: 2px;
+    width: 24px;
     font-size: 14px;
+    border: none;
+    font-weight: 200;
+    border-radius: 10px;
+    padding: 4px;
+    color: ${(props) => props.theme.colors.secundary};
     cursor: pointer;
+    background-color: ${(props) => props.theme.colors.primary};
   }
 `
 
 export const Main = styled.div`
   flex: 6;
-  background-color: red;
 `
 
 export const Bottom = styled.div`
@@ -64,10 +70,15 @@ export const SubmitBtn = styled.div`
   align-items: center;
 
   button {
-    height: 50px;
-    padding: 2px;
+    width: 76px;
     font-size: 14px;
+    font-weight: 300;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    color: ${(props) => props.theme.colors.secundary};
     cursor: pointer;
+    background-color: ${(props) => props.theme.colors.primary};
   }
 `
 
@@ -84,16 +95,38 @@ export const FormContainer = styled.div`
 
 export const Form = styled.div`
   display: flex;
+  justify-content: flex-start;
   height: 100%;
-  margin: 10px 5px;
+  margin-left: 20px;
 
   form {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+
+    div {
+      display: flex;
+      gap: 10px;
+    }
 
     input {
-      padding: 4px;
+      border: none;
+      width: 30px;
+      font-size: 14px;
+
+      border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+      text-align: center;
+
+      ::-webkit-outer-spin-button,
+      ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      -moz-appearance: textfield;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 `
