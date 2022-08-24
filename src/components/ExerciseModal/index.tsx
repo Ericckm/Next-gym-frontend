@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import {
   Bottom,
   Button,
@@ -11,7 +12,9 @@ import {
   Top
 } from './styles'
 
-export const ExerciseModal = ({ onClick }) => {
+export const ExerciseModal = ({ onClick, name }) => {
+  const [logs] = useSelector((state: any) => state.log.logs)
+
   return (
     <Overlay>
       <Container>
@@ -25,7 +28,7 @@ export const ExerciseModal = ({ onClick }) => {
         </Top>
         <Main>
           <FormContainer>
-            <h2>Exercicio</h2>
+            <h2>{name}</h2>
             <Form>
               <form action="">
                 <div>

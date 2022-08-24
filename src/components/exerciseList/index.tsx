@@ -14,6 +14,10 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
 
+  function handleModal(e) {
+    setOpenModal(true)
+  }
+
   useEffect(() => {
     logRequestCall(dispatch, id)
   }, [])
@@ -51,11 +55,13 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
             </ExerciseDesc>
           ))}
         <ButtonContainer>
-          <button>Liked</button>
-          <button onClick={() => setOpenModal(true)}>add</button>
+          <button>Remove</button>
+          <button onClick={handleModal}>add</button>
         </ButtonContainer>
       </ExerciseContainer>
-      {openModal && <ExerciseModal onClick={() => setOpenModal(false)} />}
+      {openModal && (
+        <ExerciseModal name={name} onClick={() => setOpenModal(false)} />
+      )}
     </>
   )
 }
