@@ -1,5 +1,7 @@
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 
+// Workaround solution https://stackoverflow.com/questions/63568338/how-to-solve-redux-persist-failed-to-create-sync-storage-falling-back-to-noop-s
+
 const createNoopStorage = () => {
   return {
     getItem(_key) {

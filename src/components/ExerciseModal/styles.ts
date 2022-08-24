@@ -10,6 +10,8 @@ export const Overlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(242, 243, 245, 0.7);
+
+  transition: all 2s ease-out;
 `
 
 export const Container = styled.div`

@@ -13,8 +13,6 @@ export const TrainingSection = () => {
     (state: any) => state.exercise
   )
 
-  const token = useSelector((state: any) => state.user.user.token)
-
   // useEffect(() => {
   //   async function getData() {
   //     const responseApi = await handleExerciseRequestCall()
@@ -31,7 +29,7 @@ export const TrainingSection = () => {
   // }, [])
 
   useEffect(() => {
-    exerciseRequestCall(dispatch, token)
+    exerciseRequestCall(dispatch)
   }, [])
 
   return (

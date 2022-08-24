@@ -8,18 +8,15 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   // const [data, setData] = useState([])
   // const [loading, setLoading] = useState(true)
   // const [error, setError] = useState(false)
-  const [modalOpen, setModalOpen] = useState(false)
+  const [openModal, setOpenModal] = useState(false)
   const dispatch = useDispatch()
 
   const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
-  console.log('os logs', logs)
-
-  const token = useSelector((state: any) => state.user.user.token)
 
   useEffect(() => {
-    logRequestCall(dispatch, token, id)
-  }, [id])
+    logRequestCall(dispatch, id)
+  }, [])
 
   // useEffect(() => {
   //   async function getData() {
@@ -40,7 +37,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
         {logs
           ?.filter((i) => i.exerciseOwner === id)
           .map((i) => (
-            <ExerciseDesc>
+            <ExerciseDesc key={i._id}>
               <p>
                 {name}
                 <a href={videoUrl} target="_blank">
@@ -55,10 +52,10 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
           ))}
         <ButtonContainer>
           <button>Liked</button>
-          <button onClick={() => setModalOpen(true)}>edit</button>
+          <button onClick={() => setOpenModal(true)}>add</button>
         </ButtonContainer>
       </ExerciseContainer>
-      {modalOpen && <ExerciseModal />}
+      {openModal && <ExerciseModal onClick={() => setOpenModal(false)} />}
     </>
   )
 }

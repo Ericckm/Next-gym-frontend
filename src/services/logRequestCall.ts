@@ -1,7 +1,8 @@
 import axios from 'axios'
 import { getLogFailure, getLogStart, getLogSuccess } from '../redux/logSlice'
 
-export async function logRequestCall(dispatch, token, id) {
+export async function logRequestCall(dispatch, id) {
+  const token = await sessionStorage.getItem('token')
   dispatch(getLogStart())
   try {
     const request = await axios.get(`http://localhost:2500/exercise/${id}`, {

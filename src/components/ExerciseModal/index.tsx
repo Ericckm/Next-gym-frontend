@@ -11,7 +11,7 @@ import {
   Top
 } from './styles'
 
-export const ExerciseModal = () => {
+export const ExerciseModal = ({ onClick }) => {
   return (
     <Overlay>
       <Container>
@@ -20,7 +20,7 @@ export const ExerciseModal = () => {
             <h2>Create a new exercise log</h2>
           </Title>
           <Button>
-            <button>x</button>
+            <button onClick={onClick}>x</button>
           </Button>
         </Top>
         <Main>
