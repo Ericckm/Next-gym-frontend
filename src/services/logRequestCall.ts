@@ -1,27 +1,17 @@
 import axios from 'axios'
+import { getLogFailure, getLogStart, getLogSuccess } from '../redux/logSlice'
 
-type handleLogRequestCall = {
-  status: number
-  data: any
-}
-
-export async function handleLogRequestCall(id): Promise<handleLogRequestCall> {
-  const token = await sessionStorage.getItem('token')
+export async function logRequestCall(dispatch, token, id) {
+  dispatch(getLogStart())
   try {
     const request = await axios.get(`http://localhost:2500/exercise/${id}`, {
       headers: {
         Authorization: token
       }
     })
-
-    return {
-      status: request.status,
-      data: request.data
-    }
+    dispatch(getLogSuccess(request.data.log))
   } catch (e) {
-    return {
-      status: 500,
-      data: {}
-    }
+    console.log(e)
+    dispatch(getLogFailure())
   }
 }

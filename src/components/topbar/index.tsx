@@ -1,8 +1,18 @@
 import Link from 'next/link'
 import { MenuContainer, TopbarMain } from './styles'
 import { Person, FitnessCenter, Grade } from '@material-ui/icons'
+import { logout } from '../../redux/userSlice'
+import { useDispatch } from 'react-redux'
 
 export const Topbar = () => {
+  const dispatch = useDispatch()
+
+  const handleLogout = (e) => {
+    e.preventDefault()
+    dispatch(logout())
+    sessionStorage.removeItem('token')
+  }
+
   return (
     <TopbarMain>
       <MenuContainer>
@@ -29,6 +39,7 @@ export const Topbar = () => {
           </div>
         </Link>
       </MenuContainer>
+      <button onClick={handleLogout}>logout</button>
     </TopbarMain>
   )
 }

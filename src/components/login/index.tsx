@@ -9,52 +9,61 @@ import {
   Title
 } from './styles'
 
-import { useDispatch } from 'react-redux'
-import { login } from '../../redux/userSlice'
-import { handleLoginApiCall } from '../../services/loginRequestCall'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { validateEmail } from '../../utils/validateEmail'
+import { login } from '../../services/loginRequestCall'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const router = useRouter()
   const dispatch = useDispatch()
-  const [error, setError] = useState('')
+  const [emailError, setEmailError] = useState('')
+
+  const token = sessionStorage.getItem('token')
+
+  const { isFetching, error, loggedIn } = useSelector(
+    (state: any) => state.user
+  )
 
   const handleEmail = (e: any) => {
     setEmail(e.target.value)
     const verifyEmail = validateEmail(e.target.value)
     if (!verifyEmail) {
-      setError('Invalid email')
+      setEmailError('Invalid email')
     } else {
-      setError('')
+      setEmailError('')
     }
   }
 
-  async function handleLogin(e) {
+  const handleLogin = (e) => {
     e.preventDefault()
-    const responseApi = await handleLoginApiCall(email, password)
-
-    if (responseApi.status !== 500) {
-      dispatch(
-        login({
-          email: email,
-          loggedIn: true,
-          name: responseApi.data.user.name
-        })
-      )
-      const token = sessionStorage.getItem('token')
-      if (token) router.push('/training')
-    } else {
-      setError('Something is wrong')
-    }
+    login(dispatch, email, password)
   }
 
   useEffect(() => {
-    const token = sessionStorage.getItem('token')
-    if (token) router.push('/training')
-  }, [])
+    token && router.push('/training')
+  }, [token])
+
+  // async function handleLogin(e) {
+  //   e.preventDefault()
+  //   const responseApi = await handleLoginApiCall(email, password)
+
+  //   if (responseApi.status !== 500) {
+  //     dispatch(
+  //       login({
+  //         email: email,
+  //         loggedIn: true,
+  //         name: responseApi.data.user.name
+  //       })
+  //     )
+  //     const token = sessionStorage.getItem('token')
+  //     if (token) router.push('/training')
+  //   } else {
+  //     setError('Something is wrong')
+  //   }
+  // }
 
   return (
     <>
@@ -83,7 +92,7 @@ export const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {<span>{error}</span>}
+              {<span>{emailError}</span>}
             </form>
           </FormContainer>
           <ButtonContainer>

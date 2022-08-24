@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { exerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
@@ -9,9 +9,11 @@ export const TrainingSection = () => {
   // const [error, setError] = useState(false)
   // const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
-  const exercises = useSelector((state: any) => state.exercise.exercises)
-  const error = useSelector((state: any) => state.exercise.error)
-  const isFetching = useSelector((state: any) => state.exercise.isFetching)
+  const { exercises, error, isFetching } = useSelector(
+    (state: any) => state.exercise
+  )
+
+  const token = useSelector((state: any) => state.user.user.token)
 
   // useEffect(() => {
   //   async function getData() {
@@ -29,7 +31,7 @@ export const TrainingSection = () => {
   // }, [])
 
   useEffect(() => {
-    exerciseRequestCall(dispatch)
+    exerciseRequestCall(dispatch, token)
   }, [])
 
   return (
