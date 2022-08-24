@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const exerciseSlice = createSlice({
   name: 'exercise',
   initialState: {
-    exercise: [],
+    exercises: [],
     isFetching: false,
     error: false
   },
@@ -13,9 +13,8 @@ export const exerciseSlice = createSlice({
       state.error = false
     },
     getExerciseSuccess: (state, action) => {
-      state.exercise = action.payload
+      state.exercises = action.payload
       state.isFetching = false
-      state.error = false
     },
     getExerciseFailure: (state) => {
       state.isFetching = false

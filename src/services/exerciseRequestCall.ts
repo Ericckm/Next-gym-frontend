@@ -5,7 +5,18 @@ import {
   getExerciseSuccess
 } from '../redux/exerciseSlice'
 
-export async function handleExerciseRequestCall(dispatch) {
+// export type exerciseRequestCallType = {
+// createdAt: Date
+// liked: boolean
+// name: string
+// owner: number
+// type: string
+// updatedAt: Date
+// id: number
+// }
+// : Promise<exerciseRequestCallType>
+
+export async function exerciseRequestCall(dispatch) {
   const token = await sessionStorage.getItem('token')
   dispatch(getExerciseStart())
   try {

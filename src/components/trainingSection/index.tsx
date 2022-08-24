@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { handleExerciseRequestCall } from '../../services/exerciseRequestCall'
+import { exerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
 import { Container, MainContent, Title } from './styles'
 
 export const TrainingSection = () => {
-  const [data, setData] = useState([])
-  const [error, setError] = useState(false)
-  const [loading, setLoading] = useState(true)
+  // const [data, setData] = useState([])
+  // const [error, setError] = useState(false)
+  // const [loading, setLoading] = useState(true)
   const dispatch = useDispatch()
-
-  // const exercises = useSelector((state) => state.state.exercise)
+  const exercises = useSelector((state: any) => state.exercise.exercises)
+  const error = useSelector((state: any) => state.exercise.error)
+  const isFetching = useSelector((state: any) => state.exercise.isFetching)
 
   // useEffect(() => {
   //   async function getData() {
@@ -28,8 +29,8 @@ export const TrainingSection = () => {
   // }, [])
 
   useEffect(() => {
-    handleExerciseRequestCall(dispatch)
-  }, [dispatch])
+    exerciseRequestCall(dispatch)
+  }, [])
 
   return (
     <>
@@ -47,7 +48,7 @@ export const TrainingSection = () => {
         <MainContent>
           <ul>
             <li>
-              {data?.map((i) => (
+              {exercises?.map((i) => (
                 <ExerciseList
                   key={i._id}
                   name={i.name}
