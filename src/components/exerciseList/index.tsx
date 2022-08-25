@@ -2,23 +2,15 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logRequestCall } from '../../services/logRequestCall'
 import { ExerciseModal } from '../ExerciseModal'
-import {
-  ButtonContainer,
-  ExerciseDesc,
-  ExerciseContainer,
-  ExerciseNoLogs
-} from './styles'
+
+import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
 
 export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
-  // const [data, setData] = useState([])
-  // const [loading, setLoading] = useState(true)
-  // const [error, setError] = useState(false)
   const [openModal, setOpenModal] = useState(false)
   const dispatch = useDispatch()
 
   const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
-  console.log(logs)
 
   function handleModal(e) {
     setOpenModal(true)
@@ -28,53 +20,53 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
     logRequestCall(dispatch, id)
   }, [])
 
-  // useEffect(() => {
-  //   async function getData() {
-  //     const responseApi = await handleLogRequestCall(id)
-  //     if (responseApi.status !== 500) {
-  //       setData(responseApi.data.log)
-  //       setLoading(false)
-  //     } else {
-  //       setError(true)
-  //     }
-  //   }
-  //   getData()
-  // }, [])
-
   return (
     <ExerciseContainer>
-      {logs
-        .filter((i) => i.exerciseOwner === id)
-        .map((i) => (
-          <>
-            <ExerciseDesc key={i._id}>
+      {logs ? (
+        logs
+          .filter((i) => i.exerciseOwner === id)
+          .map((i) => (
+            <ExerciseDesc>
               <p>
                 {name}
                 <a href={videoUrl} target="_blank">
                   Vídeo
                 </a>
               </p>
-              <span>Load - {i.load} kg</span>
-              <span>Sets - {i.sets} x</span>
-              <span>Reps - {i.reps} times</span>
-              <span>Rest - {i.rest} seconds</span>
+              <span>Load - kg</span>
+              <span>Sets - x</span>
+              <span>Reps {i.load} - times</span>
+              <span>Rest - seconds</span>
               {openModal && (
                 <ExerciseModal
                   name={name}
-                  load={i.load}
-                  sets={i.sets}
-                  reps={i.reps}
-                  rest={i.rest}
+                  load={1}
+                  sets={1}
+                  reps={1}
+                  rest={1}
                   onClick={() => setOpenModal(false)}
                 />
               )}
             </ExerciseDesc>
-            <ButtonContainer>
-              <button>Remove exec</button>
-              <button onClick={handleModal}>update log</button>
-            </ButtonContainer>
-          </>
-        ))}
+          ))
+      ) : (
+        <ExerciseDesc>
+          <p>
+            {name}
+            <a href={videoUrl} target="_blank">
+              Vídeo
+            </a>
+          </p>
+          <span>Load - kg</span>
+          <span>Sets - x</span>
+          <span>Reps - times</span>
+          <span>Rest - seconds</span>
+        </ExerciseDesc>
+      )}
+      <ButtonContainer>
+        <button>Remove exec</button>
+        <button onClick={handleModal}>update log</button>
+      </ButtonContainer>
     </ExerciseContainer>
   )
 }
