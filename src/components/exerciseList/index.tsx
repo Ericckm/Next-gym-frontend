@@ -2,7 +2,12 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logRequestCall } from '../../services/logRequestCall'
 import { ExerciseModal } from '../ExerciseModal'
-import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
+import {
+  ButtonContainer,
+  ExerciseDesc,
+  ExerciseContainer,
+  ExerciseNoLogs
+} from './styles'
 
 export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   // const [data, setData] = useState([])
@@ -13,6 +18,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
 
   const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
+  console.log(logs)
 
   function handleModal(e) {
     setOpenModal(true)
@@ -36,11 +42,11 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   // }, [])
 
   return (
-    <>
-      <ExerciseContainer>
-        {logs
-          ?.filter((i) => i.exerciseOwner === id)
-          .map((i) => (
+    <ExerciseContainer>
+      {logs
+        .filter((i) => i.exerciseOwner === id)
+        .map((i) => (
+          <>
             <ExerciseDesc key={i._id}>
               <p>
                 {name}
@@ -52,16 +58,23 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
               <span>Sets - {i.sets} x</span>
               <span>Reps - {i.reps} times</span>
               <span>Rest - {i.rest} seconds</span>
+              {openModal && (
+                <ExerciseModal
+                  name={name}
+                  load={i.load}
+                  sets={i.sets}
+                  reps={i.reps}
+                  rest={i.rest}
+                  onClick={() => setOpenModal(false)}
+                />
+              )}
             </ExerciseDesc>
-          ))}
-        <ButtonContainer>
-          <button>Remove</button>
-          <button onClick={handleModal}>add</button>
-        </ButtonContainer>
-      </ExerciseContainer>
-      {openModal && (
-        <ExerciseModal name={name} onClick={() => setOpenModal(false)} />
-      )}
-    </>
+            <ButtonContainer>
+              <button>Remove exec</button>
+              <button onClick={handleModal}>update log</button>
+            </ButtonContainer>
+          </>
+        ))}
+    </ExerciseContainer>
   )
 }

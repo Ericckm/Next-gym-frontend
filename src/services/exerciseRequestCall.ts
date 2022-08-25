@@ -27,6 +27,6 @@ export async function exerciseRequestCall(dispatch) {
     })
     dispatch(getExerciseSuccess(request.data))
   } catch (e) {
-    dispatch(getExerciseFailure)
+    dispatch(getExerciseFailure())
   }
 }

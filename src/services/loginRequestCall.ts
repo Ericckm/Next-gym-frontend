@@ -9,7 +9,6 @@ export async function login(dispatch, email, password) {
       password
     })
     dispatch(loginSuccess(request.data))
-    console.log(request.data)
     const token = request.data.token
     sessionStorage.setItem('token', token)
   } catch (e) {

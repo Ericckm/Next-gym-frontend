@@ -12,9 +12,7 @@ import {
   Top
 } from './styles'
 
-export const ExerciseModal = ({ onClick, name }) => {
-  const [logs] = useSelector((state: any) => state.log.logs)
-
+export const ExerciseModal = ({ onClick, name, load, sets, reps, rest }) => {
   return (
     <Overlay>
       <Container>
@@ -33,23 +31,22 @@ export const ExerciseModal = ({ onClick, name }) => {
               <form action="">
                 <div>
                   <label>Load</label>
-                  <input type="number" placeholder="num" />
+                  <input type="number" placeholder={load} />
                   <label>kg</label>
                 </div>
                 <div>
                   <label>Sets</label>
-                  <input type="number" placeholder="num" />
+                  <input type="number" placeholder={sets} />
                   <label>x</label>
                 </div>
                 <div>
                   <label>Repetitions</label>
-                  <input type="number" placeholder="num" />
+                  <input type="number" placeholder={reps} />
                   <label>x</label>
                 </div>
-
                 <div>
                   <label>Rest</label>
-                  <input type="number" placeholder="num" />
+                  <input type="number" placeholder={rest} />
                   <label>seconds</label>
                 </div>
               </form>

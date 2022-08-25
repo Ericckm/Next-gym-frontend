@@ -19,11 +19,30 @@ export const logSlice = createSlice({
     getLogFailure: (state) => {
       state.isFetching = false
       state.error = true
+    },
+    addLogStart: (state) => {
+      state.isFetching = true
+      state.error = false
+    },
+    addLogSuccess: (state, action) => {
+      state.logs = action.payload
+      state.isFetching = false
+    },
+    addLogFailure: (state) => {
+      state.isFetching = false
+      state.error = true
     }
   }
 })
 
-export const { getLogStart, getLogSuccess, getLogFailure } = logSlice.actions
+export const {
+  getLogStart,
+  getLogSuccess,
+  getLogFailure,
+  addLogStart,
+  addLogSuccess,
+  addLogFailure
+} = logSlice.actions
 
 export const selectlog = (state) => state.log.log
 

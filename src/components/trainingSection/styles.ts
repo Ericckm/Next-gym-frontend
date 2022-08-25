@@ -19,27 +19,11 @@ export const Title = styled.div`
   align-items: center;
 `
 
-export const MainContent = styled.div`
+export const MainContent = styled.ul`
   flex: 4;
-  justify-content: center;
+  justify-content: flex-start;
   display: flex;
-
+  flex-direction: column;
   overflow: hidden;
-
-  ul {
-    padding: 15px;
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-
-    li {
-      flex-wrap: wrap;
-      height: 100%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
+  width: 80%;
 `

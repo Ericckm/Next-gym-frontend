@@ -62,22 +62,18 @@ export const TrainingSection = () => {
           </label>
         </Title>
         <MainContent>
-          <ul>
-            <li>
-              {exercises
-                ?.filter((i) => i.type === typeA || i.type === typeB)
-                .map((i) => (
-                  <ExerciseList
-                    key={i._id}
-                    name={i.name}
-                    videoUrl={i.videoUrl}
-                    type={i.type}
-                    liked={i.liked}
-                    id={i._id}
-                  />
-                ))}
-            </li>
-          </ul>
+          {exercises
+            ?.filter((i) => i.type === typeA || i.type === typeB)
+            .map((i) => (
+              <ExerciseList
+                key={i._id}
+                name={i.name}
+                videoUrl={i.videoUrl}
+                type={i.type}
+                liked={i.liked}
+                id={i._id}
+              />
+            ))}
         </MainContent>
       </Container>
     </>

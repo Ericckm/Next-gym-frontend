@@ -43,12 +43,14 @@ export const ButtonContainer = styled.div`
   }
 `
 
-export const ExerciseContainer = styled.div`
+export const ExerciseContainer = styled.li`
   display: flex;
   height: 84px;
-  width: 240px;
+  width: 200px;
   border: 1px solid;
   border-radius: 10px;
   margin: 5px 5px;
   overflow: hidden;
 `
+
+export const ExerciseNoLogs = styled.div``
