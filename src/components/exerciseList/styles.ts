@@ -29,6 +29,16 @@ export const ExerciseDesc = styled.div`
     font-size: 10px;
     font-weight: 400;
   }
+
+  /* This div only exists on exercises with no logs yet */
+  div {
+    span {
+      font-size: 12px;
+      font-weight: 600;
+
+      color: ${(props) => props.theme.colors.error};
+    }
+  }
 `
 
 export const ButtonContainer = styled.div`

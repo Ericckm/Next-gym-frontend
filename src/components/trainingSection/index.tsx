@@ -13,7 +13,7 @@ export const TrainingSection = () => {
   const { name } = useSelector((state: any) => state.user.user.user)
 
   // training select logic
-  const [training, setTraining] = useState(0)
+  const [training, setTraining] = useState(1)
 
   function selectHandler(e) {
     setTraining(parseInt(e.target.value))
@@ -23,17 +23,20 @@ export const TrainingSection = () => {
   let typeB
 
   function trainingType() {
-    if (training === 1) {
-      typeA = 'Back'
-      typeB = 'Biceps'
-    }
-    if (training === 2) {
-      typeA = 'Chest'
-      typeB = 'Triceps'
-    }
-    if (training === 3) {
-      typeA = 'Shoulder'
-      typeB = 'Leg'
+    switch (training) {
+      case 1:
+        typeA = 'Back'
+        typeB = 'Biceps'
+        break
+      case 2:
+        typeA = 'Chest'
+        typeB = 'Triceps'
+        break
+      case 3:
+        typeA = 'Shoulder'
+        typeB = 'Leg'
+        break
+      default:
     }
   }
   trainingType()

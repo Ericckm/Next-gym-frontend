@@ -12,7 +12,14 @@ import {
   Top
 } from './styles'
 
-export const ExerciseModal = ({ onClick, name, load, sets, reps, rest }) => {
+export const ExerciseModal = ({
+  onClick,
+  name,
+  load = '',
+  sets = '',
+  reps = '',
+  rest = ''
+}) => {
   return (
     <Overlay>
       <Container>

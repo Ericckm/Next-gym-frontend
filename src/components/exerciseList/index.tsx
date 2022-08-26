@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { logRequestCall } from '../../services/logRequestCall'
 import { ExerciseModal } from '../ExerciseModal'
+import { Loader } from '../loader'
 
 import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
 
@@ -22,47 +23,50 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
 
   return (
     <ExerciseContainer>
-      {logs ? (
-        logs
-          .filter((i) => i.exerciseOwner === id)
-          .map((i) => (
-            <ExerciseDesc>
-              <p>
-                {name}
-                <a href={videoUrl} target="_blank">
-                  Vídeo
-                </a>
-              </p>
-              <span>Load - kg</span>
-              <span>Sets - x</span>
-              <span>Reps {i.load} - times</span>
-              <span>Rest - seconds</span>
-              {openModal && (
-                <ExerciseModal
-                  name={name}
-                  load={1}
-                  sets={1}
-                  reps={1}
-                  rest={1}
-                  onClick={() => setOpenModal(false)}
-                />
-              )}
-            </ExerciseDesc>
-          ))
-      ) : (
-        <ExerciseDesc>
-          <p>
-            {name}
-            <a href={videoUrl} target="_blank">
-              Vídeo
-            </a>
-          </p>
-          <span>Load - kg</span>
-          <span>Sets - x</span>
-          <span>Reps - times</span>
-          <span>Rest - seconds</span>
-        </ExerciseDesc>
-      )}
+      {logs
+        ?.filter((i) => i.exerciseOwner !== id)
+        .map((i) => (
+          <ExerciseDesc key={i._id}>
+            <p>
+              {name}
+              <a href={videoUrl} target="_blank">
+                Vídeo
+              </a>
+            </p>
+            <div>
+              <span>There's no training schedule for this exercise</span>
+            </div>
+            {openModal && (
+              <ExerciseModal name={name} onClick={() => setOpenModal(false)} />
+            )}
+          </ExerciseDesc>
+        ))}
+      {logs
+        ?.filter((i) => i.exerciseOwner === id)
+        .map((i) => (
+          <ExerciseDesc key={i._id}>
+            <p>
+              {name}
+              <a href={videoUrl} target="_blank">
+                Vídeo
+              </a>
+            </p>
+            <span>Load - {i.load}kg</span>
+            <span>Sets - {i.sets}x</span>
+            <span>Reps {i.reps} - times</span>
+            <span>Rest - {i.rest}</span>
+            {openModal && (
+              <ExerciseModal
+                name={name}
+                load={i.load}
+                sets={i.sets}
+                reps={i.reps}
+                rest={i.rest}
+                onClick={() => setOpenModal(false)}
+              />
+            )}
+          </ExerciseDesc>
+        ))}
       <ButtonContainer>
         <button>Remove exec</button>
         <button onClick={handleModal}>update log</button>
