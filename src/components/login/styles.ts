@@ -47,10 +47,19 @@ export const FormContainer = styled.div`
     flex-direction: column;
     gap: 20px;
 
+    p {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
     input {
       padding: 4px;
       border: none;
       border-bottom: 1px solid ${(props) => props.theme.colors.secundary};
+
+      &::placeholder {
+        color: ${(props) => props.theme.colors.secundary};
+      }
 
       &:focus {
         outline: none;
@@ -58,6 +67,7 @@ export const FormContainer = styled.div`
     }
 
     span {
+      font-size: 12px;
       color: ${(props) => props.theme.colors.error};
     }
   }
@@ -77,8 +87,15 @@ export const ButtonContainer = styled.div`
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.secundary};
+    color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.background};
+    transition: all 0.5s ease;
+
+    :hover {
+      color: ${(props) => props.theme.colors.white};
+      cursor: pointer;
+      background-color: ${(props) => props.theme.colors.primary};
+    }
   }
 `
