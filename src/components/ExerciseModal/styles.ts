@@ -15,6 +15,7 @@ export const Overlay = styled.div`
 `
 
 export const Container = styled.div`
+  padding: 10px;
   width: 40%;
   height: 60%;
   background-color: white;
@@ -26,6 +27,7 @@ export const Container = styled.div`
 
 export const Top = styled.div`
   flex: 2;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,7 +36,7 @@ export const Top = styled.div`
 export const Title = styled.div`
   flex: 8;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   margin-left: 10px;
 `
 
@@ -46,18 +48,26 @@ export const Button = styled.div`
   button {
     width: 24px;
     font-size: 14px;
+    font-weight: 600;
     border: none;
-    font-weight: 200;
     border-radius: 10px;
-    padding: 4px;
-    color: ${(props) => props.theme.colors.secundary};
+    padding: 8px;
+    color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.background};
+    transition: all 0.5s ease;
+
+    :hover {
+      color: ${(props) => props.theme.colors.white};
+      cursor: pointer;
+      background-color: ${(props) => props.theme.colors.primary};
+    }
   }
 `
 
 export const Main = styled.div`
   flex: 6;
+  width: 100%;
 `
 
 export const Bottom = styled.div`
@@ -74,13 +84,20 @@ export const SubmitBtn = styled.div`
   button {
     width: 76px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 600;
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.secundary};
+    color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.background};
+    transition: all 0.5s ease;
+
+    :hover {
+      color: ${(props) => props.theme.colors.white};
+      cursor: pointer;
+      background-color: ${(props) => props.theme.colors.primary};
+    }
   }
 `
 
@@ -88,46 +105,65 @@ export const FormContainer = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
+  width: 100%;
 
   h2 {
     display: flex;
+    padding: 15px;
+    align-items: center;
+    align-self: center;
     justify-content: center;
   }
 `
 
 export const Form = styled.div`
   display: flex;
-  justify-content: flex-start;
   height: 100%;
-  margin-left: 20px;
+  width: 100%;
+  justify-content: flex-start;
 
   form {
+    justify-content: flex-start;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    width: 100%;
+    height: 100%;
 
     div {
       display: flex;
-      gap: 10px;
-    }
+      width: 80%;
+      justify-content: flex-start;
 
-    input {
-      border: none;
-      width: 30px;
-      font-size: 14px;
-
-      border-bottom: 1px solid ${(props) => props.theme.colors.primary};
-      text-align: center;
-
-      ::-webkit-outer-spin-button,
-      ::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+      label {
+        color: ${(props) => props.theme.colors.primary};
+        font-size: 16px;
+        font-weight: 300;
       }
-      -moz-appearance: textfield;
 
-      &:focus {
-        outline: none;
+      input {
+        border: none;
+        width: 30px;
+        font-size: 14px;
+        color: ${(props) => props.theme.colors.primary};
+        border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+        text-align: center;
+
+        ::-webkit-outer-spin-button,
+        ::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        -moz-appearance: textfield;
+
+        &::placeholder {
+          font-weight: 500;
+          color: ${(props) => props.theme.colors.secundary};
+        }
+
+        &:focus {
+          outline: none;
+          border-bottom: none;
+        }
       }
     }
   }

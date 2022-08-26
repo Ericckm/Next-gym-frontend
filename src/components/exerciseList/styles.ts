@@ -32,10 +32,14 @@ export const ExerciseDesc = styled.div`
 
   /* This div only exists on exercises with no logs yet */
   div {
-    span {
-      font-size: 14px;
-      font-weight: 400;
+    margin: auto auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
+    span {
+      font-size: 12px;
+      font-weight: 300;
       color: ${(props) => props.theme.colors.error};
     }
   }

@@ -41,17 +41,10 @@ export const LogList = ({ name, videoUrl, id }) => {
         <span>Sets - x</span>
         <span>Reps - times</span>
         <span>Rest - seconds</span>
-        {openModal && (
-          <ExerciseModal
-            name={name}
-            load={1}
-            sets={1}
-            reps={1}
-            rest={1}
-            onClick={() => setOpenModal(false)}
-          />
-        )}
       </ExerciseDesc>
+      {openModal && (
+        <ExerciseModal name={name} onClick={() => setOpenModal(false)} />
+      )}
       <ButtonContainer>
         <button>Remove exec</button>
         <button onClick={handleModal}>update log</button>
@@ -59,39 +52,3 @@ export const LogList = ({ name, videoUrl, id }) => {
     </ExerciseContainer>
   )
 }
-
-// {
-//   logs &&
-//     logs
-//       .filter((i) => i.exerciseOwner === id)
-//       .map((i) => (
-//         <ExerciseContainer>
-//           <ExerciseDesc key={i._id}>
-//             <p>
-//               {name}
-//               <a href={videoUrl} target="_blank">
-//                 Vídeo
-//               </a>
-//             </p>
-//             <span>Load - {i.load} kg</span>
-//             <span>Sets - {i.sets} x</span>
-//             <span>Reps - {i.reps} times</span>
-//             <span>Rest - {i.rest} seconds</span>
-//             {openModal && (
-//               <ExerciseModal
-//                 name={name}
-//                 load={i.load}
-//                 sets={i.sets}
-//                 reps={i.reps}
-//                 rest={i.rest}
-//                 onClick={() => setOpenModal(false)}
-//               />
-//             )}
-//           </ExerciseDesc>
-//           <ButtonContainer>
-//             <button>Remove exec</button>
-//             <button onClick={handleModal}>update log</button>
-//           </ButtonContainer>
-//         </ExerciseContainer>
-//       ))
-// }

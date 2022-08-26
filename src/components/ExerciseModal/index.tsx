@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux'
 import {
   Bottom,
   Button,
@@ -25,7 +24,7 @@ export const ExerciseModal = ({
       <Container>
         <Top>
           <Title>
-            <h2>Create a new exercise log</h2>
+            <h2>Fill the information below to create a new log</h2>
           </Title>
           <Button>
             <button onClick={onClick}>x</button>

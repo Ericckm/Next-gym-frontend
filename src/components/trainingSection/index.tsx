@@ -59,10 +59,10 @@ export const TrainingSection = () => {
             <option value="2">02</option>
             <option value="3">03</option>
           </select>
-          <label>
+          <span>
             this training works the <span>{typeA} </span>
             and <span>{typeB}</span> musculature
-          </label>
+          </span>
         </Title>
         <MainContent>
           {exercises
