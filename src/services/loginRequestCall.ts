@@ -13,6 +13,7 @@ export async function login(dispatch, email, password) {
     sessionStorage.setItem('token', token)
   } catch (e) {
     dispatch(loginFailure())
+    console.log(e)
   }
 }
 

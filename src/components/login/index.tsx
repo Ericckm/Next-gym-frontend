@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { validateEmail } from '../../utils/validateEmail'
 import { login } from '../../services/loginRequestCall'
+import { Loader } from '../loader'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -40,30 +41,21 @@ export const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault()
     login(dispatch, email, password)
+    showContent()
+  }
+
+  const [show, setShow] = useState(false)
+
+  const showContent = () => {
+    setShow(true)
+    setTimeout(() => {
+      setShow(false)
+    }, 3000)
   }
 
   useEffect(() => {
     token && router.push('/training')
   }, [token])
-
-  // async function handleLogin(e) {
-  //   e.preventDefault()
-  //   const responseApi = await handleLoginApiCall(email, password)
-
-  //   if (responseApi.status !== 500) {
-  //     dispatch(
-  //       login({
-  //         email: email,
-  //         loggedIn: true,
-  //         name: responseApi.data.user.name
-  //       })
-  //     )
-  //     const token = sessionStorage.getItem('token')
-  //     if (token) router.push('/training')
-  //   } else {
-  //     setError('Something is wrong')
-  //   }
-  // }
 
   return (
     <>
@@ -93,6 +85,11 @@ export const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {<span>{emailError}</span>}
+
+              {!error && show && emailError === '' && <Loader />}
+              {error && emailError === '' && (
+                <span>something has gone wrong</span>
+              )}
             </form>
           </FormContainer>
           <ButtonContainer>
