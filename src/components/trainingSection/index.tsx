@@ -13,7 +13,7 @@ export const TrainingSection = () => {
   const { name } = useSelector((state: any) => state.user.user.user)
 
   // training select logic
-  const [training, setTraining] = useState(1)
+  const [training, setTraining] = useState(0)
 
   function selectHandler(e) {
     setTraining(parseInt(e.target.value))
@@ -53,8 +53,11 @@ export const TrainingSection = () => {
             Welcome to our app {name.charAt().toUpperCase() + name.slice(1)},
             your training was divided into three parts.
           </h2>
-          <span>Select a training</span>
+          <span>Select a training below</span>
           <select onChange={selectHandler}>
+            <option value="0" defaultChecked>
+              here
+            </option>
             <option value="1">01</option>
             <option value="2">02</option>
             <option value="3">03</option>

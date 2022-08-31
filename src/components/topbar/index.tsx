@@ -3,13 +3,16 @@ import { MenuContainer, TopbarMain } from './styles'
 import { Person, FitnessCenter, Grade } from '@material-ui/icons'
 import { logout } from '../../redux/userSlice'
 import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
 
 export const Topbar = () => {
   const dispatch = useDispatch()
+  const router = useRouter()
 
   const handleLogout = (e) => {
     e.preventDefault()
     dispatch(logout())
+    router.push('/login')
     sessionStorage.removeItem('token')
   }
 

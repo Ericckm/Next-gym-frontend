@@ -54,6 +54,7 @@ export const ButtonContainer = styled.div`
   button {
     height: 50%;
     border-style: none;
+    padding: 3px;
   }
 `
 

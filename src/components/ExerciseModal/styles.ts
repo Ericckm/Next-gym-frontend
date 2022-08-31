@@ -76,31 +76,6 @@ export const Bottom = styled.div`
   justify-content: center;
 `
 
-export const SubmitBtn = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  button {
-    width: 76px;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    padding: 8px;
-    color: ${(props) => props.theme.colors.primary};
-    cursor: pointer;
-    background-color: ${(props) => props.theme.colors.background};
-    transition: all 0.5s ease;
-
-    :hover {
-      color: ${(props) => props.theme.colors.white};
-      cursor: pointer;
-      background-color: ${(props) => props.theme.colors.primary};
-    }
-  }
-`
-
 export const FormContainer = styled.div`
   display: flex;
   height: 100%;
@@ -133,6 +108,7 @@ export const Form = styled.div`
       display: flex;
       width: 80%;
       justify-content: flex-start;
+      gap: 5px;
 
       label {
         color: ${(props) => props.theme.colors.primary};

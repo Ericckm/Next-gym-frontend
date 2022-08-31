@@ -14,13 +14,14 @@ import { useRouter } from 'next/router'
 import { validateEmail } from '../../utils/validateEmail'
 import { login } from '../../services/loginRequestCall'
 import { Loader } from '../loader'
+import { ButtonMain } from '../molecules/buttonMain'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const router = useRouter()
   const dispatch = useDispatch()
-  const [emailError, setEmailError] = useState('')
+  const [emailError, setEmailError] = useState(false)
 
   const token = sessionStorage.getItem('token')
 
@@ -32,13 +33,13 @@ export const Login = () => {
     setEmail(e.target.value)
     const verifyEmail = validateEmail(e.target.value)
     if (!verifyEmail) {
-      setEmailError('Invalid email')
+      setEmailError(true)
     } else {
-      setEmailError('')
+      setEmailError(false)
     }
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: any) => {
     e.preventDefault()
     login(dispatch, email, password)
     showContent()
@@ -50,7 +51,7 @@ export const Login = () => {
     setShow(true)
     setTimeout(() => {
       setShow(false)
-    }, 3000)
+    }, 2500)
   }
 
   useEffect(() => {
@@ -84,16 +85,14 @@ export const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {<span>{emailError}</span>}
+              {emailError && <span>Invalid email</span>}
 
-              {!error && show && emailError === '' && <Loader />}
-              {error && emailError === '' && (
-                <span>something has gone wrong</span>
-              )}
+              {!error && show && !emailError && <Loader />}
+              {error && !emailError && <span>something has gone wrong</span>}
             </form>
           </FormContainer>
           <ButtonContainer>
-            <button onClick={(e) => handleLogin(e)}>Login</button>
+            <button onClick={handleLogin}>Login</button>
             <Link href={'/register'}>don't have an account?</Link>
           </ButtonContainer>
         </Right>

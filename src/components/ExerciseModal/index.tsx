@@ -1,3 +1,4 @@
+import { ButtonMain } from '../molecules/buttonMain'
 import {
   Bottom,
   Button,
@@ -6,7 +7,6 @@ import {
   FormContainer,
   Main,
   Overlay,
-  SubmitBtn,
   Title,
   Top
 } from './styles'
@@ -60,9 +60,7 @@ export const ExerciseModal = ({
           </FormContainer>
         </Main>
         <Bottom>
-          <SubmitBtn>
-            <button>submit</button>
-          </SubmitBtn>
+          <ButtonMain children="submit" />
         </Bottom>
       </Container>
     </Overlay>
