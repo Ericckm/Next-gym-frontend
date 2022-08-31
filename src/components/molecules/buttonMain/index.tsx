@@ -27,10 +27,12 @@ const ButtonContainer = styled.div`
   }
 `
 
-export const ButtonMain = ({ children }) => {
+export const ButtonMain = ({ children, onClick }) => {
   return (
     <ButtonContainer>
-      <button>{children}</button>
+      <button type="submit" onClick={onClick}>
+        {children}
+      </button>
     </ButtonContainer>
   )
 }

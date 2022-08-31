@@ -12,7 +12,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
 
-  function handleModal(e) {
+  function handleModal() {
     setOpenModal(true)
   }
 
@@ -24,7 +24,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
     <ExerciseContainer>
       {logs
         ?.filter((i) => i.exerciseOwner !== id)
-        .map((i) => (
+        ?.map((i) => (
           <ExerciseDesc key={i._id}>
             <p>
               {name}
@@ -36,13 +36,17 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
               <span>There's no training schedule for this exercise</span>
             </div>
             {openModal && (
-              <ExerciseModal name={name} onClick={() => setOpenModal(false)} />
+              <ExerciseModal
+                name={name}
+                id={id}
+                onClick={() => setOpenModal(false)}
+              />
             )}
           </ExerciseDesc>
         ))}
       {logs
         ?.filter((i) => i.exerciseOwner === id)
-        .map((i) => (
+        ?.map((i) => (
           <ExerciseDesc key={i._id}>
             <p>
               {name}
@@ -57,6 +61,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
             {openModal && (
               <ExerciseModal
                 name={name}
+                id={id}
                 load={i.load}
                 sets={i.sets}
                 reps={i.reps}

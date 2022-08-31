@@ -1,6 +1,14 @@
 import axios from 'axios'
-import { getLogFailure, getLogStart, getLogSuccess } from '../redux/logSlice'
+import {
+  addLogFailure,
+  addLogStart,
+  addLogSuccess,
+  getLogFailure,
+  getLogStart,
+  getLogSuccess
+} from '../redux/logSlice'
 
+// GET LOGS
 export async function logRequestCall(dispatch, id) {
   const token = await sessionStorage.getItem('token')
   dispatch(getLogStart())
@@ -14,5 +22,24 @@ export async function logRequestCall(dispatch, id) {
   } catch (e) {
     console.log(e)
     dispatch(getLogFailure())
+  }
+}
+
+// ADD NEW LOG
+export async function addLog(dispatch, log) {
+  console.log(log)
+  const token = await sessionStorage.getItem('token')
+  dispatch(addLogStart())
+  try {
+    const request = await axios.post(`http://localhost:2500/log`, log, {
+      headers: {
+        Authorization: token
+      }
+    })
+    console.log(request)
+    dispatch(addLogSuccess(request.data))
+  } catch (e) {
+    console.log(e)
+    dispatch(addLogFailure())
   }
 }

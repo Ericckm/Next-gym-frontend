@@ -8,6 +8,7 @@ export const logSlice = createSlice({
     error: false
   },
   reducers: {
+    // GET LOGS
     getLogStart: (state) => {
       state.isFetching = true
       state.error = false
@@ -20,12 +21,13 @@ export const logSlice = createSlice({
       state.isFetching = false
       state.error = true
     },
+    // ADD LOGS
     addLogStart: (state) => {
       state.isFetching = true
       state.error = false
     },
     addLogSuccess: (state, action) => {
-      state.logs = action.payload
+      state.logs.push(action.payload)
       state.isFetching = false
     },
     addLogFailure: (state) => {
