@@ -18,6 +18,11 @@ export const TopbarMain = styled.div`
     .icon {
       font-size: 22px;
     }
+
+    a {
+      text-decoration: none;
+      color: ${(props) => props.theme.colors.primary};
+    }
   }
 `
 

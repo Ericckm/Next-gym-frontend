@@ -16,8 +16,7 @@ import {
 // }
 // : Promise<exerciseRequestCallType>
 
-export async function exerciseRequestCall(dispatch) {
-  const token = await sessionStorage.getItem('token')
+export async function exerciseRequestCall(dispatch, token) {
   dispatch(getExerciseStart())
   try {
     const request = await axios.get('http://localhost:2500/exerciseLiked', {

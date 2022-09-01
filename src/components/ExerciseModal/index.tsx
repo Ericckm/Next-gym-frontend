@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addLog } from '../../services/logRequestCall'
-import { ButtonMain } from '../molecules/buttonMain'
 import {
   Bottom,
   Button,
@@ -26,6 +25,7 @@ export const ExerciseModal = ({
 }) => {
   const [inputs, setInputs] = useState({})
   const dispatch = useDispatch()
+  const { token } = useSelector((state: any) => state.user.user)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -40,7 +40,7 @@ export const ExerciseModal = ({
   const handleSubmit = (e) => {
     e.preventDefault
     const log = inputs
-    addLog(dispatch, log)
+    addLog(dispatch, log, token)
     onClick
   }
 

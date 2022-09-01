@@ -14,7 +14,6 @@ import { useRouter } from 'next/router'
 import { validateEmail } from '../../utils/validateEmail'
 import { login } from '../../services/loginRequestCall'
 import { Loader } from '../loader'
-import { ButtonMain } from '../molecules/buttonMain'
 
 export const Login = () => {
   const [email, setEmail] = useState('')
@@ -22,8 +21,6 @@ export const Login = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const [emailError, setEmailError] = useState(false)
-
-  const token = sessionStorage.getItem('token')
 
   const { isFetching, error, loggedIn } = useSelector(
     (state: any) => state.user
@@ -55,8 +52,8 @@ export const Login = () => {
   }
 
   useEffect(() => {
-    token && router.push('/training')
-  }, [])
+    loggedIn && router.push('/training')
+  }, [loggedIn])
 
   return (
     <>

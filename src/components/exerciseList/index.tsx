@@ -8,7 +8,7 @@ import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
 export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const [openModal, setOpenModal] = useState(false)
   const dispatch = useDispatch()
-
+  const { token } = useSelector((state: any) => state.user.user)
   // const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
 
@@ -17,7 +17,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   }
 
   useEffect(() => {
-    logRequestCall(dispatch, id)
+    logRequestCall(dispatch, id, token)
   }, [id])
 
   return (

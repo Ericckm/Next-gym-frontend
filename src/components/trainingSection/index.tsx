@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { exerciseRequestCall } from '../../services/exerciseRequestCall'
 import { ExerciseList } from '../exerciseList'
+import { Loader } from '../loader'
 import { Container, MainContent, Title } from './styles'
 
 export const TrainingSection = () => {
@@ -11,6 +12,8 @@ export const TrainingSection = () => {
   )
 
   const { name } = useSelector((state: any) => state.user.user.user)
+
+  const { token } = useSelector((state: any) => state.user.user)
 
   // training select logic
   const [training, setTraining] = useState(0)
@@ -42,31 +45,33 @@ export const TrainingSection = () => {
   trainingType()
 
   useEffect(() => {
-    exerciseRequestCall(dispatch)
+    exerciseRequestCall(dispatch, token)
   }, [])
 
   return (
-    <>
-      <Container>
-        <Title>
-          <h2>
-            Welcome to our app {name.charAt().toUpperCase() + name.slice(1)},
-            your training was divided into three parts.
-          </h2>
-          <span>Select a training below</span>
-          <select onChange={selectHandler}>
-            <option value="0" defaultChecked>
-              here
-            </option>
-            <option value="1">01</option>
-            <option value="2">02</option>
-            <option value="3">03</option>
-          </select>
-          <span>
-            this training works the <span>{typeA} </span>
-            and <span>{typeB}</span> musculature
-          </span>
-        </Title>
+    <Container>
+      <Title>
+        <h2>
+          Welcome to our app {name.charAt().toUpperCase() + name.slice(1)}, your
+          training was divided into three parts.
+        </h2>
+        <span>Select a training below</span>
+        <select onChange={selectHandler}>
+          <option value="0" defaultChecked>
+            here
+          </option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="3">03</option>
+        </select>
+        <span>
+          this training works the <span>{typeA} </span>
+          and <span>{typeB}</span> musculature
+        </span>
+      </Title>
+      {!exercises && isFetching ? (
+        <Loader />
+      ) : (
         <MainContent>
           {exercises
             ?.filter((i) => i.type === typeA || i.type === typeB)
@@ -81,7 +86,7 @@ export const TrainingSection = () => {
               />
             ))}
         </MainContent>
-      </Container>
-    </>
+      )}
+    </Container>
   )
 }

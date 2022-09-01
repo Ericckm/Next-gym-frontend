@@ -30,19 +30,35 @@ export const userSlice = createSlice({
       state.loggedIn = false
       state.error = false
       state.isFetching = false
+    },
+    registerStart: (state) => {
+      state.isFetching = true
+      state.error = false
+      state.loggedIn = false
+    },
+    registerSuccess: (state, action) => {
+      state.isFetching = false
+      state.user = action.payload
+      state.error = false
+      state.loggedIn = true
+    },
+    registerFailure: (state) => {
+      state.isFetching = false
+      state.loggedIn = false
+      state.error = true
     }
-
-    // login: (state, action) => {
-    //   state.user = action.payload
-    // },
-    // logout: (state) => {
-    //   state.user = null
-    // }
   }
 })
 
-export const { loginStart, loginSuccess, loginFailure, logout } =
-  userSlice.actions
+export const {
+  loginStart,
+  loginSuccess,
+  loginFailure,
+  logout,
+  registerStart,
+  registerFailure,
+  registerSuccess
+} = userSlice.actions
 
 export const selectUser = (state) => state.user.user
 

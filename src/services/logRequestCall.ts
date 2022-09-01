@@ -9,8 +9,7 @@ import {
 } from '../redux/logSlice'
 
 // GET LOGS
-export async function logRequestCall(dispatch, id) {
-  const token = await sessionStorage.getItem('token')
+export async function logRequestCall(dispatch, id, token) {
   dispatch(getLogStart())
   try {
     const request = await axios.get(`http://localhost:2500/exercise/${id}`, {
@@ -27,9 +26,7 @@ export async function logRequestCall(dispatch, id) {
 }
 
 // ADD NEW LOG
-export async function addLog(dispatch, log) {
-  console.log(log)
-  const token = await sessionStorage.getItem('token')
+export async function addLog(dispatch, log, token) {
   dispatch(addLogStart())
   try {
     const request = await axios.post(`http://localhost:2500/log`, log, {

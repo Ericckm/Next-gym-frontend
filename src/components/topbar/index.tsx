@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { MenuContainer, TopbarMain } from './styles'
 import { Person, FitnessCenter, Grade } from '@material-ui/icons'
 import { logout } from '../../redux/userSlice'
@@ -13,34 +12,27 @@ export const Topbar = () => {
     e.preventDefault()
     dispatch(logout())
     router.push('/login')
-    sessionStorage.removeItem('token')
   }
 
   return (
     <TopbarMain>
       <MenuContainer>
-        <Link href="/exercise">
-          <div>
-            <FitnessCenter className="icon" />
-            <span>Exercises</span>
-          </div>
-        </Link>
+        <div>
+          <FitnessCenter className="icon" />
+          <a href="exercises">Exercises</a>
+        </div>
       </MenuContainer>
       <MenuContainer>
-        <Link href="/training">
-          <div>
-            <Grade className="icon" />
-            <span>Training</span>
-          </div>
-        </Link>
+        <div>
+          <Grade className="icon" />
+          <a href="training">Training</a>
+        </div>
       </MenuContainer>
       <MenuContainer>
-        <Link href="/user">
-          <div>
-            <Person className="icon" />
-            <span>User</span>
-          </div>
-        </Link>
+        <div>
+          <Person className="icon" />
+          <a href="user">User</a>
+        </div>
       </MenuContainer>
       <button onClick={handleLogout}>logout</button>
     </TopbarMain>
