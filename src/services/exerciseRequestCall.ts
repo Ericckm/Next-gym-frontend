@@ -25,6 +25,7 @@ export async function exerciseRequestCall(dispatch) {
         Authorization: token
       }
     })
+    console.log(request.data)
     dispatch(getExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getExerciseFailure())

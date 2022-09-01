@@ -56,7 +56,7 @@ export const Login = () => {
 
   useEffect(() => {
     token && router.push('/training')
-  }, [token])
+  }, [])
 
   return (
     <>

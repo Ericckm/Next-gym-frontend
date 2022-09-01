@@ -18,7 +18,8 @@ export async function logRequestCall(dispatch, id) {
         Authorization: token
       }
     })
-    dispatch(getLogSuccess(request.data.log))
+    console.log(request.data)
+    dispatch(getLogSuccess(request.data))
   } catch (e) {
     console.log(e)
     dispatch(getLogFailure())
@@ -36,7 +37,6 @@ export async function addLog(dispatch, log) {
         Authorization: token
       }
     })
-    console.log(request)
     dispatch(addLogSuccess(request.data))
   } catch (e) {
     console.log(e)

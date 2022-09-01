@@ -9,7 +9,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const [openModal, setOpenModal] = useState(false)
   const dispatch = useDispatch()
 
-  const { error, isFetching } = useSelector((state: any) => state.log)
+  // const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
 
   function handleModal() {
@@ -18,13 +18,13 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
 
   useEffect(() => {
     logRequestCall(dispatch, id)
-  }, [])
+  }, [id])
 
   return (
     <ExerciseContainer>
       {logs
         ?.filter((i) => i.exerciseOwner !== id)
-        ?.map((i) => (
+        .map((i) => (
           <ExerciseDesc key={i._id}>
             <p>
               {name}
@@ -46,7 +46,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
         ))}
       {logs
         ?.filter((i) => i.exerciseOwner === id)
-        ?.map((i) => (
+        .map((i) => (
           <ExerciseDesc key={i._id}>
             <p>
               {name}
