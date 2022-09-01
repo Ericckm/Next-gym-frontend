@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../../services/loginRequestCall'
+import { validateEmail } from '../../utils/validateEmail'
+import { Loader } from '../loader'
 import {
   ButtonContainer,
   Container,
@@ -16,6 +18,8 @@ export const Register = () => {
   const [inputs, setInputs] = useState({})
   const router = useRouter()
   const dispatch = useDispatch()
+  const [show, setShow] = useState(false)
+  const [emailError, setEmailError] = useState(false)
   const { isFetching, error, loggedIn } = useSelector(
     (state: any) => state.user
   )
@@ -32,6 +36,23 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     register(dispatch, inputs)
+    showContent()
+  }
+
+  const handleEmail = (e) => {
+    const verifyEmail = validateEmail(e.target.value)
+    if (!verifyEmail) {
+      setEmailError(true)
+    } else {
+      setEmailError(false)
+    }
+  }
+
+  const showContent = () => {
+    setShow(true)
+    setTimeout(() => {
+      setShow(false)
+    }, 2500)
   }
 
   useEffect(() => {
@@ -61,13 +82,16 @@ export const Register = () => {
               name="email"
               placeholder="email"
               onChange={handleChange}
+              onBlur={handleEmail}
             />
+            {emailError && <span>invalid email</span>}
             <input
               type="password"
               name="password"
               placeholder="password"
               onChange={handleChange}
             />
+            {!error && show && <Loader />}
           </form>
         </FormContainer>
         <ButtonContainer>

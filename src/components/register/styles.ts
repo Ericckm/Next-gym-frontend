@@ -65,6 +65,10 @@ export const FormContainer = styled.div`
         outline: none;
       }
     }
+    span {
+      font-size: 12px;
+      color: ${(props) => props.theme.colors.error};
+    }
   }
 `
 

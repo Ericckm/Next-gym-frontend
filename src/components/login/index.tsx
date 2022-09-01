@@ -21,12 +21,13 @@ export const Login = () => {
   const router = useRouter()
   const dispatch = useDispatch()
   const [emailError, setEmailError] = useState(false)
+  const [show, setShow] = useState(false)
 
   const { isFetching, error, loggedIn } = useSelector(
     (state: any) => state.user
   )
 
-  const handleEmail = (e: any) => {
+  const handleEmail = (e) => {
     setEmail(e.target.value)
     const verifyEmail = validateEmail(e.target.value)
     if (!verifyEmail) {
@@ -36,13 +37,11 @@ export const Login = () => {
     }
   }
 
-  const handleLogin = (e: any) => {
+  const handleLogin = (e) => {
     e.preventDefault()
     login(dispatch, email, password)
     showContent()
   }
-
-  const [show, setShow] = useState(false)
 
   const showContent = () => {
     setShow(true)
@@ -83,7 +82,6 @@ export const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               {emailError && <span>Invalid email</span>}
-
               {!error && show && !emailError && <Loader />}
               {error && !emailError && <span>something has gone wrong</span>}
             </form>
