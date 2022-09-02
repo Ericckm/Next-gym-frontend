@@ -1,14 +1,13 @@
 import { SectionTemplate } from '../../sectionTemplate'
 import { Topbar } from '../../topbar'
+import UserSection from '../../user'
 
 const User = () => {
   return (
     <>
       <Topbar />
       <SectionTemplate>
-        <div>
-          <h2>teste</h2>
-        </div>
+        <UserSection />
       </SectionTemplate>
     </>
   )

@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Homepage from '../components/pages/Homepage'
+import User from '../components/pages/User'
 
-const User = () => {
+const Userpage = () => {
   return (
     <>
       <Head>
@@ -11,10 +11,10 @@ const User = () => {
         ></meta>
         <title>User</title>
       </Head>
-      <h2>teste</h2>
-      {/* <User /> */}
+
+      <User />
     </>
   )
 }
 
-export default User
+export default Userpage
