@@ -26,10 +26,10 @@ export async function logRequestCall(dispatch, id, token) {
 }
 
 // ADD NEW LOG
-export async function addLog(dispatch, log, token) {
+export async function addLog(dispatch, inputs, token) {
   dispatch(addLogStart())
   try {
-    const request = await axios.post(`http://localhost:2500/log`, log, {
+    const request = await axios.post(`http://localhost:2500/log`, inputs, {
       headers: {
         Authorization: token
       }

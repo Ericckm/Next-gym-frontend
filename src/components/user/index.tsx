@@ -9,6 +9,9 @@ const UserSection = () => {
   const { name, email, createdAt, weight, height } = useSelector(
     (state: any) => state.user.user.user
   )
+  const { token } = useSelector((state: any) => state.user.user)
+
+  console.log(token)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -21,8 +24,7 @@ const UserSection = () => {
 
   const handleUpdate = (e) => {
     e.preventDefault()
-    const user = inputs
-    updateUser(dispatch, user)
+    updateUser(dispatch, inputs, token)
   }
 
   const calcImc = () => {

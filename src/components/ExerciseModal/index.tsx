@@ -39,8 +39,7 @@ export const ExerciseModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault
-    const log = inputs
-    addLog(dispatch, log, token)
+    addLog(dispatch, inputs, token)
     onClick
   }
 
