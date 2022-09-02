@@ -5,7 +5,10 @@ import {
   loginSuccess,
   registerFailure,
   registerStart,
-  registerSuccess
+  registerSuccess,
+  userUpdateFailure,
+  userUpdateStart,
+  userUpdateSuccess
 } from '../redux/userSlice'
 
 export async function login(dispatch, email, password) {
@@ -30,5 +33,17 @@ export async function register(dispatch, inputs) {
     dispatch(registerSuccess(request.data))
   } catch (e) {
     dispatch(registerFailure())
+  }
+}
+
+export async function updateUser(dispatch, inputs) {
+  dispatch(userUpdateStart())
+  try {
+    const request = await axios.patch('http://localhost:2500/updateUser', {
+      ...inputs
+    })
+    dispatch(userUpdateSuccess(request.data))
+  } catch (e) {
+    dispatch(userUpdateFailure())
   }
 }

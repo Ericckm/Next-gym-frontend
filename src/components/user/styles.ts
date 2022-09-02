@@ -20,6 +20,15 @@ export const Top = styled.div`
   justify-content: center;
   flex: 1;
   align-items: center;
+  width: 100%;
+
+  div {
+    p {
+      font-size: 24px;
+      font-weight: 400;
+      align-items: center;
+    }
+  }
 `
 export const Middle = styled.div`
   flex: 3;
@@ -48,9 +57,32 @@ export const Middle = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    label {
+      font-size: 16px;
+      font-weight: 400;
+      color: ${(props) => props.theme.colors.primary};
+    }
+
     div {
       display: flex;
+      justify-content: center;
       gap: 8px;
+
+      input {
+        padding: 4px;
+        border: none;
+        background-color: ${(props) => props.theme.colors.white};
+
+        &::placeholder {
+          color: ${(props) => props.theme.colors.secundary};
+        }
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
   }
 `
@@ -60,4 +92,23 @@ export const Bottom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  button {
+    width: 76px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    color: ${(props) => props.theme.colors.primary};
+    cursor: pointer;
+    background-color: ${(props) => props.theme.colors.white};
+    transition: all 0.5s ease;
+
+    :hover {
+      color: ${(props) => props.theme.colors.white};
+      cursor: pointer;
+      background-color: ${(props) => props.theme.colors.primary};
+    }
+  }
 `

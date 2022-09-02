@@ -46,6 +46,20 @@ export const userSlice = createSlice({
       state.isFetching = false
       state.loggedIn = false
       state.error = true
+    },
+    userUpdateStart: (state) => {
+      state.isFetching = true
+      state.error = false
+    },
+    userUpdateSuccess: (state, action) => {
+      state.isFetching = false
+      // check if works
+      state.user = [...(state.user + action.payload)]
+      state.error = false
+    },
+    userUpdateFailure: (state) => {
+      state.isFetching = false
+      state.error = true
     }
   }
 })
@@ -57,7 +71,10 @@ export const {
   logout,
   registerStart,
   registerFailure,
-  registerSuccess
+  registerSuccess,
+  userUpdateFailure,
+  userUpdateStart,
+  userUpdateSuccess
 } = userSlice.actions
 
 export const selectUser = (state) => state.user.user
