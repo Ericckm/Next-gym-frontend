@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Training from '../components/pages/Traning'
 
-const Trainingpage = () => {
+const TrainingPage = () => {
   return (
     <>
       <Head>
@@ -16,4 +16,4 @@ const Trainingpage = () => {
   )
 }
 
-export default Trainingpage
+export default TrainingPage

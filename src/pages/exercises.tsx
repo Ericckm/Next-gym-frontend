@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import User from '../components/pages/User'
+import Exercisespage from '../components/pages/Exercises'
 
-const UserPage = () => {
+const ExercisesPage = () => {
   return (
     <>
       <Head>
@@ -9,12 +9,11 @@ const UserPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <title>User</title>
+        <title>exercises</title>
       </Head>
-
-      <User />
+      <Exercisespage />
     </>
   )
 }
 
-export default UserPage
+export default ExercisesPage

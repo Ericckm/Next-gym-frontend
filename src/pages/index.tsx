@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Homepage from '../components/pages/Homepage'
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Head>
@@ -16,4 +16,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default HomePage
