@@ -9,7 +9,7 @@ const ExercisesPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <title>exercises</title>
+        <title>Exercises</title>
       </Head>
       <Exercisespage />
     </>

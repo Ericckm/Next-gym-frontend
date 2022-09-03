@@ -12,7 +12,6 @@ export const TrainingSection = () => {
   )
 
   const { name } = useSelector((state: any) => state.user.user.user)
-
   const { token } = useSelector((state: any) => state.user.user)
 
   // training select logic
@@ -55,19 +54,16 @@ export const TrainingSection = () => {
           Welcome to our app {name.charAt().toUpperCase() + name.slice(1)}, your
           training was divided into three parts.
         </h2>
-        <span>Select a training below</span>
+        <label>Select a training below</label>
         <select onChange={selectHandler}>
-          <option value="0" defaultChecked>
-            here
-          </option>
-          <option value="1">01</option>
-          <option value="2">02</option>
-          <option value="3">03</option>
+          <option value="1">A</option>
+          <option value="2">B</option>
+          <option value="3">C</option>
         </select>
-        <span>
+        <p>
           this training works the <span>{typeA} </span>
           and <span>{typeB}</span> musculature
-        </span>
+        </p>
       </Title>
       {!exercises && isFetching ? (
         <Loader />

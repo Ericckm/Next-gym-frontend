@@ -17,6 +17,11 @@ export const Title = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  span {
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.error};
+  }
 `
 
 export const MainContent = styled.ul`

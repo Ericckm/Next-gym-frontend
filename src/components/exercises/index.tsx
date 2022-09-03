@@ -23,7 +23,7 @@ const ExercisesSection = () => {
             </div>
             <div>
               <label htmlFor="">filter by type</label>
-              <select name="Chest">
+              <select name="type">
                 <option defaultChecked disabled>
                   select
                 </option>
