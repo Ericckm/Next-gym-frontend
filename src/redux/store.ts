@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import userReducer from '../redux/userSlice'
 import exerciseReducer from '../redux/exerciseSlice'
 import logReducer from '../redux/logSlice'
+import allExerciseReducer from '../redux/allExerciseSlice'
 import {
   persistStore,
   persistReducer,
@@ -28,6 +29,7 @@ export const store = configureStore({
   reducer: {
     user: persistedReducer,
     exercise: exerciseReducer,
+    allExercises: allExerciseReducer,
     log: logReducer
   },
   middleware: (getDefaultMiddleware) =>

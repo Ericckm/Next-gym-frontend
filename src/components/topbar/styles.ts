@@ -11,12 +11,14 @@ export const TopbarMain = styled.div`
 
   div {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 5px 0;
+    gap: 4px;
 
     .icon {
       font-size: 22px;
+      display: flex;
     }
 
     a {

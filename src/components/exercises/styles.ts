@@ -20,6 +20,8 @@ export const Top = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  padding: 10px;
+  gap: 8px;
 `
 
 export const FilterContainer = styled.div`
@@ -41,6 +43,7 @@ export const FilterContainer = styled.div`
 export const Mid = styled.div`
   display: flex;
   flex: 4;
+  padding: 10px;
 `
 
 export const Bottom = styled.div`

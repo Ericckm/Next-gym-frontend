@@ -14,7 +14,7 @@ const ExercisesSection = () => {
       <MainContent>
         <Top>
           <div>
-            <p>Exercises</p>
+            <p>All exercises</p>
           </div>
           <FilterContainer>
             <div>
