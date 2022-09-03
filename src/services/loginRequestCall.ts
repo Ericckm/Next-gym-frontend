@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { useEffect } from 'react'
 import {
   loginFailure,
   loginStart,
@@ -38,7 +39,6 @@ export async function register(dispatch, inputs) {
 
 export async function updateUser(dispatch, inputs, token) {
   dispatch(userUpdateStart())
-  console.log(token)
   try {
     const request = await axios.patch(
       'http://localhost:2500/userUpdate',

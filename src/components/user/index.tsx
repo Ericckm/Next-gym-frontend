@@ -11,8 +11,6 @@ const UserSection = () => {
   )
   const { token } = useSelector((state: any) => state.user.user)
 
-  console.log(token)
-
   const handleChange = (e) => {
     setInputs((prev) => {
       return {

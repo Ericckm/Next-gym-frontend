@@ -54,7 +54,7 @@ export const userSlice = createSlice({
     userUpdateSuccess: (state, action) => {
       state.isFetching = false
       // check if works
-      state.user = [...(state.user + action.payload)]
+      state.user = action.payload
       state.error = false
     },
     userUpdateFailure: (state) => {
