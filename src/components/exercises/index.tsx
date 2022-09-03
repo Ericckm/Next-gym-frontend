@@ -6,7 +6,7 @@ import {
   Mid,
   Top
 } from './styles'
-import { AddCircleOutline } from '@material-ui/icons'
+import { AddCircle } from '@material-ui/icons'
 
 const ExercisesSection = () => {
   return (
@@ -32,7 +32,7 @@ const ExercisesSection = () => {
                 <option value="back">back</option>
                 <option value="biceps">biceps</option>
                 <option value="leg">leg</option>
-                <option value="sholder">sholder</option>
+                <option value="shoulder">shoulder</option>
               </select>
             </div>
           </FilterContainer>
@@ -42,7 +42,9 @@ const ExercisesSection = () => {
           <div>pagination</div>
 
           <div>
-            <AddCircleOutline />
+            <button>
+              <AddCircle className="add" />
+            </button>
           </div>
         </Bottom>
       </MainContent>

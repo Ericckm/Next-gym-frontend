@@ -50,4 +50,18 @@ export const Bottom = styled.div`
   flex-direction: column;
   gap: 8px;
   padding: 10px;
+
+  button {
+    display: flex;
+    border-color: ${(props) => props.theme.colors.primary};
+    border-radius: 50%;
+    background-color: ${(props) => props.theme.colors.background};
+    cursor: pointer;
+
+    .add {
+      font-size: 26px;
+      color: ${(props) => props.theme.colors.primary};
+      overflow: hidden;
+    }
+  }
 `
