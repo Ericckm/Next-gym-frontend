@@ -19,12 +19,33 @@ export const exerciseSlice = createSlice({
     getExerciseFailure: (state) => {
       state.isFetching = false
       state.error = true
+    },
+    likeExerciseStart: (state) => {
+      state.isFetching = true
+      state.error = false
+    },
+    likeExerciseSuccess: (state, action) => {
+      // VERIFY
+      state.exercises = state.exercises.map((i) =>
+        i._id === action.payload.id ? action.payload : i
+      )
+      state.isFetching = false
+    },
+    likeExerciseFailure: (state) => {
+      state.isFetching = false
+      state.error = true
     }
   }
 })
 
-export const { getExerciseStart, getExerciseSuccess, getExerciseFailure } =
-  exerciseSlice.actions
+export const {
+  getExerciseStart,
+  getExerciseSuccess,
+  getExerciseFailure,
+  likeExerciseFailure,
+  likeExerciseStart,
+  likeExerciseSuccess
+} = exerciseSlice.actions
 
 export const selectExercise = (state) => state.exercise.exercise
 

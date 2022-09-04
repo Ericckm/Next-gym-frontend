@@ -2,7 +2,10 @@ import axios from 'axios'
 import {
   getExerciseFailure,
   getExerciseStart,
-  getExerciseSuccess
+  getExerciseSuccess,
+  likeExerciseFailure,
+  likeExerciseStart,
+  likeExerciseSuccess
 } from '../redux/exerciseSlice'
 
 // export type exerciseRequestCallType = {
@@ -28,5 +31,20 @@ export async function exerciseRequestCall(dispatch, token) {
     dispatch(getExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getExerciseFailure())
+  }
+}
+
+export async function likedExercisePutCall(dispatch, token, id) {
+  dispatch(likeExerciseStart())
+  try {
+    const request = await axios.put(`http://localhost:2500/exercise/${id}`, {
+      headers: {
+        Authorization: token
+      }
+    })
+    console.log(request.data)
+    dispatch(likeExerciseSuccess(request.data))
+  } catch (e) {
+    dispatch(likeExerciseFailure())
   }
 }

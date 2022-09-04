@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { likedExercisePutCall } from '../../services/exerciseRequestCall'
 import { logRequestCall } from '../../services/logRequestCall'
 import { ExerciseModal } from '../ExerciseModal'
 
@@ -14,6 +15,10 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
 
   function handleModal() {
     setOpenModal(true)
+  }
+
+  const handleLiked = () => {
+    likedExercisePutCall(dispatch, token, id)
   }
 
   useEffect(() => {
@@ -72,7 +77,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
           </ExerciseDesc>
         ))}
       <ButtonContainer>
-        <button>Remove exec</button>
+        <button onClick={handleLiked}>Remove exec</button>
         <button onClick={handleModal}>update log</button>
       </ButtonContainer>
     </ExerciseContainer>
