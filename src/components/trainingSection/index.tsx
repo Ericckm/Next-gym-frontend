@@ -60,10 +60,12 @@ export const TrainingSection = () => {
           <option value="2">B</option>
           <option value="3">C</option>
         </select>
-        <p>
-          this training works the <span>{typeA} </span>
-          and <span>{typeB}</span> musculature
-        </p>
+        {training !== 0 && (
+          <p>
+            this training works the <span>{typeA} </span>
+            and <span>{typeB}</span> musculature
+          </p>
+        )}
       </Title>
       {!exercises && isFetching ? (
         <Loader />
