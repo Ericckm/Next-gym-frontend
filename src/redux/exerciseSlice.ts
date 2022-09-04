@@ -25,9 +25,8 @@ export const exerciseSlice = createSlice({
       state.error = false
     },
     likeExerciseSuccess: (state, action) => {
-      // VERIFY
       state.exercises = state.exercises.map((i) =>
-        i._id === action.payload.id ? action.payload : i
+        i._id === action.payload._id ? '' : i
       )
       state.isFetching = false
     },
