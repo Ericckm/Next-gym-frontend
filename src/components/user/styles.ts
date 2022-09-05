@@ -84,6 +84,7 @@ export const Middle = styled.div`
         color: ${(props) => props.theme.colors.primary};
         font-weight: 600;
         background-color: ${(props) => props.theme.colors.white};
+        opacity: 0.9;
 
         &::placeholder {
           color: ${(props) => props.theme.colors.background};

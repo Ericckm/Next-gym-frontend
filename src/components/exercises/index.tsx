@@ -7,8 +7,22 @@ import {
   Top
 } from './styles'
 import { AddCircle } from '@material-ui/icons'
+import { useEffect } from 'react'
+import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
+import { useDispatch, useSelector } from 'react-redux'
+import { AllExercisesList } from '../allExercisesList'
 
 const ExercisesSection = () => {
+  const dispatch = useDispatch()
+  const token = useSelector((state: any) => state.user.user.token)
+  const allExercises = useSelector(
+    (state: any) => state.allExercises.allExercises
+  )
+
+  useEffect(() => {
+    allExerciseRequestCall(dispatch, token)
+  }, [])
+
   return (
     <Container>
       <MainContent>
@@ -37,10 +51,23 @@ const ExercisesSection = () => {
             </div>
           </FilterContainer>
         </Top>
-        <Mid>exercicios</Mid>
+        <Mid>
+          <ul>
+            {allExercises
+              ? allExercises?.map((i) => (
+                  <AllExercisesList
+                    key={i.createdAt}
+                    name={i.name}
+                    type={i.type}
+                    videoUrl={i.videoUrl}
+                    id={i._id}
+                  />
+                ))
+              : ''}
+          </ul>
+        </Mid>
         <Bottom>
           <div>pagination</div>
-
           <div>
             <button>
               <AddCircle className="add" />

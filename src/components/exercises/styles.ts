@@ -44,6 +44,15 @@ export const Mid = styled.div`
   display: flex;
   flex: 4;
   padding: 10px;
+
+  ul {
+    flex: 4;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    width: 80%;
+  }
 `
 
 export const Bottom = styled.div`

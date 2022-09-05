@@ -49,6 +49,6 @@ export const MenuContainer = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid;
+  border: 1.8px solid;
   border-radius: 10px;
 `

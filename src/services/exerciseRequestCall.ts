@@ -35,7 +35,6 @@ export async function exerciseRequestCall(dispatch, token) {
 }
 
 export async function likedExercisePutCall(dispatch, token, id) {
-  console.log(id)
   dispatch(likeExerciseStart())
   try {
     const request = await axios.put(`http://localhost:2500/exercise/${id}`, {
