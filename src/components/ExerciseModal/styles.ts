@@ -18,7 +18,8 @@ export const Container = styled.div`
   padding: 10px;
   width: 40%;
   height: 60%;
-  background-color: white;
+  opacity: 0.9;
+  background-color: ${(props) => props.theme.colors.background};
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -38,6 +39,7 @@ export const Title = styled.div`
   display: flex;
   justify-content: center;
   margin-left: 10px;
+  color: ${(props) => props.theme.colors.primary};
 `
 
 export const Button = styled.div`
@@ -52,15 +54,16 @@ export const Button = styled.div`
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.primary};
     transition: all 0.5s ease;
+    opacity: 0.8;
 
     :hover {
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.primary};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.primary};
+      background-color: ${(props) => props.theme.colors.white};
     }
   }
 `
@@ -86,8 +89,10 @@ export const FormContainer = styled.div`
     display: flex;
     padding: 15px;
     align-items: center;
-    align-self: center;
     justify-content: center;
+    font-weight: 400;
+    justify-content: center;
+    color: ${(props) => props.theme.colors.primary};
   }
 `
 
@@ -113,15 +118,17 @@ export const Form = styled.div`
       label {
         color: ${(props) => props.theme.colors.primary};
         font-size: 16px;
-        font-weight: 300;
+        font-weight: 400;
       }
 
       input {
         border: none;
         width: 30px;
         font-size: 14px;
-        color: ${(props) => props.theme.colors.primary};
+        font-weight: 600;
+        color: ${(props) => props.theme.colors.white};
         border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+        background-color: ${(props) => props.theme.colors.background};
         text-align: center;
 
         ::-webkit-outer-spin-button,
@@ -132,8 +139,9 @@ export const Form = styled.div`
         -moz-appearance: textfield;
 
         &::placeholder {
-          font-weight: 500;
-          color: ${(props) => props.theme.colors.secundary};
+          font-weight: 400;
+          color: ${(props) => props.theme.colors.white};
+          opacity: 0.7;
         }
 
         &:focus {
@@ -154,20 +162,21 @@ export const ButtonContainer = styled.div`
 
   button {
     width: 76px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.primary};
     transition: all 0.5s ease;
+    opacity: 0.8;
 
     :hover {
-      color: ${(props) => props.theme.colors.white};
-      cursor: pointer;
-      background-color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
+
+      background-color: ${(props) => props.theme.colors.white};
     }
   }
 `

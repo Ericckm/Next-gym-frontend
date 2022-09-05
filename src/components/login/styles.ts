@@ -32,6 +32,7 @@ export const Right = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+  background-color: ${(props) => props.theme.colors.white};
 `
 
 export const Title = styled.div`
@@ -50,15 +51,19 @@ export const FormContainer = styled.div`
     p {
       font-size: 16px;
       font-weight: 400;
+      color: ${(props) => props.theme.colors.primary};
     }
 
     input {
       padding: 4px;
       border: none;
-      border-bottom: 1px solid ${(props) => props.theme.colors.secundary};
+      border-bottom: 1px solid ${(props) => props.theme.colors.background};
+      color: ${(props) => props.theme.colors.primary};
+      font-weight: 500;
+      font-size: 14px;
 
       &::placeholder {
-        color: ${(props) => props.theme.colors.secundary};
+        color: ${(props) => props.theme.colors.background};
       }
 
       &:focus {

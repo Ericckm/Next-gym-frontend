@@ -1,11 +1,12 @@
 const theme = {
   colors: {
-    background: '#BDD4E7',
+    background: '#8693AB',
     primary: '#011627',
-    secundary: '#8693AB',
+    secundary: '#F7AF9D',
     error: '#C1292E',
     white: 'white'
   }
 }
 
 export default theme
+//  background: '#BDD4E7'

@@ -17,10 +17,20 @@ export const Title = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  p {
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  label {
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.primary};
+  }
 
   span {
     font-weight: 500;
-    color: ${(props) => props.theme.colors.error};
+
+    color: ${(props) => props.theme.colors.white};
   }
 `
 

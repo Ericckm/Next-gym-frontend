@@ -54,10 +54,18 @@ export const Middle = styled.div`
 
   form {
     height: 70%;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 10px;
+
+    .bmi {
+      color: ${(props) => props.theme.colors.primary};
+      font-size: 18px;
+      span {
+        color: ${(props) => props.theme.colors.white};
+        font-weight: 500;
+      }
+    }
 
     label {
       font-size: 16px;
@@ -67,16 +75,18 @@ export const Middle = styled.div`
 
     div {
       display: flex;
-      justify-content: center;
-      gap: 8px;
+      justify-content: space-between;
+      gap: 12px;
 
       input {
         padding: 4px;
         border: none;
+        color: ${(props) => props.theme.colors.primary};
+        font-weight: 600;
         background-color: ${(props) => props.theme.colors.white};
 
         &::placeholder {
-          color: ${(props) => props.theme.colors.secundary};
+          color: ${(props) => props.theme.colors.background};
         }
 
         &:focus {
@@ -85,6 +95,10 @@ export const Middle = styled.div`
       }
     }
   }
+`
+
+export const FormBottom = styled.div`
+  flex-direction: column;
 `
 
 export const Bottom = styled.div`

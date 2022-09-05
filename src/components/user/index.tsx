@@ -1,7 +1,14 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../services/loginRequestCall'
-import { Bottom, Container, MainContent, Middle, Top } from './styles'
+import {
+  Bottom,
+  Container,
+  FormBottom,
+  MainContent,
+  Middle,
+  Top
+} from './styles'
 
 const UserSection = () => {
   const dispatch = useDispatch()
@@ -83,13 +90,12 @@ const UserSection = () => {
                 onChange={handleChange}
               />
             </div>
-            <div>
-              <label>{email}</label>
-            </div>
-            <div>
-              <label>Your BMI is</label>
-              <span>{calcImc()}</span>
-            </div>
+            <FormBottom>
+              <label className="bmi">{email}</label>
+              <label className="bmi">
+                Your BMI is <span>{calcImc()}</span>
+              </label>
+            </FormBottom>
           </form>
         </Middle>
         <Bottom>
