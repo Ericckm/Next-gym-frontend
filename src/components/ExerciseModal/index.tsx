@@ -32,7 +32,6 @@ export const ExerciseModal = ({
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  console.log(inputs)
 
   const handleChange = (e) => {
     setInputs((prev) => {

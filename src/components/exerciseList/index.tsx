@@ -15,18 +15,16 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const logs = useSelector((state: any) => state.log.logs)
   const exercises = useSelector((state: any) => state.exercise.exercises)
 
+  // const ids = exercises.map((i) => i._id)
+  // const exerciseWithLogs = logs.filter((i) => i.exerciseOwner === id).slice(-1)
+
+  // console.log('testedois', exerciseWithLogs)
+
+  console.log('seŕa', logs)
+
   const handleModal = () => {
     setOpenModal(true)
   }
-
-  // exercises.forEach((i) => {
-  //   const execIdFromlog = logs.filter((i) => i.exerciseOwner === id)
-  //   if (execIdFromlog)
-  //     const execWithId = logs.filter((i) => i.exerciseOwner === id)
-  //   const execWithId2 = logs.filter((i) => i.exerciseOwner !== id)
-  //   console.log('qual mano', execWithId)
-  //   console.log('qual minba', execWithId2)
-  // })
 
   const handleLiked = () => {
     likedExercisePutCall(dispatch, token, id)
@@ -45,11 +43,22 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
             Vídeo
           </a>
         </p>
+        {openModal && (
+          <ExerciseModal
+            name={name}
+            execId={id}
+            load={''}
+            sets={''}
+            reps={''}
+            rest={''}
+            onClick={() => setOpenModal(false)}
+          />
+        )}
         {logs
-          ?.filter((i) => i.exerciseOwner === id)
-          .map((i, index) => (
+          ?.map((i) => i.exerciseOwner === id)
+          .map((i) => (
             <>
-              <LogList i={i} key={index} />
+              <LogList i={i} key={i._id} />
               {openModal && (
                 <ExerciseModal
                   name={name}

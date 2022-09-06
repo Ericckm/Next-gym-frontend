@@ -1,5 +1,14 @@
 import Head from 'next/head'
-import Register from '../components/pages/Register'
+import styled from 'styled-components'
+import { Register } from '../components/register'
+
+const RegisterMain = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const Registerpage = () => {
   return (
@@ -11,7 +20,9 @@ const Registerpage = () => {
         ></meta>
         <title>Register</title>
       </Head>
-      <Register />
+      <RegisterMain>
+        <Register />
+      </RegisterMain>
     </>
   )
 }

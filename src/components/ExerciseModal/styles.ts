@@ -6,7 +6,7 @@ export const Overlay = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  background-color: rgba(242, 243, 245, 0.7);
+  background-color: rgba(242, 243, 245, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,12 +16,12 @@ export const Container = styled.div`
   padding: 10px;
   width: 40%;
   height: 60%;
-  opacity: 0.9;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.white};
   display: flex;
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
+  opacity: 0.8;
 `
 
 export const Top = styled.div`
@@ -56,12 +56,11 @@ export const Button = styled.div`
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};
     transition: all 0.5s ease;
-    opacity: 0.8;
 
     :hover {
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.white};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.background};
     }
   }
 `
@@ -124,9 +123,9 @@ export const Form = styled.div`
         width: 30px;
         font-size: 14px;
         font-weight: 600;
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.primary};
         border-bottom: 1px solid ${(props) => props.theme.colors.primary};
-        background-color: ${(props) => props.theme.colors.background};
+        background-color: ${(props) => props.theme.colors.white};
         text-align: center;
 
         ::-webkit-outer-spin-button,
@@ -138,8 +137,7 @@ export const Form = styled.div`
 
         &::placeholder {
           font-weight: 400;
-          color: ${(props) => props.theme.colors.white};
-          opacity: 0.7;
+          color: ${(props) => props.theme.colors.background};
         }
 
         &:focus {
@@ -169,12 +167,10 @@ export const ButtonContainer = styled.div`
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.primary};
     transition: all 0.5s ease;
-    opacity: 0.8;
 
     :hover {
-      color: ${(props) => props.theme.colors.primary};
-
-      background-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.background};
     }
   }
 `

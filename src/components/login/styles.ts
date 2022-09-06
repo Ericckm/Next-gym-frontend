@@ -41,6 +41,7 @@ export const Title = styled.div`
 `
 
 export const FormContainer = styled.div`
+  height: 100px;
   form {
     display: flex;
     justify-content: center;

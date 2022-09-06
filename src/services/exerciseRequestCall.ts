@@ -28,6 +28,7 @@ export async function exerciseRequestCall(dispatch, token) {
       }
     })
     console.log(request.data)
+
     dispatch(getExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getExerciseFailure())

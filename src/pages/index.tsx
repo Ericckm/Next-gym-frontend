@@ -1,5 +1,14 @@
 import Head from 'next/head'
-import Homepage from '../components/pages/Homepage'
+import styled from 'styled-components'
+import { Login } from '../components/login'
+
+const HomepageMain = styled.div`
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 const HomePage = () => {
   return (
@@ -11,7 +20,9 @@ const HomePage = () => {
         ></meta>
         <title>Home</title>
       </Head>
-      <Homepage />
+      <HomepageMain>
+        <Login />
+      </HomepageMain>
     </>
   )
 }

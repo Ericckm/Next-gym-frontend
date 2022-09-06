@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import User from '../components/pages/User'
+import { SectionTemplate } from '../components/sectionTemplate'
+import { Topbar } from '../components/topbar'
+import UserSection from '../components/user'
 
 const UserPage = () => {
   return (
@@ -11,8 +13,10 @@ const UserPage = () => {
         ></meta>
         <title>User</title>
       </Head>
-
-      <User />
+      <Topbar />
+      <SectionTemplate>
+        <UserSection />
+      </SectionTemplate>
     </>
   )
 }

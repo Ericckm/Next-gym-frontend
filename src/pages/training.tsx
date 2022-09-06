@@ -1,5 +1,7 @@
 import Head from 'next/head'
-import Training from '../components/pages/Traning'
+import { SectionTemplate } from '../components/sectionTemplate'
+import { Topbar } from '../components/topbar'
+import { TrainingSection } from '../components/trainingSection'
 
 const TrainingPage = () => {
   return (
@@ -11,7 +13,10 @@ const TrainingPage = () => {
         ></meta>
         <title>Training</title>
       </Head>
-      <Training />
+      <Topbar />
+      <SectionTemplate>
+        <TrainingSection />
+      </SectionTemplate>
     </>
   )
 }
