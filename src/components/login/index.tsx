@@ -88,7 +88,9 @@ export const Login = () => {
           </FormContainer>
           <ButtonContainer>
             <button onClick={handleLogin}>Login</button>
-            <Link href={'/register'}>don't have an account?</Link>
+            <Link href={'/register'}>
+              <a>don't have an account?</a>
+            </Link>
           </ButtonContainer>
         </Right>
       </Container>

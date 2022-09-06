@@ -101,4 +101,17 @@ export const ButtonContainer = styled.div`
       background-color: ${(props) => props.theme.colors.primary};
     }
   }
+
+  a {
+    text-decoration: none;
+    height: 10px;
+    color: ${(props) => props.theme.colors.primary};
+  }
+  a:visited {
+    font-weight: 600;
+    color: ${(props) => props.theme.colors.secundary};
+  }
+  a:hover {
+    font-size: 14px;
+  }
 `

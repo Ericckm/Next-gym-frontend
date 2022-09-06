@@ -92,7 +92,7 @@ export const ButtonContainer = styled.div`
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.background};
     transition: all 0.5s ease;
@@ -102,5 +102,18 @@ export const ButtonContainer = styled.div`
       cursor: pointer;
       background-color: ${(props) => props.theme.colors.primary};
     }
+  }
+
+  a {
+    text-decoration: none;
+    height: 10px;
+    color: ${(props) => props.theme.colors.primary};
+  }
+  a:visited {
+    font-weight: 600;
+    color: ${(props) => props.theme.colors.secundary};
+  }
+  a:hover {
+    font-size: 14px;
   }
 `

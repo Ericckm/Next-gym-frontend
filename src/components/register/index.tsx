@@ -96,7 +96,9 @@ export const Register = () => {
         </FormContainer>
         <ButtonContainer>
           <button onClick={handleSubmit}>Register</button>
-          <Link href={'/'}>already have an account?</Link>
+          <Link href={'/'}>
+            <a>already have an account?</a>
+          </Link>
         </ButtonContainer>
       </Right>
     </Container>
