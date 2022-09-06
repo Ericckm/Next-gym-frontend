@@ -17,30 +17,36 @@ import {
 export const ExerciseModal = ({
   onClick,
   name,
-  load = '',
-  sets = '',
-  reps = '',
-  rest = '',
-  id
+  load,
+  sets,
+  reps,
+  rest,
+  execId
 }) => {
-  const [inputs, setInputs] = useState({})
+  const [inputs, setInputs] = useState({
+    exerciseOwner: execId,
+    load: load,
+    rest: rest,
+    reps: reps,
+    sets: sets
+  })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
+  console.log(inputs)
 
   const handleChange = (e) => {
     setInputs((prev) => {
       return {
         ...prev,
         [e.target.name]: e.target.value,
-        exerciseOwner: id
+        exerciseOwner: execId
       }
     })
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault
+    e.preventDefault()
     addLog(dispatch, inputs, token)
-    onClick
   }
 
   return (
