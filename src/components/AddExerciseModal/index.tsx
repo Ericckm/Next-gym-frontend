@@ -75,12 +75,12 @@ export const AddExerciseModal = ({ onClick }) => {
                   <option defaultChecked disabled>
                     must select one
                   </option>
-                  <option value="chest">chest</option>
-                  <option value="triceps">triceps</option>
-                  <option value="back">back</option>
-                  <option value="biceps">biceps</option>
-                  <option value="leg">leg</option>
-                  <option value="shoulder">shoulder</option>
+                  <option value="Chest">chest</option>
+                  <option value="Triceps">triceps</option>
+                  <option value="Back">back</option>
+                  <option value="Biceps">biceps</option>
+                  <option value="Leg">leg</option>
+                  <option value="Shoulder">shoulder</option>
                 </select>
               </div>
             </form>
