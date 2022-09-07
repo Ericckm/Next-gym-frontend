@@ -7,7 +7,7 @@ import {
   Top
 } from './styles'
 import { AddCircle } from '@material-ui/icons'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
 import { useDispatch, useSelector } from 'react-redux'
 import { AllExercisesList } from '../allExercisesList'
@@ -18,6 +18,35 @@ const ExercisesSection = () => {
   const allExercises = useSelector(
     (state: any) => state.allExercises.allExercises
   )
+
+  // PAGINATION
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setitemsPerPage] = useState(1)
+  const pages = []
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItem = allExercises.slice(indexOfFirstItem, indexOfLastItem)
+
+  for (let i = 1; i <= Math.ceil(allExercises.length / itemsPerPage); i++) {
+    pages.push(i)
+  }
+
+  const handlePagination = (e) => {
+    setCurrentPage(Number(e.target.id))
+  }
+
+  const renderPageNumbers = pages.map((number) => {
+    return (
+      <li
+        key={number}
+        id={number}
+        onClick={handlePagination}
+        className={currentPage == number ? 'active' : null}
+      >
+        {number}
+      </li>
+    )
+  })
 
   useEffect(() => {
     allExerciseRequestCall(dispatch, token)
@@ -54,7 +83,7 @@ const ExercisesSection = () => {
         <Mid>
           <ul>
             {allExercises
-              ? allExercises?.map((i) => (
+              ? currentItem?.map((i) => (
                   <AllExercisesList
                     key={i.createdAt}
                     name={i.name}
@@ -67,7 +96,7 @@ const ExercisesSection = () => {
           </ul>
         </Mid>
         <Bottom>
-          <div>pagination</div>
+          <ul className="pageNumbers">{renderPageNumbers}</ul>
           <div>
             <button>
               <AddCircle className="add" />

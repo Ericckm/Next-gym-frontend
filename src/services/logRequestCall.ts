@@ -20,7 +20,6 @@ export async function logRequestCall(dispatch, id, token) {
     console.log(request.data)
     dispatch(getLogSuccess(request.data))
   } catch (e) {
-    console.log(e)
     dispatch(getLogFailure())
   }
 }
@@ -36,7 +35,6 @@ export async function addLog(dispatch, inputs, token) {
     })
     dispatch(addLogSuccess(request.data))
   } catch (e) {
-    console.log(e)
     dispatch(addLogFailure())
   }
 }

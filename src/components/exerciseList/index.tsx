@@ -14,13 +14,9 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   // const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
   const exercises = useSelector((state: any) => state.exercise.exercises)
-
+  console.log('é esse', exercises)
   // const ids = exercises.map((i) => i._id)
   // const exerciseWithLogs = logs.filter((i) => i.exerciseOwner === id).slice(-1)
-
-  // console.log('testedois', exerciseWithLogs)
-
-  console.log('seŕa', logs)
 
   const handleModal = () => {
     setOpenModal(true)
@@ -54,8 +50,12 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
             onClick={() => setOpenModal(false)}
           />
         )}
-        {logs
-          ?.map((i) => i.exerciseOwner === id)
+        {logs.map((i) =>
+          i.exerciseOwner === exercises._id ? <LogList i={i} /> : ''
+        )}
+        {/* {logs
+          ?.map((i) => id === i.exerciseOwner)
+          .slice(-1)
           .map((i) => (
             <>
               <LogList i={i} key={i._id} />
@@ -71,7 +71,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
                 />
               )}
             </>
-          ))}
+          ))} */}
       </ExerciseDesc>
       <ButtonContainer>
         <button onClick={handleLiked}>Remove</button>

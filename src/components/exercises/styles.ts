@@ -63,6 +63,38 @@ export const Bottom = styled.div`
   gap: 8px;
   padding: 10px;
 
+  ul {
+    display: flex;
+    border: 1px;
+    gap: 4px;
+    font-size: 14px;
+    font-weight: 400;
+
+    .active {
+      background-color: ${(props) => props.theme.colors.white};
+      border: 1px solid ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.primary};
+
+      :hover {
+        color: ${(props) => props.theme.colors.primary};
+        border: 1px solid ${(props) => props.theme.colors.white};
+      }
+    }
+
+    li {
+      padding: 10px;
+      border: 1px solid ${(props) => props.theme.colors.primary};
+      border-radius: 10px;
+      transition: all 0.5s ease;
+      cursor: pointer;
+
+      :hover {
+        color: ${(props) => props.theme.colors.white};
+        border: 1px solid ${(props) => props.theme.colors.white};
+      }
+    }
+  }
+
   button {
     display: flex;
     border-color: ${(props) => props.theme.colors.primary};

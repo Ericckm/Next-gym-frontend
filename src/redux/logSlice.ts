@@ -14,7 +14,27 @@ export const logSlice = createSlice({
       state.error = false
     },
     getLogSuccess: (state, action) => {
-      state.logs?.push(action.payload)
+      // DUPLICANDO
+      state.logs.push(action.payload)
+      // if (
+      //   state.logs.length <= exercises.length &&
+      //   state.logs.push(action.payload)
+      // )
+      // if (
+      //   state.logs.length > 0 &&
+      //   state.logs.map((log) =>
+      //     log._id !== action.payload._id
+      //       ? state.logs.push(action.payload)
+      //       : ''
+      //   )
+      // )
+      // state.logs.push(action.payload)
+
+      // state.logs.map((log) =>
+      //   log._id !== action.payload._id || !state.logs
+      //     ? state.logs.push(action.payload)
+      //     : ''
+      // )
       state.isFetching = false
     },
     getLogFailure: (state) => {
@@ -27,8 +47,7 @@ export const logSlice = createSlice({
       state.error = false
     },
     addLogSuccess: (state, action) => {
-      // FIX LOGIC
-      state.logs = [action.payload]
+      state.logs.push(action.payload)
       state.isFetching = false
     },
     addLogFailure: (state) => {
