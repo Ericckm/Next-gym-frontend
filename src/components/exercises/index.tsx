@@ -22,7 +22,7 @@ const ExercisesSection = () => {
 
   // PAGINATION
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(3)
+  const [itemsPerPage, setItemsPerPage] = useState(12)
   const pages = []
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -92,7 +92,7 @@ const ExercisesSection = () => {
             {allExercises
               ? currentItem?.map((i) => (
                   <AllExercisesList
-                    key={i.createdAt}
+                    key={i._id}
                     name={i.name}
                     type={i.type}
                     videoUrl={i.videoUrl}

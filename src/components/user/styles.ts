@@ -27,6 +27,11 @@ export const Top = styled.div`
       font-size: 24px;
       font-weight: 400;
       align-items: center;
+
+      span {
+        color: ${(props) => props.theme.colors.white};
+        font-weight: 500;
+      }
     }
   }
 `

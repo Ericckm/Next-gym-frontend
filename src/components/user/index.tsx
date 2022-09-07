@@ -9,6 +9,7 @@ import {
   Middle,
   Top
 } from './styles'
+import { format } from 'date-fns'
 
 const UserSection = () => {
   const dispatch = useDispatch()
@@ -38,6 +39,12 @@ const UserSection = () => {
     return imc
   }
 
+  const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  })
+
   return (
     <Container>
       <MainContent>
@@ -45,7 +52,9 @@ const UserSection = () => {
           <div>
             <p>
               Hello again {name.charAt().toUpperCase() + name.slice(1)} i see
-              you are an active member since {createdAt}, keep the good job.
+              you are an active member since{' '}
+              <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep
+              the good job.
             </p>
           </div>
         </Top>

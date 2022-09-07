@@ -81,16 +81,17 @@ export const FilterContainer = styled.div`
 
 export const Mid = styled.div`
   display: flex;
-  flex: 4;
+  flex: 3;
   padding: 10px;
 
   ul {
+    align-items: center;
     flex: 4;
-    justify-content: flex-start;
+    justify-content: center;
     display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    flex-wrap: wrap;
     width: 80%;
+    gap: 10px;
   }
 `
 
