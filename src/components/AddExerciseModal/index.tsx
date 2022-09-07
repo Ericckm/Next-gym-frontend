@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { addExercise } from '../../services/allExerciseRequestCall'
 
 import {
   Bottom,
@@ -7,7 +8,6 @@ import {
   ButtonContainer,
   Container,
   Form,
-  FormContainer,
   Main,
   Overlay,
   Title,
@@ -16,11 +16,7 @@ import {
 
 export const AddExerciseModal = ({ onClick }) => {
   const [inputs, setInputs] = useState({
-    // exerciseOwner: execId,
-    // load: load,
-    // rest: rest,
-    // reps: reps,
-    // sets: sets
+    type: 'chest'
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
@@ -34,74 +30,65 @@ export const AddExerciseModal = ({ onClick }) => {
     })
   }
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   addExercise(dispatch, inputs, token)
-  // }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    addExercise(dispatch, inputs, token)
+    onClick(!onClick)
+  }
 
   return (
     <Overlay>
       <Container>
         <Top>
           <Title>
-            <h2>Fill the information below to create a new log</h2>
+            <h2>Fill the information below to create a new Exercise</h2>
           </Title>
           <Button>
             <button onClick={onClick}>x</button>
           </Button>
         </Top>
         <Main>
-          <FormContainer>
-            <h2>bla</h2>
-            <Form>
-              <form>
-                <div>
-                  <label>Load</label>
-                  <input
-                    type="number"
-                    placeholder={'load'}
-                    name="load"
-                    onChange={handleChange}
-                  />
-                  <label>kg</label>
-                </div>
-                <div>
-                  <label>Sets</label>
-                  <input
-                    type="number"
-                    placeholder={'sets'}
-                    name="sets"
-                    onChange={handleChange}
-                  />
-                  <label>x</label>
-                </div>
-                <div>
-                  <label>Repetitions</label>
-                  <input
-                    type="number"
-                    placeholder={'reps'}
-                    name="reps"
-                    onChange={handleChange}
-                  />
-                  <label>x</label>
-                </div>
-                <div>
-                  <label>Rest</label>
-                  <input
-                    type="number"
-                    placeholder={'rest'}
-                    name="rest"
-                    onChange={handleChange}
-                  />
-                  <label>seconds</label>
-                </div>
-              </form>
-            </Form>
-          </FormContainer>
+          <Form>
+            <form>
+              <div>
+                <label>Name</label>
+                <input
+                  type="string"
+                  placeholder="exercise name"
+                  name="name"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Video link</label>
+                <input
+                  type="string"
+                  placeholder="video"
+                  name="videoUrl"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Type</label>
+                <select name="type" onChange={handleChange}>
+                  <option defaultChecked disabled>
+                    must select one
+                  </option>
+                  <option value="chest">chest</option>
+                  <option value="triceps">triceps</option>
+                  <option value="back">back</option>
+                  <option value="biceps">biceps</option>
+                  <option value="leg">leg</option>
+                  <option value="shoulder">shoulder</option>
+                </select>
+              </div>
+            </form>
+          </Form>
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={onClick}>submit</button>
+            <button onClick={handleSubmit}>submit</button>
           </ButtonContainer>
         </Bottom>
       </Container>

@@ -46,6 +46,7 @@ export const AddLogModal = ({
   const handleSubmit = (e) => {
     e.preventDefault()
     addLog(dispatch, inputs, token)
+    onClick(!onClick)
   }
 
   return (
@@ -110,7 +111,7 @@ export const AddLogModal = ({
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit && onClick}>submit</button>
+            <button onClick={handleSubmit}>submit</button>
           </ButtonContainer>
         </Bottom>
       </Container>

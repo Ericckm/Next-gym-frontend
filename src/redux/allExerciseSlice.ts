@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 export const allExerciseSlice = createSlice({
-  name: 'exercise',
+  name: 'allExercise',
   initialState: {
     allExercises: [],
     isFetching: false,
@@ -33,6 +33,18 @@ export const allExerciseSlice = createSlice({
     unlikeExerciseFailure: (state) => {
       state.isFetching = false
       state.error = true
+    },
+    addExerciseStart: (state) => {
+      state.isFetching = true
+      state.error = false
+    },
+    addExerciseSuccess: (state, action) => {
+      state.allExercises.push(action.payload.exercise)
+      state.isFetching = false
+    },
+    addExerciseFailure: (state) => {
+      state.isFetching = false
+      state.error = true
     }
   }
 })
@@ -43,7 +55,10 @@ export const {
   getAllExerciseFailure,
   unlikeExerciseStart,
   unlikeExerciseFailure,
-  unlikeExerciseSuccess
+  unlikeExerciseSuccess,
+  addExerciseFailure,
+  addExerciseStart,
+  addExerciseSuccess
 } = allExerciseSlice.actions
 
 export const selectExercise = (state) => state.exercise.exercise

@@ -70,41 +70,18 @@ export const Main = styled.div`
   width: 100%;
 `
 
-export const Bottom = styled.div`
-  flex: 2;
-  display: flex;
-  justify-content: center;
-`
-
-export const FormContainer = styled.div`
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  width: 100%;
-
-  h2 {
-    display: flex;
-    padding: 15px;
-    align-items: center;
-    justify-content: center;
-    font-weight: 400;
-    justify-content: center;
-    color: ${(props) => props.theme.colors.primary};
-  }
-`
-
 export const Form = styled.div`
   display: flex;
-  height: 100%;
-  width: 100%;
   justify-content: flex-start;
+  height: 100%;
 
   form {
-    justify-content: flex-start;
+    justify-content: space-around;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-left: 40px;
 
     div {
       display: flex;
@@ -120,13 +97,13 @@ export const Form = styled.div`
 
       input {
         border: none;
-        width: 30px;
+        width: 120px;
         font-size: 14px;
         font-weight: 600;
         color: ${(props) => props.theme.colors.primary};
         border-bottom: 1px solid ${(props) => props.theme.colors.primary};
         background-color: ${(props) => props.theme.colors.white};
-        text-align: center;
+        padding-left: 8px;
 
         ::-webkit-outer-spin-button,
         ::-webkit-inner-spin-button {
@@ -145,8 +122,29 @@ export const Form = styled.div`
           border-bottom: none;
         }
       }
+
+      select {
+        background-color: ${(props) => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.primary};
+        font-weight: 600;
+        font-size: 14px;
+        width: 120px;
+        border: none;
+        border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+
+        &:focus {
+          outline: none;
+        }
+      }
     }
   }
+`
+
+export const Bottom = styled.div`
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const ButtonContainer = styled.div`

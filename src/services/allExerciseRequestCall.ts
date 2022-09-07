@@ -1,5 +1,8 @@
 import axios from 'axios'
 import {
+  addExerciseFailure,
+  addExerciseStart,
+  addExerciseSuccess,
   getAllExerciseFailure,
   getAllExerciseStart,
   getAllExerciseSuccess,
@@ -47,5 +50,24 @@ export async function unLikeExercisePutCall(dispatch, token, id) {
     dispatch(unlikeExerciseSuccess(request.data))
   } catch (e) {
     dispatch(unlikeExerciseFailure())
+  }
+}
+
+export async function addExercise(dispatch, inputs, token) {
+  dispatch(addExerciseStart())
+  try {
+    const request = await axios.post(
+      `http://localhost:2500/addExercise`,
+      inputs,
+      {
+        headers: {
+          Authorization: token
+        }
+      }
+    )
+    console.log(request.data)
+    dispatch(addExerciseSuccess(request.data))
+  } catch (e) {
+    dispatch(addExerciseFailure())
   }
 }
