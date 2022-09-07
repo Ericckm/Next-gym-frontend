@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { addLog } from '../../services/logRequestCall'
+
 import {
   Bottom,
   Button,
@@ -14,21 +14,13 @@ import {
   Top
 } from './styles'
 
-export const ExerciseModal = ({
-  onClick,
-  name,
-  load,
-  sets,
-  reps,
-  rest,
-  execId
-}) => {
+export const AddExerciseModal = ({ onClick }) => {
   const [inputs, setInputs] = useState({
-    exerciseOwner: execId,
-    load: load,
-    rest: rest,
-    reps: reps,
-    sets: sets
+    // exerciseOwner: execId,
+    // load: load,
+    // rest: rest,
+    // reps: reps,
+    // sets: sets
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
@@ -37,16 +29,15 @@ export const ExerciseModal = ({
     setInputs((prev) => {
       return {
         ...prev,
-        [e.target.name]: e.target.value,
-        exerciseOwner: execId
+        [e.target.name]: e.target.value
       }
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    addLog(dispatch, inputs, token)
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  //   addExercise(dispatch, inputs, token)
+  // }
 
   return (
     <Overlay>
@@ -61,14 +52,14 @@ export const ExerciseModal = ({
         </Top>
         <Main>
           <FormContainer>
-            <h2>{name}</h2>
+            <h2>bla</h2>
             <Form>
               <form>
                 <div>
                   <label>Load</label>
                   <input
                     type="number"
-                    placeholder={load}
+                    placeholder={'load'}
                     name="load"
                     onChange={handleChange}
                   />
@@ -78,7 +69,7 @@ export const ExerciseModal = ({
                   <label>Sets</label>
                   <input
                     type="number"
-                    placeholder={sets}
+                    placeholder={'sets'}
                     name="sets"
                     onChange={handleChange}
                   />
@@ -88,7 +79,7 @@ export const ExerciseModal = ({
                   <label>Repetitions</label>
                   <input
                     type="number"
-                    placeholder={reps}
+                    placeholder={'reps'}
                     name="reps"
                     onChange={handleChange}
                   />
@@ -98,7 +89,7 @@ export const ExerciseModal = ({
                   <label>Rest</label>
                   <input
                     type="number"
-                    placeholder={rest}
+                    placeholder={'rest'}
                     name="rest"
                     onChange={handleChange}
                   />
@@ -110,7 +101,7 @@ export const ExerciseModal = ({
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit}>submit</button>
+            <button onClick={onClick}>submit</button>
           </ButtonContainer>
         </Bottom>
       </Container>

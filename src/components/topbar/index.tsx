@@ -14,21 +14,27 @@ export const Topbar = () => {
     router.push('/login')
   }
 
+  const hrefPage = window.location.href.split('/').slice(-1)
+
   return (
     <TopbarMain>
-      <MenuContainer>
+      <MenuContainer
+        className={hrefPage.includes('exercises') ? 'active' : null}
+      >
         <div>
           <FitnessCenter className="icon" />
           <a href="exercises">Exercises</a>
         </div>
       </MenuContainer>
-      <MenuContainer>
+      <MenuContainer
+        className={hrefPage.includes('training') ? 'active' : null}
+      >
         <div>
           <Grade className="icon" />
           <a href="training">Training</a>
         </div>
       </MenuContainer>
-      <MenuContainer>
+      <MenuContainer className={hrefPage.includes('user') ? 'active' : null}>
         <div>
           <Person className="icon" />
           <a href="user">User</a>

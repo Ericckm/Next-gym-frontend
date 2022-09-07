@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { likedExercisePutCall } from '../../services/exerciseRequestCall'
 import { logRequestCall } from '../../services/logRequestCall'
-import { ExerciseModal } from '../ExerciseModal'
+import { AddLogModal } from '../AddLogModal'
 import { LogList } from '../logList'
 
 import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
@@ -14,12 +14,11 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   // const { error, isFetching } = useSelector((state: any) => state.log)
   const logs = useSelector((state: any) => state.log.logs)
   const exercises = useSelector((state: any) => state.exercise.exercises)
-  console.log('é esse', exercises)
   // const ids = exercises.map((i) => i._id)
   // const exerciseWithLogs = logs.filter((i) => i.exerciseOwner === id).slice(-1)
 
   const handleModal = () => {
-    setOpenModal(true)
+    setOpenModal(!openModal)
   }
 
   const handleLiked = () => {
@@ -40,14 +39,14 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
           </a>
         </p>
         {openModal && (
-          <ExerciseModal
+          <AddLogModal
             name={name}
             execId={id}
             load={''}
             sets={''}
             reps={''}
             rest={''}
-            onClick={() => setOpenModal(false)}
+            onClick={handleModal}
           />
         )}
         {logs.map((i) =>

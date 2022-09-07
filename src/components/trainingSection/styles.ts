@@ -33,11 +33,27 @@ export const Title = styled.div`
 
     color: ${(props) => props.theme.colors.white};
   }
+
+  select {
+    padding: 4px;
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.white};
+    font-weight: 600;
+    font-size: 14px;
+    width: 44px;
+    border: none;
+    border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+
+    &:focus {
+      outline: none;
+    }
+  }
 `
 
 export const MainContent = styled.ul`
   flex: 4;
   justify-content: flex-start;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;

@@ -31,12 +31,51 @@ export const FilterContainer = styled.div`
 
   div {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: column;
     width: 100%;
     height: 100%;
     align-items: center;
     gap: 8px;
+
+    select {
+      padding: 4px;
+      background-color: ${(props) => props.theme.colors.background};
+      color: ${(props) => props.theme.colors.white};
+      font-weight: 600;
+      font-size: 14px;
+      width: 120px;
+      border: none;
+      border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    input {
+      padding: 4px;
+      border: none;
+      border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.white};
+      font-weight: 600;
+      font-size: 14px;
+      background-color: ${(props) => props.theme.colors.background};
+      width: 120px;
+
+      &::placeholder {
+        color: ${(props) => props.theme.colors.white};
+        font-weight: 300;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  span {
+    font-size: 12px;
+    color: ${(props) => props.theme.colors.error};
   }
 `
 

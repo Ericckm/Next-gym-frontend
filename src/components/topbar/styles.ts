@@ -9,6 +9,18 @@ export const TopbarMain = styled.div`
   display: flex;
   justify-content: space-around;
 
+  .active {
+    color: ${(props) => props.theme.colors.white};
+  }
+
+  .active a {
+    color: ${(props) => props.theme.colors.white};
+  }
+
+  .active .icon {
+    color: ${(props) => props.theme.colors.white};
+  }
+
   div {
     display: flex;
     justify-content: space-around;

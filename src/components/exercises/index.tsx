@@ -11,6 +11,7 @@ import { useEffect, useState } from 'react'
 import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
 import { useDispatch, useSelector } from 'react-redux'
 import { AllExercisesList } from '../allExercisesList'
+import { AddExerciseModal } from '../AddExerciseModal'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ const ExercisesSection = () => {
 
   // PAGINATION
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setitemsPerPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(1)
   const pages = []
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -47,6 +48,12 @@ const ExercisesSection = () => {
       </li>
     )
   })
+
+  const [openModal, setOpenModal] = useState(false)
+
+  const handleClick = () => {
+    setOpenModal(!openModal)
+  }
 
   useEffect(() => {
     allExerciseRequestCall(dispatch, token)
@@ -94,11 +101,12 @@ const ExercisesSection = () => {
                 ))
               : ''}
           </ul>
+          {openModal && <AddExerciseModal onClick={handleClick} />}
         </Mid>
         <Bottom>
           <ul className="pageNumbers">{renderPageNumbers}</ul>
           <div>
-            <button>
+            <button onClick={handleClick}>
               <AddCircle className="add" />
             </button>
           </div>
