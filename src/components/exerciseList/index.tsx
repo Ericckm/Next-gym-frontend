@@ -50,8 +50,13 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
           />
         )}
         {logs.map((i) =>
-          i.exerciseOwner === exercises._id ? <LogList i={i} /> : ''
+          logs.filter((log) =>
+            i.exerciseOwner === id ? <LogList i={i} /> : ''
+          )
         )}
+        {/* {logs.map((i) =>
+          i.exerciseOwner === exercises._id ? <LogList i={i} /> : ''
+        )} */}
         {/* {logs
           ?.map((i) => id === i.exerciseOwner)
           .slice(-1)

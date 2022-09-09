@@ -23,17 +23,14 @@ const ExercisesSection = () => {
   // FILTER
   const [filters, setFilters] = useState({})
   const [filteredExercises, setFilteredExercises] = useState([])
-  const [activeFilters, setActiveFilters] = useState(true)
 
   // PAGINATION
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(12)
+  const [itemsPerPage, setItemsPerPage] = useState(2)
   const pages = []
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItem = filteredExercises.slice(indexOfFirstItem, indexOfLastItem)
-
-  console.log('paginação', currentPage)
 
   for (
     let i = 1;
@@ -84,7 +81,7 @@ const ExercisesSection = () => {
         )
       )
     )
-  }, [filters])
+  }, [filters, allExercises])
 
   return (
     <Container>
@@ -121,37 +118,15 @@ const ExercisesSection = () => {
         </Top>
         <Mid>
           <ul>
-            {!activeFilters
-              ? currentItem?.map((i) => (
-                  <AllExercisesList
-                    key={i._id}
-                    name={i.name}
-                    type={i.type}
-                    videoUrl={i.videoUrl}
-                    id={i._id}
-                  />
-                ))
-              : currentItem?.map((i) => (
-                  <AllExercisesList
-                    key={i._id}
-                    name={i.name}
-                    type={i.type}
-                    videoUrl={i.videoUrl}
-                    id={i._id}
-                  />
-                ))}
-
-            {/* {allExercises
-              ? currentItem?.map((i) => (
-                  <AllExercisesList
-                    key={i._id}
-                    name={i.name}
-                    type={i.type}
-                    videoUrl={i.videoUrl}
-                    id={i._id}
-                  />
-                ))
-              : ''} */}
+            {currentItem?.map((i) => (
+              <AllExercisesList
+                key={i._id}
+                name={i.name}
+                type={i.type}
+                videoUrl={i.videoUrl}
+                id={i._id}
+              />
+            ))}
           </ul>
           {openModal && <AddExerciseModal onClick={handleClick} />}
         </Mid>
