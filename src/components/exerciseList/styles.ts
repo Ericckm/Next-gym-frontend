@@ -19,8 +19,7 @@ export const ExerciseDesc = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 600;
-    font-size: 13px;
+    font-weight: 500;
 
     a {
       font-size: inherit;

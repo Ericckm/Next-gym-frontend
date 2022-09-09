@@ -38,6 +38,12 @@ export const Title = styled.div`
   justify-content: center;
   margin-left: 10px;
   color: ${(props) => props.theme.colors.primary};
+
+  p {
+    font-size: 22px;
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 500;
+  }
 `
 
 export const Button = styled.div`

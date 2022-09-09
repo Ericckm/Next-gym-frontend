@@ -54,7 +54,7 @@ export const AddLogModal = ({
       <Container>
         <Top>
           <Title>
-            <h2>Fill the information below to create a new log</h2>
+            <p>Fill the information below to create a new log</p>
           </Title>
           <Button>
             <button onClick={onClick}>x</button>

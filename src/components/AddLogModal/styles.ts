@@ -38,6 +38,12 @@ export const Title = styled.div`
   justify-content: center;
   margin-left: 10px;
   color: ${(props) => props.theme.colors.primary};
+
+  p {
+    font-size: 22px;
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 500;
+  }
 `
 
 export const Button = styled.div`
@@ -100,15 +106,16 @@ export const Form = styled.div`
   justify-content: flex-start;
 
   form {
-    justify-content: flex-start;
+    justify-content: space-around;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-left: 40px;
 
     div {
       display: flex;
-      width: 80%;
+      width: 100%;
       justify-content: flex-start;
       gap: 5px;
 
