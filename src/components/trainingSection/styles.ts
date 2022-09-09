@@ -50,12 +50,20 @@ export const Title = styled.div`
   }
 `
 
-export const MainContent = styled.ul`
-  flex: 4;
-  justify-content: flex-start;
+export const MainContent = styled.div`
+  flex: 3;
   padding: 10px;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
   width: 80%;
+  justify-content: center;
+
+  ul {
+    align-items: center;
+    flex: 4;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+  }
 `

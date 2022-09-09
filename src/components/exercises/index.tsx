@@ -12,12 +12,13 @@ import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
 import { useDispatch, useSelector } from 'react-redux'
 import { AllExercisesList } from '../allExercisesList'
 import { AddExerciseModal } from '../AddExerciseModal'
+import { Loader } from '../loader'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
   const token = useSelector((state: any) => state.user.user.token)
-  const allExercises = useSelector(
-    (state: any) => state.allExercises.allExercises
+  const { isFetching, error, allExercises } = useSelector(
+    (state: any) => state.allExercises
   )
 
   // FILTER
@@ -26,7 +27,7 @@ const ExercisesSection = () => {
 
   // PAGINATION
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(3)
+  const [itemsPerPage, setItemsPerPage] = useState(12)
   const pages = []
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -102,7 +103,7 @@ const ExercisesSection = () => {
               <label htmlFor="">filter by type</label>
               <select name="type" onChange={handleFilters}>
                 <option defaultChecked value="">
-                  clear
+                  all
                 </option>
                 <option value="Chest">chest</option>
                 <option value="Triceps">triceps</option>
@@ -114,20 +115,24 @@ const ExercisesSection = () => {
             </div>
           </FilterContainer>
         </Top>
-        <Mid>
-          <ul>
-            {currentItem?.map((i) => (
-              <AllExercisesList
-                key={i._id}
-                name={i.name}
-                type={i.type}
-                videoUrl={i.videoUrl}
-                id={i._id}
-              />
-            ))}
-          </ul>
-          {openModal && <AddExerciseModal onClick={handleClick} />}
-        </Mid>
+        {isFetching && !error ? (
+          <Loader />
+        ) : (
+          <Mid>
+            <ul>
+              {currentItem?.map((i) => (
+                <AllExercisesList
+                  key={i._id}
+                  name={i.name}
+                  type={i.type}
+                  videoUrl={i.videoUrl}
+                  id={i._id}
+                />
+              ))}
+            </ul>
+          </Mid>
+        )}
+        {openModal && <AddExerciseModal onClick={handleClick} />}
         <Bottom>
           <ul className="pageNumbers">{renderPageNumbers}</ul>
           <div>

@@ -45,55 +45,6 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
         <button onClick={handleLiked}>Remove</button>
         <button onClick={handleModal}>Create</button>
       </ButtonContainer>
-      {/* {logs
-        ?.filter((i) => i.exerciseOwner !== id)
-        .map((i) => (
-          <ExerciseDesc key={i._id}>
-            <p>
-              {name}
-              <a href={videoUrl} target="_blank">
-                Vídeo
-              </a>
-            </p>
-            <div>
-              <span>There's no training schedule for this exercise</span>
-            </div>
-            {openModal && (
-              <ExerciseModal
-                name={name}
-                id={id}
-                onClick={() => setOpenModal(false)}
-              />
-            )}
-          </ExerciseDesc>
-        ))}
-      {logs
-        ?.filter((i) => i.exerciseOwner === id)
-        .map((i) => (
-          <ExerciseDesc key={i._id}>
-            <p>
-              {name}
-              <a href={videoUrl} target="_blank">
-                Vídeo
-              </a>
-            </p>
-            <span>Load - {i.load} kg</span>
-            <span>Sets - {i.sets} x</span>
-            <span>Reps - {i.reps} times</span>
-            <span>Rest - {i.rest} seconds</span>
-            {openModal && (
-              <ExerciseModal
-                name={name}
-                id={id}
-                load={i.load}
-                sets={i.sets}
-                reps={i.reps}
-                rest={i.rest}
-                onClick={() => setOpenModal(false)}
-              />
-            )}
-          </ExerciseDesc>
-        ))} */}
     </ExerciseContainer>
   )
 }

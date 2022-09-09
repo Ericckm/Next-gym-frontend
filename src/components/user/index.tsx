@@ -9,7 +9,6 @@ import {
   Middle,
   Top
 } from './styles'
-import { format } from 'date-fns'
 
 const UserSection = () => {
   const dispatch = useDispatch()

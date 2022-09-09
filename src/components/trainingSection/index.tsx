@@ -67,24 +67,26 @@ export const TrainingSection = () => {
           </p>
         )}
       </Title>
-      {!exercises && isFetching ? (
-        <Loader />
-      ) : (
-        <MainContent>
-          {exercises
-            ?.filter((i) => i.type === typeA || i.type === typeB)
-            .map((i) => (
-              <ExerciseList
-                key={i._id}
-                name={i.name}
-                videoUrl={i.videoUrl}
-                type={i.type}
-                liked={i.liked}
-                id={i._id}
-              />
-            ))}
-        </MainContent>
-      )}
+      <MainContent>
+        {isFetching && !error ? (
+          <Loader />
+        ) : (
+          <ul>
+            {exercises
+              ?.filter((i) => i.type === typeA || i.type === typeB)
+              .map((i) => (
+                <ExerciseList
+                  key={i._id}
+                  name={i.name}
+                  videoUrl={i.videoUrl}
+                  type={i.type}
+                  liked={i.liked}
+                  id={i._id}
+                />
+              ))}
+          </ul>
+        )}
+      </MainContent>
     </Container>
   )
 }
