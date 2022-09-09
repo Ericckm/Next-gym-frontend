@@ -87,7 +87,7 @@ const ExercisesSection = () => {
       <MainContent>
         <Top>
           <div>
-            <p>All exercises</p>
+            <h3>All exercises</h3>
           </div>
           <FilterContainer>
             <div>

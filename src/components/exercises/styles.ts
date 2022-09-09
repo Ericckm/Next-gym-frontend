@@ -22,6 +22,11 @@ export const Top = styled.div`
   align-items: center;
   padding: 10px;
   gap: 8px;
+
+  h3 {
+    font-weight: 500;
+    color: ${(props) => props.theme.colors.white};
+  }
 `
 
 export const FilterContainer = styled.div`

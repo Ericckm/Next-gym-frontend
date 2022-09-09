@@ -23,7 +23,7 @@ export const Top = styled.div`
   width: 100%;
 
   div {
-    p {
+    h3 {
       font-size: 24px;
       font-weight: 400;
       align-items: center;
@@ -108,7 +108,7 @@ export const FormBottom = styled.div`
 `
 
 export const Bottom = styled.div`
-  flex: 1;
+  flex: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;

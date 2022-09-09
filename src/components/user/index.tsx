@@ -49,12 +49,12 @@ const UserSection = () => {
       <MainContent>
         <Top>
           <div>
-            <p>
-              Hello again {name.charAt().toUpperCase() + name.slice(1)} i see
+            <h3>
+              Hello <span>{name.charAt().toUpperCase() + name.slice(1)},</span>{' '}
               you are an active member since{' '}
               <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep
               the good job.
-            </p>
+            </h3>
           </div>
         </Top>
         <Middle>

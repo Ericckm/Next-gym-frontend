@@ -50,11 +50,11 @@ export const TrainingSection = () => {
   return (
     <Container>
       <Title>
-        <h2>
-          Welcome to our app {name.charAt().toUpperCase() + name.slice(1)}, your
-          training was divided into three parts.
-        </h2>
-        <label>Select a training below</label>
+        <h3>
+          Welcome <span>{name.charAt().toUpperCase() + name.slice(1)}, </span>
+          your training is divided into three parts.
+        </h3>
+        <p>Select a training below</p>
         <select onChange={selectHandler}>
           <option value="1">A</option>
           <option value="2">B</option>
@@ -62,7 +62,7 @@ export const TrainingSection = () => {
         </select>
         {training !== 0 && (
           <p>
-            this training works the <span>{typeA} </span>
+            this training focuses on <span>{typeA} </span>
             and <span>{typeB}</span> musculature
           </p>
         )}

@@ -1,5 +1,5 @@
 import { MenuContainer, TopbarMain } from './styles'
-import { Person, FitnessCenter, Grade } from '@material-ui/icons'
+import { Person, FitnessCenter, Grade, ExitToApp } from '@material-ui/icons'
 import { logout } from '../../redux/userSlice'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
@@ -40,7 +40,12 @@ export const Topbar = () => {
           <a href="user">User</a>
         </div>
       </MenuContainer>
-      <button onClick={handleLogout}>logout</button>
+      <MenuContainer>
+        <div>
+          <ExitToApp className="icon" />
+          <a onClick={handleLogout}>logout</a>
+        </div>
+      </MenuContainer>
     </TopbarMain>
   )
 }
