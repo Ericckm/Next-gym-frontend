@@ -32,6 +32,8 @@ const UserSection = () => {
     updateUser(dispatch, inputs, token)
   }
 
+  console.log(inputs)
+
   const calcImc = () => {
     const newHeight = parseInt(height) / 100
     const imc = Math.round(parseInt(weight) / (newHeight * newHeight))

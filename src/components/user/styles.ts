@@ -18,12 +18,13 @@ export const MainContent = styled.div`
 export const Top = styled.div`
   display: flex;
   justify-content: center;
-  flex: 1;
+  flex: 0.5;
   align-items: center;
   width: 100%;
 
   div {
     h3 {
+      margin-top: 10px;
       font-size: 24px;
       font-weight: 400;
       align-items: center;
@@ -49,9 +50,10 @@ export const Middle = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 30%;
+    height: 20%;
+
     img {
-      border: 1px solid;
+      border: 1px solid ${(props) => props.theme.colors.white};
       border-radius: 10px;
       height: 80px;
     }

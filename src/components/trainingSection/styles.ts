@@ -18,9 +18,11 @@ export const Title = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  p {
+  h3 {
+    margin-top: 30px;
+    font-size: 24px;
     font-weight: 400;
-    color: ${(props) => props.theme.colors.primary};
+    align-items: center;
   }
 
   label {
