@@ -15,9 +15,7 @@ import {
 } from './styles'
 
 export const AddExerciseModal = ({ onClick }) => {
-  const [inputs, setInputs] = useState({
-    type: 'chest'
-  })
+  const [inputs, setInputs] = useState({})
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
 
@@ -72,9 +70,7 @@ export const AddExerciseModal = ({ onClick }) => {
               <div>
                 <label>Type</label>
                 <select name="type" onChange={handleChange}>
-                  <option defaultChecked disabled>
-                    must select one
-                  </option>
+                  <option defaultChecked>must select</option>
                   <option value="Chest">chest</option>
                   <option value="Triceps">triceps</option>
                   <option value="Back">back</option>

@@ -14,28 +14,13 @@ export const logSlice = createSlice({
       state.error = false
     },
     getLogSuccess: (state, action) => {
-      // DUPLICANDO
-      state.logs.push(action.payload)
-      // if (
-      //   state.logs.length <= exercises.length &&
-      //   state.logs.push(action.payload)
-      // )
-      // if (
-      //   state.logs.length > 0 &&
-      //   state.logs.map((log) =>
-      //     log._id !== action.payload._id
-      //       ? state.logs.push(action.payload)
-      //       : ''
-      //   )
-      // )
-      // state.logs.push(action.payload)
-
-      // state.logs.map((log) =>
-      //   log._id !== action.payload._id || !state.logs
-      //     ? state.logs.push(action.payload)
-      //     : ''
-      // )
-      state.isFetching = false
+      // FIX LOGIC TO VERIFY ACTION.PAYLOAD._ID === STATE.LOGS._ID
+      if (action.payload.length >= state.logs.length - 1) {
+        state.logs.push(...action.payload)
+      } else {
+        state.logs = state.logs
+      }
+      state.error = false
     },
     getLogFailure: (state) => {
       state.isFetching = false

@@ -17,7 +17,6 @@ export async function logRequestCall(dispatch, id, token) {
         Authorization: token
       }
     })
-    console.log(request.data)
     dispatch(getLogSuccess(request.data))
   } catch (e) {
     dispatch(getLogFailure())

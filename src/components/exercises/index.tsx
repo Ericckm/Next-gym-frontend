@@ -26,7 +26,7 @@ const ExercisesSection = () => {
 
   // PAGINATION
   const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(2)
+  const [itemsPerPage, setItemsPerPage] = useState(3)
   const pages = []
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
@@ -66,8 +66,6 @@ const ExercisesSection = () => {
       [e.target.name]: value
     })
   }
-  console.log('filtros', filters)
-  console.log('exercisefiltrado', filteredExercises)
 
   useEffect(() => {
     allExerciseRequestCall(dispatch, token)

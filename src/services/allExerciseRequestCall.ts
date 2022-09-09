@@ -23,7 +23,6 @@ import {
 // : Promise<exerciseRequestCallType>
 
 export async function allExerciseRequestCall(dispatch, token) {
-  console.log(token)
   dispatch(getAllExerciseStart())
   try {
     const request = await axios.get('http://localhost:2500/exercises', {
@@ -31,7 +30,6 @@ export async function allExerciseRequestCall(dispatch, token) {
         Authorization: token
       }
     })
-    console.log(request.data)
     dispatch(getAllExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getAllExerciseFailure())
@@ -46,7 +44,6 @@ export async function unLikeExercisePutCall(dispatch, token, id) {
         Authorization: token
       }
     })
-    console.log(request.data)
     dispatch(unlikeExerciseSuccess(request.data))
   } catch (e) {
     dispatch(unlikeExerciseFailure())
@@ -65,7 +62,6 @@ export async function addExercise(dispatch, inputs, token) {
         }
       }
     )
-    console.log(request.data)
     dispatch(addExerciseSuccess(request.data))
   } catch (e) {
     dispatch(addExerciseFailure())

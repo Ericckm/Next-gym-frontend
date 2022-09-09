@@ -27,7 +27,6 @@ export async function exerciseRequestCall(dispatch, token) {
         Authorization: token
       }
     })
-    console.log(request.data)
     dispatch(getExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getExerciseFailure())
@@ -42,7 +41,6 @@ export async function likedExercisePutCall(dispatch, token, id) {
         Authorization: token
       }
     })
-    console.log(request.data)
     dispatch(likeExerciseSuccess(request.data))
   } catch (e) {
     dispatch(likeExerciseFailure())

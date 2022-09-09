@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { likedExercisePutCall } from '../../services/exerciseRequestCall'
-import { logRequestCall } from '../../services/logRequestCall'
 import { AddLogModal } from '../AddLogModal'
 import { LogList } from '../logList'
 
@@ -11,11 +10,6 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const [openModal, setOpenModal] = useState(false)
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  // const { error, isFetching } = useSelector((state: any) => state.log)
-  const logs = useSelector((state: any) => state.log.logs)
-  const exercises = useSelector((state: any) => state.exercise.exercises)
-  // const ids = exercises.map((i) => i._id)
-  // const exerciseWithLogs = logs.filter((i) => i.exerciseOwner === id).slice(-1)
 
   const handleModal = () => {
     setOpenModal(!openModal)
@@ -24,10 +18,6 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const handleLiked = () => {
     likedExercisePutCall(dispatch, token, id)
   }
-
-  useEffect(() => {
-    logRequestCall(dispatch, id, token)
-  }, [])
 
   return (
     <ExerciseContainer>
@@ -49,33 +39,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
             onClick={handleModal}
           />
         )}
-        {logs.map((i) =>
-          logs.filter((log) =>
-            i.exerciseOwner === id ? <LogList i={i} /> : ''
-          )
-        )}
-        {/* {logs.map((i) =>
-          i.exerciseOwner === exercises._id ? <LogList i={i} /> : ''
-        )} */}
-        {/* {logs
-          ?.map((i) => id === i.exerciseOwner)
-          .slice(-1)
-          .map((i) => (
-            <>
-              <LogList i={i} key={i._id} />
-              {openModal && (
-                <ExerciseModal
-                  name={name}
-                  execId={id}
-                  load={i.load}
-                  sets={i.sets}
-                  reps={i.reps}
-                  rest={i.rest}
-                  onClick={() => setOpenModal(false)}
-                />
-              )}
-            </>
-          ))} */}
+        <LogList id={id} />
       </ExerciseDesc>
       <ButtonContainer>
         <button onClick={handleLiked}>Remove</button>
