@@ -22,11 +22,12 @@ export const TopbarMain = styled.div`
   }
 
   div {
+    margin-top: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+
     align-items: center;
-    margin: 5px 0;
-    gap: 4px;
+    gap: 2px;
     transition: all 1.5s ease;
 
     :hover {
@@ -51,16 +52,20 @@ export const TopbarMain = styled.div`
       font-weight: 600;
       color: ${(props) => props.theme.colors.primary};
       transition: all 0.5s ease;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
     }
   }
 `
 
 export const MenuContainer = styled.div`
   width: 112px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   border: 1.8px solid;
   border-radius: 10px;
+  display: flex;
 `

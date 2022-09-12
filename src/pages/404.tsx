@@ -1,14 +1,20 @@
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import { NotFound } from '../components/404'
 
-const NotFound = () => {
+const NotFoundPage = () => {
   const router = useRouter()
+  const { loggedIn } = useSelector((state: any) => state.user)
+  console.log(loggedIn)
 
   useEffect(() => {
-    router.push('/')
+    setTimeout(() => {
+      loggedIn ? router.push('/training') : router.push('/')
+    }, 2000)
   }, [])
 
-  return <></>
+  return <NotFound />
 }
 
-export default NotFound
+export default NotFoundPage

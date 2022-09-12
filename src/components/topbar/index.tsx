@@ -3,6 +3,7 @@ import { Person, FitnessCenter, Grade, ExitToApp } from '@material-ui/icons'
 import { logout } from '../../redux/userSlice'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export const Topbar = () => {
   const dispatch = useDispatch()
@@ -21,30 +22,36 @@ export const Topbar = () => {
       <MenuContainer
         className={hrefPage.includes('exercises') ? 'active' : null}
       >
-        <div>
-          <FitnessCenter className="icon" />
-          <a href="exercises">Exercises</a>
-        </div>
+        <Link href="/exercises">
+          <a>
+            <FitnessCenter className="icon" />
+            Exercises
+          </a>
+        </Link>
       </MenuContainer>
       <MenuContainer
         className={hrefPage.includes('training') ? 'active' : null}
       >
-        <div>
-          <Grade className="icon" />
-          <a href="training">Training</a>
-        </div>
+        <Link href="/training">
+          <a>
+            <Grade className="icon" />
+            Training
+          </a>
+        </Link>
       </MenuContainer>
       <MenuContainer className={hrefPage.includes('user') ? 'active' : null}>
-        <div>
-          <Person className="icon" />
-          <a href="user">User</a>
-        </div>
+        <Link href="/user">
+          <a>
+            <Person className="icon" />
+            User
+          </a>
+        </Link>
       </MenuContainer>
       <MenuContainer>
-        <div>
+        <a onClick={handleLogout}>
           <ExitToApp className="icon" />
-          <a onClick={handleLogout}>logout</a>
-        </div>
+          Logout
+        </a>
       </MenuContainer>
     </TopbarMain>
   )
