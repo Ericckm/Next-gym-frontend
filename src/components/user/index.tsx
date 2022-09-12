@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../services/loginRequestCall'
+import { Loader } from '../loader'
 import {
   Bottom,
   Container,
@@ -17,6 +18,7 @@ const UserSection = () => {
     (state: any) => state.user.user.user
   )
   const { token } = useSelector((state: any) => state.user.user)
+  const { isFetching } = useSelector((state: any) => state.user)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -32,8 +34,6 @@ const UserSection = () => {
     updateUser(dispatch, inputs, token)
   }
 
-  console.log(inputs)
-
   const calcImc = () => {
     const newHeight = parseInt(height) / 100
     const imc = Math.round(parseInt(weight) / (newHeight * newHeight))
@@ -45,6 +45,10 @@ const UserSection = () => {
     month: 'long',
     day: 'numeric'
   })
+
+  useEffect(() => {
+    setTimeout(() => {}, 2000)
+  }, [isFetching])
 
   return (
     <Container>
@@ -59,21 +63,22 @@ const UserSection = () => {
             </h3>
           </div>
         </Top>
-        <Middle>
-          <div>
-            <img src="assets/userIcon.png" alt="" />
-          </div>
-          <form action="">
+        {!isFetching ? (
+          <Middle>
             <div>
-              <label>Name</label>
-              <input
-                type="string"
-                placeholder={name}
-                name="name"
-                onChange={handleChange}
-              />
+              <img src="assets/userIcon.png" alt="" />
             </div>
-            <div>
+            <form action="">
+              <div>
+                <label>Name</label>
+                <input
+                  type="string"
+                  placeholder={name}
+                  name="name"
+                  onChange={handleChange}
+                />
+              </div>
+              {/* <div>
               <label>Password</label>
               <input
                 type="password"
@@ -81,33 +86,36 @@ const UserSection = () => {
                 name="password"
                 onChange={handleChange}
               />
-            </div>
-            <div>
-              <label>Weight</label>
-              <input
-                type="number"
-                placeholder={weight + ' kg'}
-                name="weight"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Height</label>
-              <input
-                type="number"
-                placeholder={height + ' cm'}
-                name="height"
-                onChange={handleChange}
-              />
-            </div>
-            <FormBottom>
-              <label className="bmi">{email}</label>
-              <label className="bmi">
-                Your BMI is <span>{calcImc()}</span>
-              </label>
-            </FormBottom>
-          </form>
-        </Middle>
+            </div> */}
+              <div>
+                <label>Weight</label>
+                <input
+                  type="number"
+                  placeholder={weight + ' kg'}
+                  name="weight"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Height</label>
+                <input
+                  type="number"
+                  placeholder={height + ' cm'}
+                  name="height"
+                  onChange={handleChange}
+                />
+              </div>
+              <FormBottom>
+                <label className="bmi">{email}</label>
+                <label className="bmi">
+                  Your BMI is <span>{calcImc()}</span>
+                </label>
+              </FormBottom>
+            </form>
+          </Middle>
+        ) : (
+          <Loader />
+        )}
         <Bottom>
           <button type="submit" onClick={handleUpdate}>
             Update

@@ -6,7 +6,6 @@ import { NotFound } from '../components/404'
 const NotFoundPage = () => {
   const router = useRouter()
   const { loggedIn } = useSelector((state: any) => state.user)
-  console.log(loggedIn)
 
   useEffect(() => {
     setTimeout(() => {

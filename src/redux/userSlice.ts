@@ -26,7 +26,7 @@ export const userSlice = createSlice({
       state.error = true
     },
     logout: (state) => {
-      state.user = null
+      state.user = state.user
       state.loggedIn = false
       state.error = false
       state.isFetching = false

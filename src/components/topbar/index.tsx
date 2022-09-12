@@ -12,7 +12,7 @@ export const Topbar = () => {
   const handleLogout = (e) => {
     e.preventDefault()
     dispatch(logout())
-    router.push('/login')
+    router.push('/')
   }
 
   const hrefPage = window.location.href.split('/').slice(-1)

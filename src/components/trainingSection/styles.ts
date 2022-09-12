@@ -32,17 +32,19 @@ export const Title = styled.div`
 
   span {
     font-weight: 500;
-
     color: ${(props) => props.theme.colors.white};
   }
 
   select {
     padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: ${(props) => props.theme.colors.background};
     color: ${(props) => props.theme.colors.white};
     font-weight: 600;
     font-size: 14px;
-    width: 44px;
+    width: auto;
     border: none;
     border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 

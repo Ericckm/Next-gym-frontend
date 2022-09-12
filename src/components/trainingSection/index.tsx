@@ -16,32 +16,24 @@ export const TrainingSection = () => {
 
   // training select logic
   const [training, setTraining] = useState(0)
+  const [filter, setFilter] = useState({
+    typeA: '',
+    typeB: ''
+  })
 
   function selectHandler(e) {
     setTraining(parseInt(e.target.value))
   }
 
-  let typeA
-  let typeB
-
-  function trainingType() {
-    switch (training) {
-      case 1:
-        typeA = 'Back'
-        typeB = 'Biceps'
-        break
-      case 2:
-        typeA = 'Chest'
-        typeB = 'Triceps'
-        break
-      case 3:
-        typeA = 'Shoulder'
-        typeB = 'Leg'
-        break
-      default:
+  useEffect(() => {
+    if (training === 1) {
+      setFilter({ typeA: 'Back', typeB: 'Biceps' })
+    } else if (training === 2) {
+      setFilter({ typeA: 'Chest', typeB: 'Triceps' })
+    } else {
+      setFilter({ typeA: 'Shoulder', typeB: 'Leg' })
     }
-  }
-  trainingType()
+  }, [training])
 
   useEffect(() => {
     exerciseRequestCall(dispatch, token)
@@ -56,14 +48,17 @@ export const TrainingSection = () => {
         </h3>
         <p>Select a training below</p>
         <select onChange={selectHandler}>
+          <option defaultChecked value="0">
+            here
+          </option>
           <option value="1">A</option>
           <option value="2">B</option>
           <option value="3">C</option>
         </select>
         {training !== 0 && (
           <p>
-            this training focuses on <span>{typeA} </span>
-            and <span>{typeB}</span> musculature
+            this training focuses on <span>{filter.typeA} </span>
+            and <span>{filter.typeB}</span> musculature
           </p>
         )}
       </Title>
@@ -73,7 +68,9 @@ export const TrainingSection = () => {
         ) : (
           <ul>
             {exercises
-              ?.filter((i) => i.type === typeA || i.type === typeB)
+              ?.filter(
+                (i) => i.type === filter.typeA || i.type === filter.typeB
+              )
               .map((i) => (
                 <ExerciseList
                   key={i._id}

@@ -43,6 +43,7 @@ export const Middle = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  transition: all 5s ease;
 
   div {
     overflow: hidden;
