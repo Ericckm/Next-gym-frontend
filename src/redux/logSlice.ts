@@ -15,11 +15,8 @@ export const logSlice = createSlice({
     },
     getLogSuccess: (state, action) => {
       // FIX LOGIC TO VERIFY ACTION.PAYLOAD._ID === STATE.LOGS._ID
-      if (action.payload.length >= state.logs.length - 1) {
-        state.logs.push(...action.payload)
-      } else {
-        state.logs = state.logs
-      }
+      state.logs.push(...action.payload)
+      state.isFetching = false
       state.error = false
     },
     getLogFailure: (state) => {

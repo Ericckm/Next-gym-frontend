@@ -17,7 +17,6 @@ const Container = styled.div`
 export const LogList = ({ id }) => {
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-
   const logs = useSelector((state: any) => state.log.logs)
 
   useEffect(() => {
