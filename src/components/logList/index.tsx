@@ -25,21 +25,6 @@ export const LogList = ({ id }) => {
 
   return (
     <>
-      {/* {logs ? (
-        logs
-          .filter((i) => i.exerciseOwner === id)
-          .map((i) => (
-            <>
-              <span>Load -{i.load} kg</span>
-              <span>Sets - {i.sets} x</span>
-              <span>Reps - {i.reps} times</span>
-              <span>Rest - {i.rest} seconds</span>
-            </>
-          ))
-      ) : (
-        <span>no log</span>
-      )} */}
-
       {id &&
         logs.map((log) =>
           log.exerciseOwner === id ? (

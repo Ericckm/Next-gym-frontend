@@ -14,8 +14,14 @@ export const logSlice = createSlice({
       state.error = false
     },
     getLogSuccess: (state, action) => {
-      // FIX LOGIC TO VERIFY ACTION.PAYLOAD._ID === STATE.LOGS._ID
-      state.logs.push(action.payload)
+      const found = state.logs.find((i) => {
+        return i._id === action.payload._id
+      })
+      if (!found) {
+        state.logs.push(action.payload)
+      }
+
+      state.isFetching = false
       state.error = false
     },
     getLogFailure: (state) => {
@@ -28,7 +34,13 @@ export const logSlice = createSlice({
       state.error = false
     },
     addLogSuccess: (state, action) => {
-      state.logs.push(action.payload)
+      const logIndex = state.logs.findIndex((i) => {
+        return i.exerciseOwner === action.payload.exerciseOwner
+      })
+      if (logIndex === -1) {
+        state.logs.push(action.payload)
+      }
+      state.logs.splice(logIndex, 1, action.payload)
       state.isFetching = false
     },
     addLogFailure: (state) => {

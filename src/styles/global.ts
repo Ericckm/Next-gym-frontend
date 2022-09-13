@@ -18,7 +18,7 @@ export default createGlobalStyle`
 }
 
 body {
-  background: linear-gradient(#5C6984, #B7BECD);
+  background: linear-gradient(#5C6984, #C3C9D5);
   color: ${(props) => props.theme.colors.primary};
   font: 400 16px Roboto, sans-serif;
   height: 100vh;
