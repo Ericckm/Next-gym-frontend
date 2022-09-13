@@ -1,26 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`
-
-export const MainContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  height: 100%;
-`
-
 export const Top = styled.div`
   display: flex;
   justify-content: center;
   flex: 0.5;
   align-items: center;
-  width: 100%;
+  width: 80%;
 
   div {
     h3 {
@@ -43,7 +28,7 @@ export const Middle = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  transition: all 5s ease;
+  width: 80%;
 
   div {
     overflow: hidden;
@@ -115,6 +100,7 @@ export const Bottom = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 80%;
 
   button {
     width: 76px;
@@ -126,7 +112,7 @@ export const Bottom = styled.div`
     color: ${(props) => props.theme.colors.primary};
     cursor: pointer;
     background-color: ${(props) => props.theme.colors.white};
-    transition: all 0.5s ease;
+    transition: all 1s ease;
 
     :hover {
       color: ${(props) => props.theme.colors.white};

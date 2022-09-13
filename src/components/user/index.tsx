@@ -2,14 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { updateUser } from '../../services/loginRequestCall'
 import { Loader } from '../loader'
-import {
-  Bottom,
-  Container,
-  FormBottom,
-  MainContent,
-  Middle,
-  Top
-} from './styles'
+import { Bottom, FormBottom, Middle, Top } from './styles'
 
 const UserSection = () => {
   const dispatch = useDispatch()
@@ -51,34 +44,33 @@ const UserSection = () => {
   }, [isFetching])
 
   return (
-    <Container>
-      <MainContent>
-        <Top>
+    <>
+      <Top>
+        <div>
+          <h3>
+            Hello <span>{name.charAt().toUpperCase() + name.slice(1)},</span>{' '}
+            you are an active member since{' '}
+            <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep
+            the good job.
+          </h3>
+        </div>
+      </Top>
+      {!isFetching ? (
+        <Middle>
           <div>
-            <h3>
-              Hello <span>{name.charAt().toUpperCase() + name.slice(1)},</span>{' '}
-              you are an active member since{' '}
-              <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep
-              the good job.
-            </h3>
+            <img src="assets/userIcon.png" alt="" />
           </div>
-        </Top>
-        {!isFetching ? (
-          <Middle>
+          <form action="">
             <div>
-              <img src="assets/userIcon.png" alt="" />
+              <label>Name</label>
+              <input
+                type="string"
+                placeholder={name}
+                name="name"
+                onChange={handleChange}
+              />
             </div>
-            <form action="">
-              <div>
-                <label>Name</label>
-                <input
-                  type="string"
-                  placeholder={name}
-                  name="name"
-                  onChange={handleChange}
-                />
-              </div>
-              {/* <div>
+            {/* <div>
               <label>Password</label>
               <input
                 type="password"
@@ -87,42 +79,41 @@ const UserSection = () => {
                 onChange={handleChange}
               />
             </div> */}
-              <div>
-                <label>Weight</label>
-                <input
-                  type="number"
-                  placeholder={weight + ' kg'}
-                  name="weight"
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label>Height</label>
-                <input
-                  type="number"
-                  placeholder={height + ' cm'}
-                  name="height"
-                  onChange={handleChange}
-                />
-              </div>
-              <FormBottom>
-                <label className="bmi">{email}</label>
-                <label className="bmi">
-                  Your BMI is <span>{calcImc()}</span>
-                </label>
-              </FormBottom>
-            </form>
-          </Middle>
-        ) : (
-          <Loader />
-        )}
-        <Bottom>
-          <button type="submit" onClick={handleUpdate}>
-            Update
-          </button>
-        </Bottom>
-      </MainContent>
-    </Container>
+            <div>
+              <label>Weight</label>
+              <input
+                type="number"
+                placeholder={weight + ' kg'}
+                name="weight"
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label>Height</label>
+              <input
+                type="number"
+                placeholder={height + ' cm'}
+                name="height"
+                onChange={handleChange}
+              />
+            </div>
+            <FormBottom>
+              <label className="bmi">{email}</label>
+              <label className="bmi">
+                Your BMI is <span>{calcImc()}</span>
+              </label>
+            </FormBottom>
+          </form>
+        </Middle>
+      ) : (
+        <Loader />
+      )}
+      <Bottom>
+        <button type="submit" onClick={handleUpdate}>
+          Update
+        </button>
+      </Bottom>
+    </>
   )
 }
 

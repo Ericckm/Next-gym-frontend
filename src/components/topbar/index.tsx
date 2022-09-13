@@ -1,4 +1,4 @@
-import { MenuContainer, TopbarMain } from './styles'
+import { Container, MenuContainer, TopbarMain } from './styles'
 import { Person, FitnessCenter, Grade, ExitToApp } from '@material-ui/icons'
 import { logout } from '../../redux/userSlice'
 import { useDispatch } from 'react-redux'
@@ -19,40 +19,42 @@ export const Topbar = () => {
 
   return (
     <TopbarMain>
-      <MenuContainer
-        className={hrefPage.includes('exercises') ? 'active' : null}
-      >
-        <Link href="/exercises">
-          <a>
-            <FitnessCenter className="icon" />
-            Exercises
+      <Container>
+        <MenuContainer
+          className={hrefPage.includes('exercises') ? 'active' : null}
+        >
+          <Link href="/exercises">
+            <a>
+              <FitnessCenter className="icon" />
+              Exercises
+            </a>
+          </Link>
+        </MenuContainer>
+        <MenuContainer
+          className={hrefPage.includes('training') ? 'active' : null}
+        >
+          <Link href="/training">
+            <a>
+              <Grade className="icon" />
+              Training
+            </a>
+          </Link>
+        </MenuContainer>
+        <MenuContainer className={hrefPage.includes('user') ? 'active' : null}>
+          <Link href="/user">
+            <a>
+              <Person className="icon" />
+              User
+            </a>
+          </Link>
+        </MenuContainer>
+        <MenuContainer>
+          <a onClick={handleLogout}>
+            <ExitToApp className="icon" />
+            Logout
           </a>
-        </Link>
-      </MenuContainer>
-      <MenuContainer
-        className={hrefPage.includes('training') ? 'active' : null}
-      >
-        <Link href="/training">
-          <a>
-            <Grade className="icon" />
-            Training
-          </a>
-        </Link>
-      </MenuContainer>
-      <MenuContainer className={hrefPage.includes('user') ? 'active' : null}>
-        <Link href="/user">
-          <a>
-            <Person className="icon" />
-            User
-          </a>
-        </Link>
-      </MenuContainer>
-      <MenuContainer>
-        <a onClick={handleLogout}>
-          <ExitToApp className="icon" />
-          Logout
-        </a>
-      </MenuContainer>
+        </MenuContainer>
+      </Container>
     </TopbarMain>
   )
 }

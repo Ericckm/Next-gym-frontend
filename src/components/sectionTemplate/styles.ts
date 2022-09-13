@@ -5,9 +5,8 @@ export const Section = styled.div`
   height: calc(100vh - 70px);
   position: relative;
   top: 70px;
-
-  > * {
-    width: 100vw;
-    height: calc(100vh - 70px);
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `

@@ -3,11 +3,17 @@ import styled from 'styled-components'
 export const TopbarMain = styled.div`
   width: 100%;
   height: 70px;
-  background-color: none;
   position: absolute;
   top: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+`
+
+export const Container = styled.div`
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
 
   .active {
     color: ${(props) => props.theme.colors.white};
@@ -22,10 +28,8 @@ export const TopbarMain = styled.div`
   }
 
   div {
-    margin-top: 10px;
     display: flex;
     justify-content: center;
-
     align-items: center;
     gap: 2px;
     transition: all 1.5s ease;
@@ -63,9 +67,10 @@ export const TopbarMain = styled.div`
 `
 
 export const MenuContainer = styled.div`
-  width: 112px;
+  width: 104px;
+  height: 60px;
   cursor: pointer;
-  border: 1.8px solid;
-  border-radius: 10px;
+  border: 1px solid;
+  border-radius: 20px;
   display: flex;
 `

@@ -1,27 +1,13 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-
-export const MainContent = styled.div`
-  display: flex;
-  width: 80%;
-  height: 100%;
-  padding: 10px;
-  flex-direction: column;
-`
-
 export const Top = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
   gap: 8px;
+  width: 80%;
 
   h3 {
     font-weight: 500;
@@ -45,12 +31,13 @@ export const FilterContainer = styled.div`
 
     select {
       padding: 4px;
-      background-color: ${(props) => props.theme.colors.background};
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.primary};
       font-weight: 600;
       font-size: 14px;
       width: 120px;
       border: none;
+      background: none;
+
       border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 
       &:focus {
@@ -62,14 +49,14 @@ export const FilterContainer = styled.div`
       padding: 4px;
       border: none;
       border-bottom: 1px solid ${(props) => props.theme.colors.primary};
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.primary};
       font-weight: 600;
       font-size: 14px;
-      background-color: ${(props) => props.theme.colors.background};
+      background: none;
       width: 120px;
 
       &::placeholder {
-        color: ${(props) => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.primary};
         font-weight: 300;
       }
 
@@ -87,7 +74,9 @@ export const FilterContainer = styled.div`
 export const Mid = styled.div`
   display: flex;
   flex: 3;
-  padding: 10px;
+  width: 80%;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 
   ul {
     align-items: center;
@@ -95,7 +84,6 @@ export const Mid = styled.div`
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    width: 80%;
     gap: 10px;
   }
 `
@@ -104,9 +92,10 @@ export const Bottom = styled.div`
   display: flex;
   flex: 1;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   gap: 8px;
-  padding: 10px;
+  width: 70%;
 
   ul {
     display: flex;

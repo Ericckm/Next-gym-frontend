@@ -1,11 +1,4 @@
-import {
-  Bottom,
-  Container,
-  FilterContainer,
-  MainContent,
-  Mid,
-  Top
-} from './styles'
+import { Bottom, FilterContainer, Mid, Top } from './styles'
 import { AddCircle } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
 import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
@@ -13,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { AllExercisesList } from '../allExercisesList'
 import { AddExerciseModal } from '../AddExerciseModal'
 import { Loader } from '../loader'
+import { ApiError } from '../500'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
@@ -83,66 +77,65 @@ const ExercisesSection = () => {
   }, [filters, allExercises])
 
   return (
-    <Container>
-      <MainContent>
-        <Top>
+    <>
+      <Top>
+        <div>
+          <h3>All exercises</h3>
+        </div>
+        <FilterContainer>
           <div>
-            <h3>All exercises</h3>
+            <label>filter by name</label>
+            <input
+              type="text"
+              placeholder="search"
+              name="name"
+              onChange={handleFilters}
+            />
           </div>
-          <FilterContainer>
-            <div>
-              <label>filter by name</label>
-              <input
-                type="text"
-                placeholder="search"
-                name="name"
-                onChange={handleFilters}
+          <div>
+            <label htmlFor="">filter by type</label>
+            <select name="type" onChange={handleFilters}>
+              <option defaultChecked value="">
+                all
+              </option>
+              <option value="Chest">chest</option>
+              <option value="Triceps">triceps</option>
+              <option value="Back">back</option>
+              <option value="Biceps">biceps</option>
+              <option value="Leg">leg</option>
+              <option value="Shoulder">shoulder</option>
+            </select>
+          </div>
+        </FilterContainer>
+      </Top>
+      {isFetching && !error ? (
+        <Loader />
+      ) : (
+        <Mid>
+          <ul>
+            {error && <ApiError />}
+            {currentItem?.map((i) => (
+              <AllExercisesList
+                key={i._id}
+                name={i.name}
+                type={i.type}
+                videoUrl={i.videoUrl}
+                id={i._id}
               />
-            </div>
-            <div>
-              <label htmlFor="">filter by type</label>
-              <select name="type" onChange={handleFilters}>
-                <option defaultChecked value="">
-                  all
-                </option>
-                <option value="Chest">chest</option>
-                <option value="Triceps">triceps</option>
-                <option value="Back">back</option>
-                <option value="Biceps">biceps</option>
-                <option value="Leg">leg</option>
-                <option value="Shoulder">shoulder</option>
-              </select>
-            </div>
-          </FilterContainer>
-        </Top>
-        {isFetching && !error ? (
-          <Loader />
-        ) : (
-          <Mid>
-            <ul>
-              {currentItem?.map((i) => (
-                <AllExercisesList
-                  key={i._id}
-                  name={i.name}
-                  type={i.type}
-                  videoUrl={i.videoUrl}
-                  id={i._id}
-                />
-              ))}
-            </ul>
-          </Mid>
-        )}
-        {openModal && <AddExerciseModal onClick={handleClick} />}
-        <Bottom>
-          <ul className="pageNumbers">{renderPageNumbers}</ul>
-          <div>
-            <button onClick={handleClick}>
-              <AddCircle className="add" />
-            </button>
-          </div>
-        </Bottom>
-      </MainContent>
-    </Container>
+            ))}
+          </ul>
+        </Mid>
+      )}
+      {openModal && <AddExerciseModal onClick={handleClick} />}
+      <Bottom>
+        <ul className="pageNumbers">{renderPageNumbers}</ul>
+        <div>
+          <button onClick={handleClick}>
+            <AddCircle className="add" />
+          </button>
+        </div>
+      </Bottom>
+    </>
   )
 }
 

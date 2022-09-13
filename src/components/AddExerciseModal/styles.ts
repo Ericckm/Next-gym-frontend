@@ -21,7 +21,6 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
-  opacity: 0.8;
 `
 
 export const Top = styled.div`

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { exerciseRequestCall } from '../../services/exerciseRequestCall'
+import { ApiError } from '../500'
 import { ExerciseList } from '../exerciseList'
 import { Loader } from '../loader'
-import { Container, MainContent, Title } from './styles'
+import { MainContent, Title } from './styles'
 
 export const TrainingSection = () => {
   const dispatch = useDispatch()
@@ -40,7 +41,7 @@ export const TrainingSection = () => {
   }, [])
 
   return (
-    <Container>
+    <>
       <Title>
         <h3>
           Welcome <span>{name.charAt().toUpperCase() + name.slice(1)}, </span>
@@ -67,6 +68,7 @@ export const TrainingSection = () => {
           <Loader />
         ) : (
           <ul>
+            {error && <ApiError />}
             {exercises
               ?.filter(
                 (i) => i.type === filter.typeA || i.type === filter.typeB
@@ -84,6 +86,6 @@ export const TrainingSection = () => {
           </ul>
         )}
       </MainContent>
-    </Container>
+    </>
   )
 }
