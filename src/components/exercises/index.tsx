@@ -116,7 +116,7 @@ const ExercisesSection = () => {
         </FilterContainer>
       </Top>
       {isFetching && !error && <Loader />}
-      {openLogGraph ? (
+      {!openLogGraph ? (
         <ExerciseContainer>
           <ExerciseUl>
             {error && <ApiError />}
@@ -133,11 +133,10 @@ const ExercisesSection = () => {
           </ExerciseUl>
         </ExerciseContainer>
       ) : (
-        <LogGraphic>
+        <LogGraphic filters={filters} token={token} openLogGraph={openLogGraph}>
           <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
         </LogGraphic>
       )}
-
       {openModal && <AddExerciseModal onClick={handleClick} />}
       <Bottom>
         <ul className="pageNumbers">{renderPageNumbers}</ul>

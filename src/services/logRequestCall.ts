@@ -1,5 +1,10 @@
 import axios from 'axios'
 import {
+  getAllLogFailure,
+  getAllLogStart,
+  getAllLogSuccess
+} from '../redux/allLogsSlice'
+import {
   addLogFailure,
   addLogStart,
   addLogSuccess,
@@ -8,7 +13,7 @@ import {
   getLogSuccess
 } from '../redux/logSlice'
 
-// GET LOGS
+// GET LOG FROM EXERCISE ID
 export async function logRequestCall(dispatch, id, token) {
   dispatch(getLogStart())
   try {
@@ -36,5 +41,24 @@ export async function addLog(dispatch, inputs, token) {
     dispatch(addLogSuccess(request.data))
   } catch (e) {
     dispatch(addLogFailure())
+  }
+}
+
+// GET ALLLOGS FROM EXERCISE ID
+export async function allLogsRequestCall(dispatch, id, token) {
+  dispatch(getAllLogStart())
+  try {
+    const request = await axios.get(
+      `http://localhost:2500/exercise/logs/${id}`,
+      {
+        headers: {
+          Authorization: token
+        }
+      }
+    )
+
+    dispatch(getAllLogSuccess(request.data))
+  } catch (e) {
+    dispatch(getAllLogFailure())
   }
 }

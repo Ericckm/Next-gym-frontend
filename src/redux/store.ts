@@ -16,6 +16,7 @@ import {
 // import storage from 'redux-persist/lib/storage'
 
 import storage from './storageWorkaround'
+import allLogsReducer from './allLogsSlice'
 
 const persistConfig = {
   key: 'root',
@@ -30,7 +31,8 @@ export const store = configureStore({
     user: persistedReducer,
     exercise: exerciseReducer,
     allExercises: allExerciseReducer,
-    log: logReducer
+    log: logReducer,
+    allLogs: allLogsReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

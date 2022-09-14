@@ -27,7 +27,8 @@ export const ExercisesUl = styled.ul`
   display: flex;
   align-items: center;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 4px;
   overflow-y: hidden;
 `
 
