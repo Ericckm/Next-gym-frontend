@@ -10,8 +10,9 @@ export const Top = styled.div`
   width: 80%;
 
   h3 {
-    font-weight: 500;
-    color: ${(props) => props.theme.colors.white};
+    font-size: 24px;
+    font-weight: 600;
+    color: ${(props) => props.theme.colors.primary};
   }
 `
 
@@ -84,24 +85,25 @@ export const Flipbtn = styled.button`
   position: absolute;
   bottom: 0;
   right: 0;
-  font-size: 16px;
-  padding: 15px 28px;
+  font-size: 18px;
+  padding: 15px 34px;
   text-align: center;
   text-decoration: none;
   border: none;
-  border-top: 1px solid;
-  border-left: 1px solid;
+  border-top: 2px solid;
+  border-left: 2px solid;
   border-radius: 20px 0 15px 20px;
   cursor: pointer;
   transition: all 1s ease;
-  font-weight: 600;
+  font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-  background: none;
   color: ${(props) => props.theme.colors.white};
-  border-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.secundary};
+  border-color: ${(props) => props.theme.colors.white};
 
   :hover {
-    color: ${(props) => props.theme.colors.primary};
+    border-color: ${(props) => props.theme.colors.secundary};
+    color: ${(props) => props.theme.colors.secundary};
     background-color: ${(props) => props.theme.colors.white};
   }
 `
@@ -112,24 +114,45 @@ export const Bottom = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 8px;
-  width: 70%;
+  gap: 12px;
+  width: 80%;
+
+  button {
+    size: 12px;
+    background-color: ${(props) => props.theme.colors.secundary};
+    border: 1.4px solid ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    transition: all 1s ease;
+    cursor: pointer;
+
+    :hover {
+      border-color: ${(props) => props.theme.colors.secundary};
+      color: ${(props) => props.theme.colors.secundary};
+      background-color: ${(props) => props.theme.colors.white};
+    }
+  }
 
   ul {
     display: flex;
-    border: 1px;
+    border: 2px;
     gap: 4px;
     font-size: 14px;
     font-weight: 400;
 
     .active {
-      background-color: ${(props) => props.theme.colors.white};
-      border: 1px solid ${(props) => props.theme.colors.primary};
-      color: ${(props) => props.theme.colors.primary};
+      background-color: ${(props) => props.theme.colors.secundary};
+      border: 1px solid ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
+      transition: all 1s ease;
 
       :hover {
-        color: ${(props) => props.theme.colors.primary};
-        border: 1px solid ${(props) => props.theme.colors.white};
+        color: ${(props) => props.theme.colors.secundary};
+        border-color: ${(props) => props.theme.colors.secundary};
+        background-color: ${(props) => props.theme.colors.white};
       }
     }
 
@@ -144,20 +167,6 @@ export const Bottom = styled.div`
         color: ${(props) => props.theme.colors.white};
         border: 1px solid ${(props) => props.theme.colors.white};
       }
-    }
-  }
-
-  button {
-    display: flex;
-    border-color: ${(props) => props.theme.colors.primary};
-    border-radius: 50%;
-    background-color: ${(props) => props.theme.colors.background};
-    cursor: pointer;
-
-    .add {
-      font-size: 26px;
-      color: ${(props) => props.theme.colors.primary};
-      overflow: hidden;
     }
   }
 `

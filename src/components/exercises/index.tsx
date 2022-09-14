@@ -1,5 +1,5 @@
 import { Bottom, ExerciseUl, FilterContainer, Flipbtn, Top } from './styles'
-import { AddCircle } from '@material-ui/icons'
+import { Add } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
 import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
 import { useDispatch, useSelector } from 'react-redux'
@@ -73,6 +73,8 @@ const ExercisesSection = () => {
     allExerciseRequestCall(dispatch, token)
   }, [])
 
+  console.log(allExercises)
+
   useEffect(() => {
     setFilteredExercises(
       allExercises.filter((item) =>
@@ -115,10 +117,11 @@ const ExercisesSection = () => {
           </div>
         </FilterContainer>
       </Top>
-      {isFetching && !error && <Loader />}
+
       {!openLogGraph ? (
         <ExerciseContainer>
           <ExerciseUl>
+            {isFetching && !error && <Loader />}
             {error && <ApiError />}
             {currentItem?.map((i) => (
               <AllExercisesList
@@ -133,18 +136,16 @@ const ExercisesSection = () => {
           </ExerciseUl>
         </ExerciseContainer>
       ) : (
-        <LogGraphic filters={filters} token={token} openLogGraph={openLogGraph}>
+        <LogGraphic filters={filters} token={token}>
           <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
         </LogGraphic>
       )}
       {openModal && <AddExerciseModal onClick={handleClick} />}
       <Bottom>
         <ul className="pageNumbers">{renderPageNumbers}</ul>
-        <div>
-          <button onClick={handleClick}>
-            <AddCircle className="add" />
-          </button>
-        </div>
+        <button onClick={handleClick}>
+          <Add className="add" />
+        </button>
       </Bottom>
     </>
   )

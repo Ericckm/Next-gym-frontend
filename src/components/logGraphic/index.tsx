@@ -12,13 +12,14 @@ import {
   Top
 } from './styles'
 
-export const LogGraphic = ({ children, filters, token, openLogGraph }) => {
+export const LogGraphic = ({ children, filters, token }) => {
   const dispatch = useDispatch()
   const { isFetching, error, allExercises } = useSelector(
     (state: any) => state.allExercises
   )
   const [filteredExercises, setFilteredExercises] = useState([])
   const { allLogs } = useSelector((state: any) => state.allLogs)
+  const [param, setParam] = useState('load')
 
   // make another api call to get all exercises, liked or not liked
   useEffect(() => {
@@ -46,9 +47,8 @@ export const LogGraphic = ({ children, filters, token, openLogGraph }) => {
       ),
       datasets: [
         {
-          labels: 'My First dataset',
+          labels: 'Log Chart',
           backgroundColor: 'rgb(255, 99, 132)',
-          borderColor: 'rgb(255, 99, 132)',
           data: allLogs?.map((i) => i.load)
         }
       ]
@@ -64,7 +64,7 @@ export const LogGraphic = ({ children, filters, token, openLogGraph }) => {
   }, [allLogs])
 
   const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
-    month: 'long',
+    month: 'short',
     day: 'numeric'
   })
 
@@ -87,9 +87,9 @@ export const LogGraphic = ({ children, filters, token, openLogGraph }) => {
         </ExercisesUl>
         <GraphContainer>
           <SpanContainer>
-            <button>Load</button>
-            <button>Sets</button>
-            <button>Reps</button>
+            <button onClick={() => setParam('load')}>Load</button>
+            <button onClick={() => setParam('sets')}>Sets</button>
+            <button onClick={() => setParam('reps')}>Reps</button>
           </SpanContainer>
           <ProgressionContainer>
             {allLogs.length > 0 ? (
