@@ -71,20 +71,38 @@ export const FilterContainer = styled.div`
   }
 `
 
-export const Mid = styled.div`
+export const ExerciseUl = styled.ul`
+  align-items: center;
+  flex: 4;
+  justify-content: center;
   display: flex;
-  flex: 3;
-  width: 80%;
-  border-radius: 20px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  flex-wrap: wrap;
+  gap: 10px;
+`
 
-  ul {
-    align-items: center;
-    flex: 4;
-    justify-content: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+export const Flipbtn = styled.button`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 16px;
+  padding: 15px 28px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-radius: 20px 0 15px 20px;
+  cursor: pointer;
+  transition: all 1s ease;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  background: none;
+  color: ${(props) => props.theme.colors.white};
+  border-color: ${(props) => props.theme.colors.primary};
+
+  :hover {
+    color: ${(props) => props.theme.colors.primary};
+    background-color: ${(props) => props.theme.colors.white};
   }
 `
 

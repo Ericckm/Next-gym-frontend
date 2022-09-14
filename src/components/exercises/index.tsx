@@ -1,4 +1,4 @@
-import { Bottom, FilterContainer, Mid, Top } from './styles'
+import { Bottom, ExerciseUl, FilterContainer, Flipbtn, Top } from './styles'
 import { AddCircle } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
 import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
@@ -7,6 +7,8 @@ import { AllExercisesList } from '../allExercisesList'
 import { AddExerciseModal } from '../AddExerciseModal'
 import { Loader } from '../loader'
 import { ApiError } from '../500'
+import { ExerciseContainer } from '../exerciseContainer'
+import { LogGraphic } from '../logGraphic'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
@@ -49,9 +51,14 @@ const ExercisesSection = () => {
   })
 
   const [openModal, setOpenModal] = useState(false)
+  const [openLogGraph, setOpenLogGraphModal] = useState(false)
 
   const handleClick = () => {
     setOpenModal(!openModal)
+  }
+
+  const handleLogGraphModal = () => {
+    setOpenLogGraphModal(!openLogGraph)
   }
 
   const handleFilters = (e) => {
@@ -108,11 +115,10 @@ const ExercisesSection = () => {
           </div>
         </FilterContainer>
       </Top>
-      {isFetching && !error ? (
-        <Loader />
-      ) : (
-        <Mid>
-          <ul>
+      {isFetching && !error && <Loader />}
+      {openLogGraph ? (
+        <ExerciseContainer>
+          <ExerciseUl>
             {error && <ApiError />}
             {currentItem?.map((i) => (
               <AllExercisesList
@@ -123,9 +129,15 @@ const ExercisesSection = () => {
                 id={i._id}
               />
             ))}
-          </ul>
-        </Mid>
+            <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
+          </ExerciseUl>
+        </ExerciseContainer>
+      ) : (
+        <LogGraphic>
+          <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
+        </LogGraphic>
       )}
+
       {openModal && <AddExerciseModal onClick={handleClick} />}
       <Bottom>
         <ul className="pageNumbers">{renderPageNumbers}</ul>
@@ -140,3 +152,21 @@ const ExercisesSection = () => {
 }
 
 export default ExercisesSection
+
+{
+  /* {isFetching && !error ? (
+        <Loader />
+      ) : (
+        <ExerciseContainer>
+          <ExerciseUl>
+            {error && <ApiError />}
+            {currentItem?.map((i) => (
+              <AllExercisesList
+                key={i._id}
+                name={i.name}
+                type={i.type}
+                videoUrl={i.videoUrl}
+                id={i._id}
+              />
+            ))} */
+}
