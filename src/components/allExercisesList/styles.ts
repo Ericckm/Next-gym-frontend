@@ -28,6 +28,7 @@ export const Title = styled.div`
   align-items: center;
   font-size: 14px;
   font-weight: 500;
+  color: ${(props) => props.theme.colors.primary};
   border-bottom: 1px solid ${(props) => props.theme.colors.primary};
   transition: all 1s ease;
 
@@ -75,8 +76,8 @@ export const ButtonContainer = styled.div`
     height: 100%;
     border-style: none;
     padding: 4px;
-    transition: all 0.5s ease;
-    background-color: ${(props) => props.theme.colors.secundary};
+    transition: all 1s ease;
+    background-color: ${(props) => props.theme.colors.third};
     color: ${(props) => props.theme.colors.white};
     cursor: pointer;
     border-left: 1px solid ${(props) => props.theme.colors.primary};
@@ -84,7 +85,7 @@ export const ButtonContainer = styled.div`
 
     :hover {
       background-color: ${(props) => props.theme.colors.white};
-      color: ${(props) => props.theme.colors.secundary};
+      color: ${(props) => props.theme.colors.third};
     }
   }
 `

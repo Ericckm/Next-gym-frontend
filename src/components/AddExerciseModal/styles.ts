@@ -17,6 +17,7 @@ export const Container = styled.div`
   width: 40%;
   height: 60%;
   background-color: ${(props) => props.theme.colors.white};
+  opacity: 0.9;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -65,7 +66,7 @@ export const Button = styled.div`
     :hover {
       color: ${(props) => props.theme.colors.white};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.secundary};
     }
   }
 `
@@ -90,7 +91,7 @@ export const Form = styled.div`
 
     div {
       display: flex;
-      width: 80%;
+      width: 100%;
       justify-content: flex-start;
       gap: 5px;
 
@@ -102,7 +103,7 @@ export const Form = styled.div`
 
       input {
         border: none;
-        width: 120px;
+        min-width: 240px;
         font-size: 14px;
         font-weight: 600;
         color: ${(props) => props.theme.colors.primary};
@@ -119,7 +120,7 @@ export const Form = styled.div`
 
         &::placeholder {
           font-weight: 400;
-          color: ${(props) => props.theme.colors.background};
+          color: ${(props) => props.theme.colors.secundary};
         }
 
         &:focus {
@@ -133,7 +134,7 @@ export const Form = styled.div`
         color: ${(props) => props.theme.colors.primary};
         font-weight: 600;
         font-size: 14px;
-        width: 120px;
+        width: auto;
         border: none;
         border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 
@@ -173,7 +174,7 @@ export const ButtonContainer = styled.div`
 
     :hover {
       color: ${(props) => props.theme.colors.white};
-      background-color: ${(props) => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.secundary};
     }
   }
 `

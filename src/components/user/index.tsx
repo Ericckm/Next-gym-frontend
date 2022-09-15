@@ -70,15 +70,6 @@ const UserSection = () => {
                 onChange={handleChange}
               />
             </div>
-            {/* <div>
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                onChange={handleChange}
-              />
-            </div> */}
             <div>
               <label>Weight</label>
               <input

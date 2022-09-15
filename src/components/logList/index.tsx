@@ -29,7 +29,7 @@ export const LogList = ({ id }) => {
         logs.map((log) =>
           log.exerciseOwner === id ? (
             <Container key={log._id}>
-              <span>Load -{log.load} kg</span>
+              <span>Load - {log.load} kg</span>
               <span>Sets - {log.sets} x</span>
               <span>Reps - {log.reps} times</span>
               <span>Rest - {log.rest} seconds</span>

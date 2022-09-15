@@ -8,12 +8,6 @@ export const Top = styled.div`
   align-items: center;
   gap: 8px;
   width: 80%;
-
-  h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: ${(props) => props.theme.colors.primary};
-  }
 `
 
 export const FilterContainer = styled.div`
@@ -29,6 +23,8 @@ export const FilterContainer = styled.div`
     height: 100%;
     align-items: center;
     gap: 8px;
+    color: ${(props) => props.theme.colors.third};
+    font-weight: 400;
 
     select {
       padding: 4px;
@@ -38,6 +34,8 @@ export const FilterContainer = styled.div`
       width: 120px;
       border: none;
       background: none;
+      color: ${(props) => props.theme.colors.third};
+      font-weight: 400;
 
       border-bottom: 1px solid ${(props) => props.theme.colors.primary};
 
@@ -50,14 +48,14 @@ export const FilterContainer = styled.div`
       padding: 4px;
       border: none;
       border-bottom: 1px solid ${(props) => props.theme.colors.primary};
-      color: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.third};
       font-weight: 600;
       font-size: 14px;
       background: none;
       width: 120px;
 
       &::placeholder {
-        color: ${(props) => props.theme.colors.primary};
+        color: ${(props) => props.theme.colors.third};
         font-weight: 300;
       }
 
@@ -98,7 +96,7 @@ export const Flipbtn = styled.button`
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.secundary};
+  background-color: ${(props) => props.theme.colors.third};
   border-color: ${(props) => props.theme.colors.white};
 
   :hover {
@@ -119,7 +117,7 @@ export const Bottom = styled.div`
 
   button {
     size: 12px;
-    background-color: ${(props) => props.theme.colors.secundary};
+    background-color: ${(props) => props.theme.colors.third};
     border: 1.4px solid ${(props) => props.theme.colors.white};
     color: ${(props) => props.theme.colors.white};
     border-radius: 20px;
@@ -144,7 +142,7 @@ export const Bottom = styled.div`
     font-weight: 400;
 
     .active {
-      background-color: ${(props) => props.theme.colors.secundary};
+      background-color: ${(props) => props.theme.colors.third};
       border: 1px solid ${(props) => props.theme.colors.white};
       color: ${(props) => props.theme.colors.white};
       transition: all 1s ease;

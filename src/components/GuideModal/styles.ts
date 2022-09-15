@@ -10,7 +10,7 @@ export const GuideContainer = styled.div`
   border-left: none;
   border-radius: 0 20px 20px 0;
   opacity: 0.8;
-  background-color: ${(props) => props.theme.colors.primary};
+  background-color: ${(props) => props.theme.colors.third};
   display: flex;
   flex-direction: column;
 `

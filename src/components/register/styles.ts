@@ -6,7 +6,6 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: white;
   border-radius: 10px;
   overflow: hidden;
 `
@@ -32,11 +31,16 @@ export const Right = styled.div`
   flex-direction: column;
   justify-content: space-around;
   padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
 `
 
 export const Title = styled.div`
   display: flex;
   justify-content: center;
+
+  h2 {
+    color: ${(props) => props.theme.colors.primary};
+  }
 `
 
 export const FormContainer = styled.div`
@@ -57,13 +61,14 @@ export const FormContainer = styled.div`
     input {
       padding: 4px;
       border: none;
-      border-bottom: 1px solid ${(props) => props.theme.colors.background};
-      color: ${(props) => props.theme.colors.primary};
+      border-bottom: 1px solid ${(props) => props.theme.colors.secundary};
+      color: ${(props) => props.theme.colors.third};
       font-weight: 500;
       font-size: 14px;
+      background: none;
 
       &::placeholder {
-        color: ${(props) => props.theme.colors.background};
+        color: ${(props) => props.theme.colors.secundary};
       }
 
       &:focus {
@@ -93,13 +98,12 @@ export const ButtonContainer = styled.div`
     padding: 8px;
     color: ${(props) => props.theme.colors.white};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.primary};
     transition: all 0.5s ease;
 
     :hover {
-      color: ${(props) => props.theme.colors.white};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.primary};
+      background-color: ${(props) => props.theme.colors.secundary};
     }
   }
 

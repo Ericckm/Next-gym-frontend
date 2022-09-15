@@ -28,7 +28,7 @@ export const Guidebtn = styled.button`
   font-weight: 500;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   color: ${(props) => props.theme.colors.white};
-  background-color: ${(props) => props.theme.colors.secundary};
+  background-color: ${(props) => props.theme.colors.third};
   border-color: ${(props) => props.theme.colors.white};
 
   :hover {

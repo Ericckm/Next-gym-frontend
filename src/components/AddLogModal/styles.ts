@@ -21,7 +21,7 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
-  opacity: 0.8;
+  opacity: 0.9;
 `
 
 export const Top = styled.div`
@@ -66,7 +66,7 @@ export const Button = styled.div`
     :hover {
       color: ${(props) => props.theme.colors.white};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.secundary};
     }
   }
 `
@@ -144,7 +144,7 @@ export const Form = styled.div`
 
         &::placeholder {
           font-weight: 400;
-          color: ${(props) => props.theme.colors.background};
+          color: ${(props) => props.theme.colors.secundary};
         }
 
         &:focus {
@@ -177,7 +177,7 @@ export const ButtonContainer = styled.div`
 
     :hover {
       color: ${(props) => props.theme.colors.white};
-      background-color: ${(props) => props.theme.colors.background};
+      background-color: ${(props) => props.theme.colors.secundary};
     }
   }
 `

@@ -16,6 +16,10 @@ export const Container = styled.div`
   align-items: center;
 
   .active {
+    border-color: ${(props) => props.theme.colors.white};
+  }
+
+  .active {
     color: ${(props) => props.theme.colors.white};
   }
 
@@ -52,8 +56,9 @@ export const Container = styled.div`
     }
 
     a {
+      font-size: 16px;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 500;
       color: ${(props) => props.theme.colors.primary};
       transition: all 0.5s ease;
       height: 100%;
@@ -70,7 +75,11 @@ export const MenuContainer = styled.div`
   width: 104px;
   height: 60px;
   cursor: pointer;
-  border: 1px solid;
+  border: 1px solid ${(props) => props.theme.colors.primary};
   border-radius: 20px;
   display: flex;
+  transition: all 2s ease;
+  :hover {
+    border-color: ${(props) => props.theme.colors.white};
+  }
 `

@@ -20,6 +20,7 @@ export const ExerciseDesc = styled.div`
     justify-content: center;
     align-items: center;
     font-weight: 500;
+    color: ${(props) => props.theme.colors.primary};
 
     a {
       font-size: inherit;
@@ -42,13 +43,13 @@ export const ButtonContainer = styled.div`
     font-weight: 600;
     padding: 4px;
     transition: all 0.5s ease;
-    background-color: ${(props) => props.theme.colors.secundary};
+    background-color: ${(props) => props.theme.colors.third};
     cursor: pointer;
     color: ${(props) => props.theme.colors.white};
 
     :hover {
       background-color: ${(props) => props.theme.colors.white};
-      color: ${(props) => props.theme.colors.secundary};
+      color: ${(props) => props.theme.colors.third};
     }
   }
 `

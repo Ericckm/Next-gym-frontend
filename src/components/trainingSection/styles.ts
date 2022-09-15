@@ -14,6 +14,12 @@ export const Title = styled.div`
     font-size: 24px;
     font-weight: 400;
     align-items: center;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  p {
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 400;
   }
 
   label {

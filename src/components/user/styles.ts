@@ -13,6 +13,7 @@ export const Top = styled.div`
       font-size: 24px;
       font-weight: 400;
       align-items: center;
+      color: ${(props) => props.theme.colors.primary};
 
       span {
         color: ${(props) => props.theme.colors.white};
@@ -80,7 +81,7 @@ export const Middle = styled.div`
         opacity: 0.9;
 
         &::placeholder {
-          color: ${(props) => props.theme.colors.background};
+          color: ${(props) => props.theme.colors.secundary};
         }
 
         &:focus {
@@ -109,15 +110,15 @@ export const Bottom = styled.div`
     border: none;
     border-radius: 10px;
     padding: 8px;
-    color: ${(props) => props.theme.colors.primary};
+    color: ${(props) => props.theme.colors.white};
     cursor: pointer;
-    background-color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.third};
     transition: all 1s ease;
 
     :hover {
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.third};
       cursor: pointer;
-      background-color: ${(props) => props.theme.colors.primary};
+      background-color: ${(props) => props.theme.colors.white};
     }
   }
 `

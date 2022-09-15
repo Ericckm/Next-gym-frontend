@@ -88,9 +88,6 @@ const ExercisesSection = () => {
   return (
     <>
       <Top>
-        <div>
-          <h3>All exercises</h3>
-        </div>
         <FilterContainer>
           <div>
             <label>filter by name</label>
@@ -152,21 +149,3 @@ const ExercisesSection = () => {
 }
 
 export default ExercisesSection
-
-{
-  /* {isFetching && !error ? (
-        <Loader />
-      ) : (
-        <ExerciseContainer>
-          <ExerciseUl>
-            {error && <ApiError />}
-            {currentItem?.map((i) => (
-              <AllExercisesList
-                key={i._id}
-                name={i.name}
-                type={i.type}
-                videoUrl={i.videoUrl}
-                id={i._id}
-              />
-            ))} */
-}
