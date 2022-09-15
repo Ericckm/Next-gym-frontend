@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { GuideModal } from '../GuideModal'
 import { Guidebtn, Section } from './styles'
 
@@ -8,6 +8,7 @@ export const SectionTemplate = ({ children }) => {
   const handleClick = () => {
     setOpenGuide(!openGuide)
   }
+
   return (
     <Section>
       {children}

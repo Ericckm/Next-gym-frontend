@@ -18,22 +18,18 @@ export const GuideModal = () => {
         <ExerciseGuide>
           <h4>Exercise</h4>
           <hr />
-
           <p>- Visualize the exercises execpt the ones in the workout</p>
           <p>- Add exercise to the workout routine</p>
           <p>
             - Add a new exercise in the <span>'+'</span> button
           </p>
           <p>- Filter exercises by name and type</p>
-
           <h4>Flip button</h4>
-
           <p>- Filter and select an exercise to see your progression </p>
         </ExerciseGuide>
         <WorkoutGuide>
           <h4>Workout</h4>
           <hr />
-
           <p>- Visualize your workout routine</p>
           <p>- Link to check the correct execution of the exercise</p>
           <p>

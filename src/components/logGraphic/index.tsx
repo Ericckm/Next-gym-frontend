@@ -13,12 +13,18 @@ import {
 } from './styles'
 
 export const LogGraphic = ({ children, filters, token }) => {
+  const { allLogs } = useSelector((state: any) => state.allLogs)
+  const [currentItem, setCurrentItem] = useState('')
+  const [filteredExercises, setFilteredExercises] = useState([])
+  const [chartData, setChartData] = useState({})
+  const [chartOptions, setChartOptions] = useState({})
+  const [param, setParam] = useState('load')
   const dispatch = useDispatch()
   const { isFetching, error, allExercises } = useSelector(
     (state: any) => state.allExercises
   )
-  const [filteredExercises, setFilteredExercises] = useState([])
-  const { allLogs } = useSelector((state: any) => state.allLogs)
+
+  console.log(allExercises)
 
   // make another api call to get all exercises, liked or not liked
   useEffect(() => {
@@ -31,20 +37,15 @@ export const LogGraphic = ({ children, filters, token }) => {
     )
   }, [filters])
 
-  const [currentItem, setCurrentItem] = useState('')
   const handleExerciseId = (e) => {
     const id = e.target.value
     allLogsRequestCall(dispatch, id, token)
     setCurrentItem(e.target.value)
   }
 
-  const [param, setParam] = useState('load')
   const handleParams = (e) => {
     setParam(e.target.value)
   }
-
-  const [chartData, setChartData] = useState({})
-  const [chartOptions, setchartOptions] = useState({})
 
   useEffect(() => {
     setChartData({
@@ -55,11 +56,17 @@ export const LogGraphic = ({ children, filters, token }) => {
         {
           labels: 'Log Chart',
           backgroundColor: 'rgb(255, 99, 132)',
-          data: allLogs?.map((i) => i.sets)
+          data: allLogs?.map(
+            (i) =>
+              (param == 'load' && i.load) ||
+              (param == 'sets' && i.sets) ||
+              (param == 'reps' && i.reps) ||
+              (param == 'rest' && i.rest)
+          )
         }
       ]
     })
-    setchartOptions({
+    setChartOptions({
       maintainAspectRatio: false,
       legend: {
         labels: {
@@ -67,7 +74,8 @@ export const LogGraphic = ({ children, filters, token }) => {
         }
       }
     })
-  }, [allLogs])
+    console.log('s')
+  }, [allLogs, param])
 
   const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
     month: 'short',
@@ -123,7 +131,7 @@ export const LogGraphic = ({ children, filters, token }) => {
             </button>
           </SpanContainer>
           <ProgressionContainer>
-            {allLogs.length > 0 ? (
+            {currentItem ? (
               <GraphicChart chartData={chartData} chartOptions={chartOptions} />
             ) : (
               <span>There's no data about this exercise yet</span>

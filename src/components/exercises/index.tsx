@@ -73,8 +73,6 @@ const ExercisesSection = () => {
     allExerciseRequestCall(dispatch, token)
   }, [])
 
-  console.log(allExercises)
-
   useEffect(() => {
     setFilteredExercises(
       allExercises.filter((item) =>
@@ -83,7 +81,7 @@ const ExercisesSection = () => {
         )
       )
     )
-  }, [filters, allExercises])
+  }, [filters])
 
   return (
     <>
