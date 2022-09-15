@@ -36,7 +36,7 @@ export const Topbar = () => {
           <Link href="/training">
             <a>
               <Grade className="icon" />
-              Training
+              Workout
             </a>
           </Link>
         </MenuContainer>

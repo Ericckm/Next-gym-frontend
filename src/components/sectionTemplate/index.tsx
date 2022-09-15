@@ -1,5 +1,18 @@
-import { Section } from './styles'
+import { useState } from 'react'
+import { GuideModal } from '../GuideModal'
+import { Guidebtn, Section } from './styles'
 
 export const SectionTemplate = ({ children }) => {
-  return <Section>{children}</Section>
+  const [openGuide, setOpenGuide] = useState(false)
+
+  const handleClick = () => {
+    setOpenGuide(!openGuide)
+  }
+  return (
+    <Section>
+      {children}
+      <Guidebtn onClick={handleClick}>Guide</Guidebtn>
+      {openGuide && <GuideModal />}
+    </Section>
+  )
 }

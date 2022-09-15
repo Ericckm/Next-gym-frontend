@@ -132,12 +132,12 @@ const ExercisesSection = () => {
                 id={i._id}
               />
             ))}
-            <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
+            <Flipbtn onClick={handleLogGraphModal}>Flip</Flipbtn>
           </ExerciseUl>
         </ExerciseContainer>
       ) : (
         <LogGraphic filters={filters} token={token}>
-          <Flipbtn onClick={handleLogGraphModal}>flip</Flipbtn>
+          <Flipbtn onClick={handleLogGraphModal}>Flip</Flipbtn>
         </LogGraphic>
       )}
       {openModal && <AddExerciseModal onClick={handleClick} />}

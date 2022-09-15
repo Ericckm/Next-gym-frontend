@@ -92,7 +92,7 @@ export const Flipbtn = styled.button`
   border: none;
   border-top: 2px solid;
   border-left: 2px solid;
-  border-radius: 20px 0 15px 20px;
+  border-radius: 20px 0 0 0;
   cursor: pointer;
   transition: all 1s ease;
   font-weight: 500;
