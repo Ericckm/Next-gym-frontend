@@ -7,7 +7,6 @@ export const Top = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-
   h2 {
     color: ${(props) => props.theme.colors.third};
   }
@@ -32,7 +31,8 @@ export const ExercisesUl = styled.ul`
   align-items: center;
   flex-direction: row;
   justify-content: center;
-  gap: 4px;
+  gap: 8px;
+  width: 90%;
   overflow-y: hidden;
 
   .active button {

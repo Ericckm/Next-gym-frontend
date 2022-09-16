@@ -32,6 +32,7 @@ export const AddLogModal = ({
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
+  const { isFetching, error } = useSelector((state: any) => state.log)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -46,8 +47,9 @@ export const AddLogModal = ({
   const handleSubmit = (e) => {
     e.preventDefault()
     addLog(dispatch, inputs, token)
-    onClick(!onClick)
   }
+
+  console.log(isFetching)
 
   return (
     <Overlay>
@@ -111,7 +113,9 @@ export const AddLogModal = ({
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit}>submit</button>
+            <button onClick={handleSubmit} disabled={isFetching}>
+              submit
+            </button>
           </ButtonContainer>
         </Bottom>
       </Container>

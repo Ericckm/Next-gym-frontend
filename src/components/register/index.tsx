@@ -15,10 +15,9 @@ import {
 } from './styles'
 
 export const Register = () => {
-  const [inputs, setInputs] = useState({})
   const router = useRouter()
   const dispatch = useDispatch()
-  const [show, setShow] = useState(false)
+  const [inputs, setInputs] = useState({})
   const [emailError, setEmailError] = useState(false)
   const { isFetching, error, loggedIn } = useSelector(
     (state: any) => state.user
@@ -36,7 +35,6 @@ export const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     register(dispatch, inputs)
-    showContent()
   }
 
   const handleEmail = (e) => {
@@ -46,13 +44,6 @@ export const Register = () => {
     } else {
       setEmailError(false)
     }
-  }
-
-  const showContent = () => {
-    setShow(true)
-    setTimeout(() => {
-      setShow(false)
-    }, 2500)
   }
 
   useEffect(() => {
@@ -91,11 +82,14 @@ export const Register = () => {
               placeholder="password"
               onChange={handleChange}
             />
-            {!error && show && <Loader />}
+            {!error && !emailError && isFetching && <Loader />}
+            {error && !emailError && <span>something has gone wrong</span>}
           </form>
         </FormContainer>
         <ButtonContainer>
-          <button onClick={handleSubmit}>Register</button>
+          <button onClick={handleSubmit} disabled={isFetching}>
+            Register
+          </button>
           <Link href={'/'}>
             <a>already have an account?</a>
           </Link>

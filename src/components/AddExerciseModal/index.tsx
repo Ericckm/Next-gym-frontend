@@ -18,6 +18,10 @@ export const AddExerciseModal = ({ onClick }) => {
   const [inputs, setInputs] = useState({})
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
+  const { isAdding, addingError, addSuccess } = useSelector(
+    (state: any) => state.allExercises
+  )
+  console.log('addSuc', addSuccess)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -30,10 +34,12 @@ export const AddExerciseModal = ({ onClick }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-
     addExercise(dispatch, inputs, token)
-    onClick(!onClick)
+    // if (addingError) return console.log('erro')
+    // if (addSuccess) return onClick(!onClick)
   }
+
+  // useEffect(() => {}, [isAdding, addSuccess])
 
   return (
     <Overlay>
@@ -84,7 +90,9 @@ export const AddExerciseModal = ({ onClick }) => {
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit}>submit</button>
+            <button onClick={handleSubmit} disabled={isAdding}>
+              submit
+            </button>
           </ButtonContainer>
         </Bottom>
       </Container>

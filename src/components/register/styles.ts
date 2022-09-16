@@ -105,6 +105,9 @@ export const ButtonContainer = styled.div`
       cursor: pointer;
       background-color: ${(props) => props.theme.colors.secundary};
     }
+    :disabled {
+      background-color: ${(props) => props.theme.colors.error};
+    }
   }
 
   a {
