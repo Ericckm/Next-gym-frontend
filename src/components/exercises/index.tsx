@@ -115,8 +115,8 @@ const ExercisesSection = () => {
 
       {!openLogGraph ? (
         <ExerciseContainer>
+          {isFetching && !error && <Loader />}
           <ExerciseUl>
-            {isFetching && !error && <Loader />}
             {error && <ApiError />}
             {currentItem?.map((i) => (
               <AllExercisesList
