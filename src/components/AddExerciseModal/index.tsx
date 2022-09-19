@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { clearAddExerciseError } from '../../redux/allExerciseSlice'
 import { addExercise } from '../../services/allExerciseRequestCall'
 
 import {
@@ -18,10 +19,9 @@ export const AddExerciseModal = ({ onClick }) => {
   const [inputs, setInputs] = useState({})
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  const { isAdding, addingError, addSuccess } = useSelector(
+  const { isPosting, postingError } = useSelector(
     (state: any) => state.allExercises
   )
-  console.log('addSuc', addSuccess)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -35,11 +35,14 @@ export const AddExerciseModal = ({ onClick }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     addExercise(dispatch, inputs, token)
-    // if (addingError) return console.log('erro')
-    // if (addSuccess) return onClick(!onClick)
-  }
+    if ((isPosting && !postingError) || (!isPosting && postingError)) {
+      return onClick(!onClick)
+    }
 
-  // useEffect(() => {}, [isAdding, addSuccess])
+    setTimeout(() => {
+      dispatch(clearAddExerciseError())
+    }, 3000)
+  }
 
   return (
     <Overlay>
@@ -90,7 +93,7 @@ export const AddExerciseModal = ({ onClick }) => {
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit} disabled={isAdding}>
+            <button onClick={handleSubmit} disabled={isPosting || postingError}>
               submit
             </button>
           </ButtonContainer>

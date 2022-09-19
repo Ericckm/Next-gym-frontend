@@ -81,7 +81,7 @@ const ExercisesSection = () => {
         )
       )
     )
-  }, [filters])
+  }, [filters, allExercises])
 
   return (
     <>
@@ -112,7 +112,6 @@ const ExercisesSection = () => {
           </div>
         </FilterContainer>
       </Top>
-
       {!openLogGraph ? (
         <ExerciseContainer>
           {isFetching && !error && <Loader />}

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { clearAddLogError } from '../../redux/logSlice'
 import { addLog } from '../../services/logRequestCall'
 import {
   Bottom,
@@ -32,7 +33,7 @@ export const AddLogModal = ({
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  const { isFetching, error } = useSelector((state: any) => state.log)
+  const { isPosting, postingError } = useSelector((state: any) => state.log)
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -47,9 +48,11 @@ export const AddLogModal = ({
   const handleSubmit = (e) => {
     e.preventDefault()
     addLog(dispatch, inputs, token)
-  }
 
-  console.log(isFetching)
+    setTimeout(() => {
+      dispatch(clearAddLogError())
+    }, 3000)
+  }
 
   return (
     <Overlay>
@@ -113,7 +116,7 @@ export const AddLogModal = ({
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit} disabled={isFetching}>
+            <button onClick={handleSubmit} disabled={isPosting || postingError}>
               submit
             </button>
           </ButtonContainer>

@@ -5,7 +5,9 @@ export const logSlice = createSlice({
   initialState: {
     logs: [],
     isFetching: false,
-    error: false
+    error: false,
+    isPosting: false,
+    postingError: false
   },
   reducers: {
     // GET LOGS
@@ -30,8 +32,8 @@ export const logSlice = createSlice({
     },
     // ADD LOGS
     addLogStart: (state) => {
-      state.isFetching = true
-      state.error = false
+      state.isPosting = true
+      state.postingError = false
     },
     addLogSuccess: (state, action) => {
       const logIndex = state.logs.findIndex((i) => {
@@ -41,11 +43,15 @@ export const logSlice = createSlice({
         state.logs.push(action.payload)
       }
       state.logs.splice(logIndex, 1, action.payload)
-      state.isFetching = false
+      state.isPosting = false
+      state.postingError = false
     },
     addLogFailure: (state) => {
-      state.isFetching = false
-      state.error = true
+      state.isPosting = false
+      state.postingError = true
+    },
+    clearAddLogError: (state) => {
+      state.postingError = false
     }
   }
 })
@@ -56,7 +62,8 @@ export const {
   getLogFailure,
   addLogStart,
   addLogSuccess,
-  addLogFailure
+  addLogFailure,
+  clearAddLogError
 } = logSlice.actions
 
 export const selectlog = (state) => state.log.log

@@ -24,8 +24,6 @@ export const LogGraphic = ({ children, filters, token }) => {
     (state: any) => state.allExercises
   )
 
-  console.log(allExercises)
-
   // make another api call to get all exercises, liked or not liked
   useEffect(() => {
     setFilteredExercises(
@@ -74,7 +72,6 @@ export const LogGraphic = ({ children, filters, token }) => {
         }
       }
     })
-    console.log('s')
   }, [allLogs, param])
 
   const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {

@@ -6,9 +6,8 @@ export const allExerciseSlice = createSlice({
     allExercises: [],
     isFetching: false,
     error: false,
-    isAdding: false,
-    addingError: false,
-    addSuccess: false
+    isPosting: false,
+    postingError: false
   },
   reducers: {
     getAllExerciseStart: (state) => {
@@ -38,20 +37,20 @@ export const allExerciseSlice = createSlice({
       state.error = true
     },
     addExerciseStart: (state) => {
-      state.isAdding = true
-      state.addingError = false
-      state.addSuccess = false
+      state.isPosting = true
+      state.postingError = false
     },
     addExerciseSuccess: (state, action) => {
       state.allExercises.push(action.payload.exercise)
-      state.isAdding = false
-      state.addingError = false
-      state.addSuccess = true
+      state.isPosting = false
+      state.postingError = false
     },
     addExerciseFailure: (state) => {
-      state.isAdding = false
-      state.addSuccess = false
-      state.addingError = true
+      state.isPosting = false
+      state.postingError = true
+    },
+    clearAddExerciseError: (state) => {
+      state.postingError = false
     }
   }
 })
@@ -65,7 +64,8 @@ export const {
   unlikeExerciseSuccess,
   addExerciseFailure,
   addExerciseStart,
-  addExerciseSuccess
+  addExerciseSuccess,
+  clearAddExerciseError
 } = allExerciseSlice.actions
 
 export const selectExercise = (state) => state.allExercises.allExercises
