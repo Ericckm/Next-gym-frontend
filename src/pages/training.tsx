@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { SectionTemplate } from '../components/sectionTemplate'
-import { Topbar } from '../components/topbar'
-import { TrainingSection } from '../components/trainingSection'
+import { SectionTemplate } from '../components/organisms/sectionTemplate'
+import { Topbar } from '../components/organisms/topbar'
+import { Workout } from '../components/templates/workout'
 
 const TrainingPage = () => {
   return (
@@ -15,7 +15,7 @@ const TrainingPage = () => {
       </Head>
       <Topbar />
       <SectionTemplate>
-        <TrainingSection />
+        <Workout />
       </SectionTemplate>
     </>
   )

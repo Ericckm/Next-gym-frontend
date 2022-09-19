@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   clearAddExerciseError,
   clearAddExerciseSuccess
-} from '../../redux/allExerciseSlice'
-import { addExercise } from '../../services/allExerciseRequestCall'
-import { FormError } from '../formError'
+} from '../../../redux/allExerciseSlice'
+import { addExercise } from '../../../services/allExerciseRequestCall'
+import { FormError } from '../../atoms/formError'
 
 import {
   Bottom,

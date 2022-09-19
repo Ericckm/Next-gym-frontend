@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { allLogsRequestCall } from '../../services/logRequestCall'
-import { ExerciseContainer } from '../exerciseContainer'
-import { GraphicChart } from '../graphicChart'
+import { allLogsRequestCall } from '../../../services/logRequestCall'
+import { ExerciseContainer } from '../../organisms/exerciseContainer'
+import { GraphicChart } from '../../atoms/graphicChart'
 import {
   ExercisesUl,
   GraphContainer,

@@ -2,9 +2,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { register } from '../../services/loginRequestCall'
-import { validateEmail } from '../../utils/validateEmail'
-import { Loader } from '../loader'
+import { register } from '../../../services/loginRequestCall'
+import { validateEmail } from '../../../utils/validateEmail'
+import { Loader } from '../../atoms/loader'
 import {
   ButtonContainer,
   Container,

@@ -1,6 +1,6 @@
 import { Container, MenuContainer, TopbarMain } from './styles'
 import { Person, FitnessCenter, Grade, ExitToApp } from '@material-ui/icons'
-import { logout } from '../../redux/userSlice'
+import { logout } from '../../../redux/userSlice'
 import { useDispatch } from 'react-redux'
 import { useRouter } from 'next/router'
 import Link from 'next/link'

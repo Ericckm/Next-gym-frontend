@@ -1,14 +1,14 @@
 import { Bottom, ExerciseUl, FilterContainer, Flipbtn, Top } from './styles'
 import { Add } from '@material-ui/icons'
 import { useEffect, useState } from 'react'
-import { allExerciseRequestCall } from '../../services/allExerciseRequestCall'
+import { allExerciseRequestCall } from '../../../services/allExerciseRequestCall'
 import { useDispatch, useSelector } from 'react-redux'
-import { AllExercisesList } from '../allExercisesList'
-import { AddExerciseModal } from '../AddExerciseModal'
-import { Loader } from '../loader'
-import { ApiError } from '../500'
-import { ExerciseContainer } from '../exerciseContainer'
-import { LogGraphic } from '../logGraphic'
+import { AllExercisesList } from '../../molecules/allExercisesList'
+import { AddExerciseModal } from '../../organisms/AddExerciseModal'
+import { Loader } from '../../atoms/loader'
+import { ApiError } from '../../atoms/500'
+import { ExerciseContainer } from '../../organisms/exerciseContainer'
+import { LogGraphic } from '../../molecules/logGraphic'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()

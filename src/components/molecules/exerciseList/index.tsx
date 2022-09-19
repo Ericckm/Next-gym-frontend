@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { likedExercisePutCall } from '../../services/exerciseRequestCall'
-import { AddLogModal } from '../AddLogModal'
+import { likedExercisePutCall } from '../../../services/exerciseRequestCall'
+import { AddLogModal } from '../../organisms/AddLogModal'
 import { LogList } from '../logList'
 
 import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'

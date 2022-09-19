@@ -11,9 +11,9 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
-import { validateEmail } from '../../utils/validateEmail'
-import { login } from '../../services/loginRequestCall'
-import { Loader } from '../loader'
+import { validateEmail } from '../../../utils/validateEmail'
+import { login } from '../../../services/loginRequestCall'
+import { Loader } from '../../atoms/loader'
 
 export const Login = () => {
   const router = useRouter()

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Login } from '../components/login'
+import { Login } from '../components/templates/login'
 
 const HomepageMain = styled.div`
   height: 100vh;

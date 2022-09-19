@@ -8,7 +8,7 @@ import {
   WorkoutGuide
 } from './styles'
 
-export const GuideModal = () => {
+export const Guide = () => {
   return (
     <GuideContainer>
       <Top>

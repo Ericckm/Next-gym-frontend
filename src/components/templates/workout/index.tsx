@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { exerciseRequestCall } from '../../services/exerciseRequestCall'
-import { ApiError } from '../500'
-import { ExerciseList } from '../exerciseList'
-import { Loader } from '../loader'
+import { exerciseRequestCall } from '../../../services/exerciseRequestCall'
+import { ApiError } from '../../atoms/500'
+import { ExerciseList } from '../../molecules/exerciseList'
+import { Loader } from '../../atoms/loader'
 import { MainContent, Title } from './styles'
 
-export const TrainingSection = () => {
+export const Workout = () => {
   const dispatch = useDispatch()
   const { exercises, error, isFetching } = useSelector(
     (state: any) => state.exercise

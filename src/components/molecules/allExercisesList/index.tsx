@@ -9,7 +9,7 @@ import {
 } from './styles'
 import { Grade } from '@material-ui/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { unLikeExercisePutCall } from '../../services/allExerciseRequestCall'
+import { unLikeExercisePutCall } from '../../../services/allExerciseRequestCall'
 
 export const AllExercisesList = ({ name, type, videoUrl, id }) => {
   const dispatch = useDispatch()

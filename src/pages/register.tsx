@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { Register } from '../components/register'
+import { Register } from '../components/templates/register'
 
 const RegisterMain = styled.div`
   height: 100vh;

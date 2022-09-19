@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearAddLogError, clearAddLogSuccess } from '../../redux/logSlice'
-import { addLog } from '../../services/logRequestCall'
-import { FormError } from '../formError'
+import { clearAddLogError, clearAddLogSuccess } from '../../../redux/logSlice'
+import { addLog } from '../../../services/logRequestCall'
+import { FormError } from '../../atoms/formError'
 import {
   Bottom,
   Button,

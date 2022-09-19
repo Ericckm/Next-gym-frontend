@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { SectionTemplate } from '../components/sectionTemplate'
-import { Topbar } from '../components/topbar'
-import UserSection from '../components/user'
+import { SectionTemplate } from '../components/organisms/sectionTemplate'
+import { Topbar } from '../components/organisms/topbar'
+import UserSection from '../components/templates/user'
 
 const UserPage = () => {
   return (

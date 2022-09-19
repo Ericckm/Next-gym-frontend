@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { updateUser } from '../../services/loginRequestCall'
-import { Loader } from '../loader'
+import { updateUser } from '../../../services/loginRequestCall'
+import { Loader } from '../../atoms/loader'
 import { Bottom, FormBottom, Middle, Top } from './styles'
 
 const UserSection = () => {

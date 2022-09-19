@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { GuideModal } from '../GuideModal'
+import { useState } from 'react'
+import { Guide } from '../../atoms/guide'
 import { Guidebtn, Section } from './styles'
 
 export const SectionTemplate = ({ children }) => {
@@ -13,7 +13,7 @@ export const SectionTemplate = ({ children }) => {
     <Section>
       {children}
       <Guidebtn onClick={handleClick}>Guide</Guidebtn>
-      {openGuide && <GuideModal />}
+      {openGuide && <Guide />}
     </Section>
   )
 }
