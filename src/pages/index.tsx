@@ -8,6 +8,10 @@ const HomepageMain = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-image: url('/assets/gymbackg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 `
 
 const HomePage = () => {

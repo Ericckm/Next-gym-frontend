@@ -1,42 +1,22 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  height: 70%;
-  width: 60%;
+  min-height: 60%;
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
   overflow: hidden;
-`
-
-export const Left = styled.div`
-  flex: 8;
-  height: 100%;
-  width: 100%;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: stretch;
-    opacity: 0.7;
-  }
-`
-
-export const Right = styled.div`
-  flex: 6;
-  display: flex;
-  width: 100%;
-  height: 100%;
+  background-color: white;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  opacity: 0.95;
 `
 
 export const Title = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex: 1;
 
   h2 {
     color: ${(props) => props.theme.colors.primary};
@@ -44,13 +24,16 @@ export const Title = styled.div`
 `
 
 export const FormContainer = styled.div`
-  height: 100px;
+  flex: 4;
+  display: flex;
+  align-items: center;
+
   form {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
 
     p {
       font-size: 16px;
@@ -89,6 +72,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
   gap: 24px;
   font-size: 12px;
+  flex: 1;
 
   button {
     width: 76px;

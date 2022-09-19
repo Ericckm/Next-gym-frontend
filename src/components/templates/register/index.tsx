@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -5,14 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { register } from '../../../services/loginRequestCall'
 import { validateEmail } from '../../../utils/validateEmail'
 import { Loader } from '../../atoms/loader'
-import {
-  ButtonContainer,
-  Container,
-  FormContainer,
-  Left,
-  Right,
-  Title
-} from './styles'
+import { ButtonContainer, Container, FormContainer, Title } from './styles'
 
 export const Register = () => {
   const router = useRouter()
@@ -52,49 +46,44 @@ export const Register = () => {
 
   return (
     <Container>
-      <Left>
-        <img src="assets/Gym.jpg" alt="" />
-      </Left>
-      <Right>
-        <Title>
-          <h2>Welcome to our app</h2>
-        </Title>
-        <FormContainer>
-          <form action="">
-            <p>Create an account</p>
-            <input
-              type="name"
-              name="name"
-              placeholder="name"
-              onChange={handleChange}
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              onChange={handleChange}
-              onBlur={handleEmail}
-            />
-            {emailError && <span>invalid email</span>}
-            <input
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={handleChange}
-            />
-            {!error && !emailError && isFetching && <Loader />}
-            {error && !emailError && <span>something has gone wrong</span>}
-          </form>
-        </FormContainer>
-        <ButtonContainer>
-          <button onClick={handleSubmit} disabled={isFetching}>
-            Register
-          </button>
-          <Link href={'/'}>
-            <a>already have an account?</a>
-          </Link>
-        </ButtonContainer>
-      </Right>
+      <Title>
+        <h2>Welcome</h2>
+      </Title>
+      <FormContainer>
+        <form action="">
+          <p>Create an account</p>
+          <input
+            type="name"
+            name="name"
+            placeholder="name"
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            onChange={handleChange}
+            onBlur={handleEmail}
+          />
+          {emailError && <span>invalid email</span>}
+          <input
+            type="password"
+            name="password"
+            placeholder="password"
+            onChange={handleChange}
+          />
+          {!error && !emailError && isFetching && <Loader />}
+          {error && !emailError && <span>something has gone wrong</span>}
+        </form>
+      </FormContainer>
+      <ButtonContainer>
+        <button onClick={handleSubmit} disabled={isFetching}>
+          Register
+        </button>
+        <Link href={'/'}>
+          <a>already have an account?</a>
+        </Link>
+      </ButtonContainer>
     </Container>
   )
 }

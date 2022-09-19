@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 import styled from 'styled-components'
 import { Register } from '../components/templates/register'
 
@@ -8,6 +9,10 @@ const RegisterMain = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-image: url('/assets/gymbackg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 `
 
 const Registerpage = () => {

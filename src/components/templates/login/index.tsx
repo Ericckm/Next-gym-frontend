@@ -1,13 +1,6 @@
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import {
-  ButtonContainer,
-  Container,
-  FormContainer,
-  Left,
-  Right,
-  Title
-} from './styles'
+import { ButtonContainer, Container, FormContainer, Title } from './styles'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
@@ -47,44 +40,39 @@ export const Login = () => {
   return (
     <>
       <Container>
-        <Left>
-          <img src="assets/Gym.jpg" alt="" />
-        </Left>
-        <Right>
-          <Title>
-            <h2>Welcome back</h2>
-          </Title>
-          <FormContainer>
-            <form action="">
-              <p>Login to your account</p>
-              <input
-                type="email"
-                placeholder="email"
-                value={email}
-                onChange={handleEmail}
-                onBlur={handleEmail}
-              />
+        <Title>
+          <h2>Welcome back</h2>
+        </Title>
+        <FormContainer>
+          <form action="">
+            <p>Login to your account</p>
+            <input
+              type="email"
+              placeholder="email"
+              value={email}
+              onChange={handleEmail}
+              onBlur={handleEmail}
+            />
 
-              <input
-                type="password"
-                placeholder="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {emailError && <span>Invalid email</span>}
-              {!error && !emailError && isFetching && <Loader />}
-              {error && !emailError && <span>something has gone wrong</span>}
-            </form>
-          </FormContainer>
-          <ButtonContainer>
-            <button onClick={handleLogin} disabled={isFetching} name="test">
-              Login
-            </button>
-            <Link href={'/register'}>
-              <a>don't have an account?</a>
-            </Link>
-          </ButtonContainer>
-        </Right>
+            <input
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            {emailError && <span>Invalid email</span>}
+            {!error && !emailError && isFetching && <Loader />}
+            {error && !emailError && <span>something has gone wrong</span>}
+          </form>
+        </FormContainer>
+        <ButtonContainer>
+          <button onClick={handleLogin} disabled={isFetching} name="test">
+            Login
+          </button>
+          <Link href={'/register'}>
+            <a>don't have an account?</a>
+          </Link>
+        </ButtonContainer>
       </Container>
     </>
   )
