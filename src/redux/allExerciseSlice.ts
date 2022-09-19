@@ -7,7 +7,8 @@ export const allExerciseSlice = createSlice({
     isFetching: false,
     error: false,
     isPosting: false,
-    postingError: false
+    postingError: false,
+    postingSuccess: false
   },
   reducers: {
     getAllExerciseStart: (state) => {
@@ -39,18 +40,24 @@ export const allExerciseSlice = createSlice({
     addExerciseStart: (state) => {
       state.isPosting = true
       state.postingError = false
+      state.postingSuccess = false
     },
     addExerciseSuccess: (state, action) => {
       state.allExercises.push(action.payload.exercise)
       state.isPosting = false
       state.postingError = false
+      state.postingSuccess = true
     },
     addExerciseFailure: (state) => {
       state.isPosting = false
       state.postingError = true
+      state.postingSuccess = false
     },
     clearAddExerciseError: (state) => {
       state.postingError = false
+    },
+    clearAddExerciseSuccess: (state) => {
+      state.postingSuccess = false
     }
   }
 })
@@ -65,7 +72,8 @@ export const {
   addExerciseFailure,
   addExerciseStart,
   addExerciseSuccess,
-  clearAddExerciseError
+  clearAddExerciseError,
+  clearAddExerciseSuccess
 } = allExerciseSlice.actions
 
 export const selectExercise = (state) => state.allExercises.allExercises

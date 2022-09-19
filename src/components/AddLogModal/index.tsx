@@ -1,7 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearAddLogError } from '../../redux/logSlice'
+import { clearAddLogError, clearAddLogSuccess } from '../../redux/logSlice'
 import { addLog } from '../../services/logRequestCall'
+import { FormError } from '../formError'
 import {
   Bottom,
   Button,
@@ -33,7 +34,9 @@ export const AddLogModal = ({
   })
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  const { isPosting, postingError } = useSelector((state: any) => state.log)
+  const { isPosting, postingError, postingSuccess } = useSelector(
+    (state: any) => state.log
+  )
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -43,16 +46,18 @@ export const AddLogModal = ({
         exerciseOwner: execId
       }
     })
+    if (postingError) dispatch(clearAddLogError())
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     addLog(dispatch, inputs, token)
-
-    setTimeout(() => {
-      dispatch(clearAddLogError())
-    }, 3000)
   }
+
+  useEffect(() => {
+    if (postingSuccess) onClick(!onClick)
+    dispatch(clearAddLogSuccess())
+  }, [handleSubmit])
 
   return (
     <Overlay>
@@ -110,6 +115,7 @@ export const AddLogModal = ({
                   />
                   <label>seconds</label>
                 </div>
+                {postingError && <FormError />}
               </form>
             </Form>
           </FormContainer>

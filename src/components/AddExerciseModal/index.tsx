@@ -1,7 +1,11 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { clearAddExerciseError } from '../../redux/allExerciseSlice'
+import {
+  clearAddExerciseError,
+  clearAddExerciseSuccess
+} from '../../redux/allExerciseSlice'
 import { addExercise } from '../../services/allExerciseRequestCall'
+import { FormError } from '../formError'
 
 import {
   Bottom,
@@ -19,7 +23,7 @@ export const AddExerciseModal = ({ onClick }) => {
   const [inputs, setInputs] = useState({})
   const dispatch = useDispatch()
   const { token } = useSelector((state: any) => state.user.user)
-  const { isPosting, postingError } = useSelector(
+  const { isPosting, postingError, postingSuccess } = useSelector(
     (state: any) => state.allExercises
   )
 
@@ -30,19 +34,18 @@ export const AddExerciseModal = ({ onClick }) => {
         [e.target.name]: e.target.value
       }
     })
+    if (postingError) dispatch(clearAddExerciseError())
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     addExercise(dispatch, inputs, token)
-    if ((isPosting && !postingError) || (!isPosting && postingError)) {
-      return onClick(!onClick)
-    }
-
-    setTimeout(() => {
-      dispatch(clearAddExerciseError())
-    }, 3000)
   }
+
+  useEffect(() => {
+    if (postingSuccess) onClick(!onClick)
+    dispatch(clearAddExerciseSuccess())
+  }, [handleSubmit])
 
   return (
     <Overlay>
@@ -88,6 +91,7 @@ export const AddExerciseModal = ({ onClick }) => {
                   <option value="Shoulder">shoulder</option>
                 </select>
               </div>
+              {postingError && <FormError />}
             </form>
           </Form>
         </Main>
