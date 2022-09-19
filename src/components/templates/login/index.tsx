@@ -41,7 +41,7 @@ export const Login = () => {
   }
 
   useEffect(() => {
-    loggedIn && router.push('/training')
+    loggedIn && router.push('/workout')
   }, [loggedIn])
 
   return (

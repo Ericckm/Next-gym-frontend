@@ -72,7 +72,7 @@ export const FilterContainer = styled.div`
 
 export const ExerciseUl = styled.ul`
   align-items: center;
-  flex: 4;
+  flex: 3;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;

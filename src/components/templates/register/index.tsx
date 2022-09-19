@@ -47,7 +47,7 @@ export const Register = () => {
   }
 
   useEffect(() => {
-    loggedIn && router.push('/training')
+    loggedIn && router.push('/workout')
   }, [loggedIn])
 
   return (

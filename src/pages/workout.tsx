@@ -3,7 +3,7 @@ import { SectionTemplate } from '../components/organisms/sectionTemplate'
 import { Topbar } from '../components/organisms/topbar'
 import { Workout } from '../components/templates/workout'
 
-const TrainingPage = () => {
+const WorkoutMain = () => {
   return (
     <>
       <Head>
@@ -11,7 +11,7 @@ const TrainingPage = () => {
           name="viewport"
           content="width=device-width, initial-scale=1"
         ></meta>
-        <title>Training</title>
+        <title>Workout</title>
       </Head>
       <Topbar />
       <SectionTemplate>
@@ -21,4 +21,4 @@ const TrainingPage = () => {
   )
 }
 
-export default TrainingPage
+export default WorkoutMain

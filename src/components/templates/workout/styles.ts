@@ -7,7 +7,6 @@ export const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px 15px;
   gap: 4px;
 
   h3 {
@@ -51,22 +50,36 @@ export const Title = styled.div`
   }
 `
 
-export const MainContent = styled.div`
-  flex: 6;
+export const ExerciseUl = styled.ul`
   display: flex;
-  width: 80%;
+  flex: 3;
+  align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+`
 
-  ul {
-    align-items: center;
-    justify-content: center;
+export const Bottom = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
     display: flex;
-    flex-wrap: wrap;
-    height: 80%;
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
-    padding: 10px;
-    width: 100%;
-    gap: 10px;
+    flex-direction: column;
+    border: none;
+    background: none;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+      font-weight: 500;
+      font-size: 18px;
+      color: ${(props) => props.theme.colors.third};
+    }
+
+    .start {
+      font-size: 64px;
+    }
   }
 `

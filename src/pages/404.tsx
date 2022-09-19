@@ -8,7 +8,7 @@ const NotFoundPage = () => {
   const { loggedIn } = useSelector((state: any) => state.user)
 
   useEffect(() => {
-    loggedIn ? router.push('/training') : router.push('/')
+    loggedIn ? router.push('/workout') : router.push('/')
   }, [])
 
   return <NotFound />

@@ -4,7 +4,11 @@ import { exerciseRequestCall } from '../../../services/exerciseRequestCall'
 import { ApiError } from '../../atoms/500'
 import { ExerciseList } from '../../molecules/exerciseList'
 import { Loader } from '../../atoms/loader'
-import { MainContent, Title } from './styles'
+import { Bottom, ExerciseUl, Title } from './styles'
+import { ExerciseContainer } from '../../organisms/exerciseContainer'
+import { PlayArrow, Stop } from '@material-ui/icons'
+import { WorkoutStart } from '../../molecules/workoutStart'
+import { WorkoutStartTitle } from '../../atoms/workoutStartTitle'
 
 export const Workout = () => {
   const dispatch = useDispatch()
@@ -40,52 +44,90 @@ export const Workout = () => {
     exerciseRequestCall(dispatch, token)
   }, [])
 
+  const [startWorkout, setStartWorkout] = useState(false)
+
+  const handleStart = () => {
+    setStartWorkout(!startWorkout)
+  }
+
   return (
     <>
-      <Title>
-        <h3>
-          Welcome <span>{name.charAt().toUpperCase() + name.slice(1)}, </span>
-          your training is divided into three parts.
-        </h3>
-        <p>Select a training below</p>
-        <select onChange={selectHandler}>
-          <option defaultChecked value="0">
-            here
-          </option>
-          <option value="1">A</option>
-          <option value="2">B</option>
-          <option value="3">C</option>
-        </select>
-        {training !== 0 && (
-          <p>
-            this training focuses on <span>{filter.typeA} </span>
-            and <span>{filter.typeB}</span> musculature
-          </p>
-        )}
-      </Title>
-      <MainContent>
+      {!startWorkout ? (
+        <Title>
+          <h3>
+            Welcome <span>{name.charAt().toUpperCase() + name.slice(1)}, </span>
+            your training is divided into three parts.
+          </h3>
+          <p>Select a training below</p>
+          <select onChange={selectHandler}>
+            <option defaultChecked value="0">
+              here
+            </option>
+            <option value="1">A</option>
+            <option value="2">B</option>
+            <option value="3">C</option>
+          </select>
+          {training !== 0 && (
+            <p>
+              this training focuses on <span>{filter.typeA} </span>
+              and <span>{filter.typeB}</span> musculature
+            </p>
+          )}
+        </Title>
+      ) : (
+        <WorkoutStartTitle />
+      )}
+      <ExerciseContainer>
         {isFetching && !error ? (
           <Loader />
         ) : (
-          <ul>
+          <ExerciseUl>
             {error && <ApiError />}
-            {exercises
-              ?.filter(
-                (i) => i.type === filter.typeA || i.type === filter.typeB
-              )
-              .map((i) => (
-                <ExerciseList
-                  key={i._id}
-                  name={i.name}
-                  videoUrl={i.videoUrl}
-                  type={i.type}
-                  liked={i.liked}
-                  id={i._id}
-                />
-              ))}
-          </ul>
+            {!startWorkout
+              ? exercises
+                  ?.filter(
+                    (i) => i.type === filter.typeA || i.type === filter.typeB
+                  )
+                  .map((i) => (
+                    <ExerciseList
+                      key={i._id}
+                      name={i.name}
+                      videoUrl={i.videoUrl}
+                      type={i.type}
+                      liked={i.liked}
+                      id={i._id}
+                    />
+                  ))
+              : exercises
+                  ?.filter(
+                    (i) => i.type === filter.typeA || i.type === filter.typeB
+                  )
+                  .map((i) => (
+                    <WorkoutStart
+                      key={i._id}
+                      name={i.name}
+                      videoUrl={i.videoUrl}
+                      type={i.type}
+                      liked={i.liked}
+                      id={i._id}
+                    />
+                  ))}
+          </ExerciseUl>
         )}
-      </MainContent>
+      </ExerciseContainer>
+      <Bottom>
+        <button onClick={handleStart}>
+          {!startWorkout ? (
+            <>
+              <p>Start the workout !</p> <PlayArrow className="start" />
+            </>
+          ) : (
+            <>
+              <p>Finish</p> <Stop className="start" />
+            </>
+          )}
+        </button>
+      </Bottom>
     </>
   )
 }

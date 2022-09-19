@@ -57,11 +57,11 @@ export const ButtonContainer = styled.div`
 export const ExerciseItemContainer = styled.li`
   display: flex;
   height: 96px;
-  width: 200px;
+  min-width: 200px;
   border: 1px solid;
   border-radius: 10px;
   margin: 5px 5px;
-  overflow: hidden;
+  overflow-y: hidden;
   transition: all 1s ease;
 
   :hover {

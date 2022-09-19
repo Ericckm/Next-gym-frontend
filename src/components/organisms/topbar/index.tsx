@@ -31,9 +31,9 @@ export const Topbar = () => {
           </Link>
         </MenuContainer>
         <MenuContainer
-          className={hrefPage.includes('training') ? 'active' : null}
+          className={hrefPage.includes('workout') ? 'active' : null}
         >
-          <Link href="/training">
+          <Link href="/workout">
             <a>
               <Grade className="icon" />
               Workout

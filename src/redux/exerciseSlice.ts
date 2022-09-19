@@ -33,6 +33,12 @@ export const exerciseSlice = createSlice({
     likeExerciseFailure: (state) => {
       state.isFetching = false
       state.error = true
+    },
+    startExercise: (state, action) => {
+      console.log(action.payload)
+      state.exercises = state.exercises.map((i) =>
+        i._id === action.payload ? '' : i
+      )
     }
   }
 })
@@ -43,7 +49,8 @@ export const {
   getExerciseFailure,
   likeExerciseFailure,
   likeExerciseStart,
-  likeExerciseSuccess
+  likeExerciseSuccess,
+  startExercise
 } = exerciseSlice.actions
 
 export const selectExercise = (state) => state.exercise.exercise

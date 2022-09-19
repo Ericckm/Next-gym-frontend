@@ -4,7 +4,7 @@ import { likedExercisePutCall } from '../../../services/exerciseRequestCall'
 import { AddLogModal } from '../../organisms/AddLogModal'
 import { LogList } from '../logList'
 
-import { ButtonContainer, ExerciseDesc, ExerciseContainer } from './styles'
+import { ButtonContainer, ExerciseDesc, ExerciseItemContainer } from './styles'
 
 export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   const [openModal, setOpenModal] = useState(false)
@@ -20,7 +20,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
   }
 
   return (
-    <ExerciseContainer>
+    <ExerciseItemContainer>
       <ExerciseDesc>
         <p>
           {name} -
@@ -45,6 +45,6 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
         <button onClick={handleLiked}>Remove</button>
         <button onClick={handleModal}>Create</button>
       </ButtonContainer>
-    </ExerciseContainer>
+    </ExerciseItemContainer>
   )
 }

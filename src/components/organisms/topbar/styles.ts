@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const TopbarMain = styled.div`
+export const TopbarMain = styled.nav`
   width: 100%;
   height: 70px;
   position: absolute;
@@ -9,7 +9,7 @@ export const TopbarMain = styled.div`
   justify-content: center;
 `
 
-export const Container = styled.div`
+export const Container = styled.ul`
   display: flex;
   width: 80%;
   justify-content: space-between;
@@ -31,7 +31,7 @@ export const Container = styled.div`
     color: ${(props) => props.theme.colors.white};
   }
 
-  div {
+  li {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,7 @@ export const Container = styled.div`
   }
 `
 
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.li`
   width: 104px;
   height: 60px;
   cursor: pointer;
