@@ -94,6 +94,12 @@ export const Middle = styled.div`
 
 export const FormBottom = styled.div`
   flex-direction: column;
+
+  span {
+    font-size: 18px;
+    color: ${(props) => props.theme.colors.white};
+    font-weight: 500;
+  }
 `
 
 export const Bottom = styled.div`

@@ -27,10 +27,10 @@ const UserSection = () => {
     updateUser(dispatch, inputs, token)
   }
 
-  const calcImc = () => {
+  const calcBmi = () => {
     const newHeight = parseInt(height) / 100
-    const imc = Math.round(parseInt(weight) / (newHeight * newHeight))
-    return imc
+    const bmi = Math.round(parseInt(weight) / (newHeight * newHeight))
+    return bmi
   }
 
   const longEnUSFormatter = new Intl.DateTimeFormat('en-US', {
@@ -39,9 +39,7 @@ const UserSection = () => {
     day: 'numeric'
   })
 
-  useEffect(() => {
-    setTimeout(() => {}, 2000)
-  }, [isFetching])
+  useEffect(() => {}, [isFetching])
 
   return (
     <>
@@ -91,8 +89,14 @@ const UserSection = () => {
             <FormBottom>
               <label className="bmi">{email}</label>
               <label className="bmi">
-                Your BMI is <span>{calcImc()}</span>
+                Your BMI is <span>{calcBmi()}</span>
               </label>
+              {calcBmi() <= 18.5 && <span>Underweight</span>}
+              {calcBmi() <= 24.9 && calcBmi() > 18.5 && (
+                <span>Normal Weight</span>
+              )}
+              {calcBmi() <= 29.9 && calcBmi() > 24.9 && <span>Overweight</span>}
+              {calcBmi() >= 30 && <span>Obesity</span>}
             </FormBottom>
           </form>
         </Middle>
