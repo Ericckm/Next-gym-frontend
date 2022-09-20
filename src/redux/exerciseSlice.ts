@@ -25,8 +25,8 @@ export const exerciseSlice = createSlice({
       state.error = false
     },
     likeExerciseSuccess: (state, action) => {
-      state.exercises = state.exercises.map((i) =>
-        i._id === action.payload._id ? '' : i
+      state.exercises = state.exercises.filter(
+        (i) => i._id !== action.payload._id
       )
       state.isFetching = false
     },
@@ -36,9 +36,7 @@ export const exerciseSlice = createSlice({
     },
     startExercise: (state, action) => {
       console.log(action.payload)
-      state.exercises = state.exercises.map((i) =>
-        i._id === action.payload ? '' : i
-      )
+      state.exercises = state.exercises.filter((i) => i._id !== action.payload)
     }
   }
 })

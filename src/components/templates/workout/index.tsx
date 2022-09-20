@@ -9,6 +9,7 @@ import { ExerciseContainer } from '../../organisms/exerciseContainer'
 import { PlayArrow, Stop } from '@material-ui/icons'
 import { WorkoutStart } from '../../molecules/workoutStart'
 import { WorkoutStartTitle } from '../../atoms/workoutStartTitle'
+import { CircleLoader } from '../../atoms/CircleLoader'
 
 export const Workout = () => {
   const dispatch = useDispatch()
@@ -40,15 +41,15 @@ export const Workout = () => {
     }
   }, [training])
 
+  const handleStart = () => {
+    setStartWorkout(!startWorkout)
+  }
+
   useEffect(() => {
     exerciseRequestCall(dispatch, token)
   }, [])
 
   const [startWorkout, setStartWorkout] = useState(false)
-
-  const handleStart = () => {
-    setStartWorkout(!startWorkout)
-  }
 
   return (
     <>
@@ -83,6 +84,7 @@ export const Workout = () => {
         ) : (
           <ExerciseUl>
             {error && <ApiError />}
+            {training == 0 && <CircleLoader />}
             {!startWorkout
               ? exercises
                   ?.filter(

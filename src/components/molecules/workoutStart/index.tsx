@@ -1,4 +1,4 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { startExercise } from '../../../redux/exerciseSlice'
 import { LogList } from '../logList'
 import { ButtonContainer, ExerciseDesc, ExerciseItemContainer } from './styles'

@@ -28,6 +28,7 @@ export const allExerciseSlice = createSlice({
       state.error = false
     },
     unlikeExerciseSuccess: (state, action) => {
+      console.log(action.payload)
       state.allExercises = state.allExercises.filter(
         (i) => i._id !== action.payload._id
       )
