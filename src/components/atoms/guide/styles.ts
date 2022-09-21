@@ -35,11 +35,18 @@ export const Mid = styled.div`
   p {
     font-size: 13px;
     font-weight: 400;
+    line-height: 30px;
   }
 
   h4 {
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    color: ${(props) => props.theme.colors.primary};
+  }
+
+  span {
+    color: ${(props) => props.theme.colors.primary};
+    font-weight: 600;
   }
 `
 
