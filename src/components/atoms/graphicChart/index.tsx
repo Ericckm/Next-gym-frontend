@@ -5,13 +5,19 @@ import {
   CategoryScale,
   LinearScale
 } from 'chart.js'
+import styled from 'styled-components'
+
+const GraphicChartContainer = styled.div`
+  height: 80%;
+  width: 50%;
+`
 
 ChartJS.register(BarElement, CategoryScale, LinearScale)
 
 export const GraphicChart = ({ chartData, chartOptions }) => {
   return (
-    <div>
+    <GraphicChartContainer>
       <Bar data={chartData} options={chartOptions} />
-    </div>
+    </GraphicChartContainer>
   )
 }

@@ -12,6 +12,7 @@ import {
   Top
 } from './styles'
 import { exerciseWithLogRequestCall } from '../../../services/exercisesWithLogs'
+import { CircleLoader } from '../../atoms/CircleLoader'
 
 export const LogGraphic = ({ children, filters, token }) => {
   const { allLogs } = useSelector((state: any) => state.allLogs)
@@ -38,7 +39,7 @@ export const LogGraphic = ({ children, filters, token }) => {
         )
       )
     )
-  }, [filters])
+  }, [filters, exerciseWithLogs])
 
   const handleExerciseId = (e) => {
     const id = e.target.value
@@ -136,7 +137,7 @@ export const LogGraphic = ({ children, filters, token }) => {
             {currentItem ? (
               <GraphicChart chartData={chartData} chartOptions={chartOptions} />
             ) : (
-              <span>There's no data about this exercise yet</span>
+              <CircleLoader />
             )}
           </ProgressionContainer>
         </GraphContainer>

@@ -71,10 +71,10 @@ export const AddExerciseModal = ({ onClick }) => {
                 />
               </div>
               <div>
-                <label>Video link</label>
+                <label>Link</label>
                 <input
                   type="string"
-                  placeholder="video"
+                  placeholder="video url"
                   name="videoUrl"
                   onChange={handleChange}
                 />
