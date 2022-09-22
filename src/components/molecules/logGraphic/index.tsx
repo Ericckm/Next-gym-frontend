@@ -11,6 +11,7 @@ import {
   SpanContainer,
   Top
 } from './styles'
+import { exerciseWithLogRequestCall } from '../../../services/exercisesWithLogs'
 
 export const LogGraphic = ({ children, filters, token }) => {
   const { allLogs } = useSelector((state: any) => state.allLogs)
@@ -20,14 +21,18 @@ export const LogGraphic = ({ children, filters, token }) => {
   const [chartOptions, setChartOptions] = useState({})
   const [param, setParam] = useState('load')
   const dispatch = useDispatch()
-  const { isFetching, error, allExercises } = useSelector(
-    (state: any) => state.allExercises
+  const { isFetching, error, exerciseWithLogs } = useSelector(
+    (state: any) => state.exercisesWithLogs
   )
+
+  useEffect(() => {
+    exerciseWithLogRequestCall(dispatch, token)
+  }, [])
 
   // make another api call to get all exercises, liked or not liked
   useEffect(() => {
     setFilteredExercises(
-      allExercises.filter((item) =>
+      exerciseWithLogs.filter((item) =>
         Object.entries(filters).every(([key, value]) =>
           item[key].includes(value)
         )

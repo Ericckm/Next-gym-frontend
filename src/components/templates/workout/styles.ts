@@ -51,11 +51,12 @@ export const Title = styled.div`
 `
 
 export const ExerciseUl = styled.ul`
-  display: flex;
+  align-items: flex-start;
   flex: 3;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  display: flex;
   flex-wrap: wrap;
+  margin-top: 10px;
 `
 
 export const Bottom = styled.div`

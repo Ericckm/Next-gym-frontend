@@ -3,6 +3,9 @@ import userReducer from '../redux/userSlice'
 import exerciseReducer from '../redux/exerciseSlice'
 import logReducer from '../redux/logSlice'
 import allExerciseReducer from '../redux/allExerciseSlice'
+import allLogsReducer from './allLogsSlice'
+import exercisesWithLogsReducer from './exercisesWithLogs'
+
 import {
   persistStore,
   persistReducer,
@@ -16,7 +19,6 @@ import {
 // import storage from 'redux-persist/lib/storage'
 
 import storage from './storageWorkaround'
-import allLogsReducer from './allLogsSlice'
 
 const persistConfig = {
   key: 'root',
@@ -32,7 +34,8 @@ export const store = configureStore({
     exercise: exerciseReducer,
     allExercises: allExerciseReducer,
     log: logReducer,
-    allLogs: allLogsReducer
+    allLogs: allLogsReducer,
+    exercisesWithLogs: exercisesWithLogsReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

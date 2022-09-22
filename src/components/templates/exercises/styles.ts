@@ -71,12 +71,12 @@ export const FilterContainer = styled.div`
 `
 
 export const ExerciseUl = styled.ul`
-  align-items: center;
+  align-items: flex-start;
   flex: 3;
-  justify-content: center;
+  justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  margin-top: 10px;
 `
 
 export const Flipbtn = styled.button`

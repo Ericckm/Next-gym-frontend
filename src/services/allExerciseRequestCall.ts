@@ -11,17 +11,6 @@ import {
   unlikeExerciseSuccess
 } from '../redux/allExerciseSlice'
 
-// export type exerciseRequestCallType = {
-// createdAt: Date
-// liked: boolean
-// name: string
-// owner: number
-// type: string
-// updatedAt: Date
-// id: number
-// }
-// : Promise<exerciseRequestCallType>
-
 export async function allExerciseRequestCall(dispatch, token) {
   dispatch(getAllExerciseStart())
   try {

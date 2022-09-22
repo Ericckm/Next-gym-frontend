@@ -117,6 +117,6 @@ export const ProgressionContainer = styled.div`
 
   div {
     height: 80%;
-    min-width: 50%;
+    width: 60%;
   }
 `

@@ -101,9 +101,7 @@ export const Workout = () => {
                     />
                   ))
               : exercises
-                  ?.filter(
-                    (i) => i.type === filter.typeA || i.type === filter.typeB
-                  )
+                  ?.filter((i) => i.type === filter.typeB)
                   .map((i) => (
                     <WorkoutStart
                       key={i._id}
