@@ -111,13 +111,13 @@ export const Form = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-left: 40px;
 
     div {
       display: flex;
       width: 100%;
-      justify-content: flex-start;
-      gap: 5px;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
 
       label {
         color: ${(props) => props.theme.colors.primary};
@@ -160,8 +160,8 @@ export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
   font-size: 12px;
+  justify-content: center;
 
   button {
     width: 76px;

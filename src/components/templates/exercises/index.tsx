@@ -9,6 +9,7 @@ import { Loader } from '../../atoms/loader'
 import { ApiError } from '../../atoms/500'
 import { ExerciseContainer } from '../../organisms/exerciseContainer'
 import { LogGraphic } from '../../molecules/logGraphic'
+import { CircleLoader } from '../../atoms/CircleLoader'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
@@ -117,6 +118,7 @@ const ExercisesSection = () => {
       </Top>
       {!openLogGraph ? (
         <ExerciseContainer>
+          {allExercises.length === 0 && <CircleLoader />}
           {isFetching && !error && <Loader />}
           <ExerciseUl>
             {error && <ApiError />}

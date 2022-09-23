@@ -5,6 +5,7 @@ import {
   clearAddExerciseSuccess
 } from '../../../redux/allExerciseSlice'
 import { addExercise } from '../../../services/allExerciseRequestCall'
+import { matchYoutubeUrl } from '../../../utils/validateYtUrl'
 import { FormError } from '../../atoms/formError'
 
 import {
@@ -27,6 +28,9 @@ export const AddExerciseModal = ({ onClick }) => {
     (state: any) => state.allExercises
   )
 
+  // const [ytUrl, setYtUrl] = useState('')
+  const [ytError, setYtError] = useState(false)
+
   const handleChange = (e) => {
     setInputs((prev) => {
       return {
@@ -35,10 +39,16 @@ export const AddExerciseModal = ({ onClick }) => {
       }
     })
     if (postingError) dispatch(clearAddExerciseError())
+    // if (ytError === true)
+    //   setTimeout(() => {
+    //     setYtError(false)
+    //   }, 1000)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // const ytUrlValidator = matchYoutubeUrl(ytUrl)
+    // if (ytUrlValidator === false) setYtError(true)
     addExercise(dispatch, inputs, token)
   }
 
@@ -74,11 +84,13 @@ export const AddExerciseModal = ({ onClick }) => {
                 <label>Link</label>
                 <input
                   type="string"
-                  placeholder="video url"
+                  placeholder="youtube link url"
                   name="videoUrl"
                   onChange={handleChange}
                 />
               </div>
+              {ytError && <span>not valid youtube url</span>}
+
               <div>
                 <label>Type</label>
                 <select name="type" onChange={handleChange}>
@@ -97,7 +109,10 @@ export const AddExerciseModal = ({ onClick }) => {
         </Main>
         <Bottom>
           <ButtonContainer>
-            <button onClick={handleSubmit} disabled={isPosting || postingError}>
+            <button
+              onClick={handleSubmit}
+              disabled={isPosting || postingError || ytError}
+            >
               submit
             </button>
           </ButtonContainer>

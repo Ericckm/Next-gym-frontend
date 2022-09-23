@@ -17,6 +17,8 @@ export const Workout = () => {
     (state: any) => state.exercise
   )
 
+  console.log('bla', exercises)
+
   const { name } = useSelector((state: any) => state.user.user.user)
   const { token } = useSelector((state: any) => state.user.user)
 
@@ -85,7 +87,7 @@ export const Workout = () => {
           <ExerciseUl>
             {error && <ApiError />}
             {training == 0 && <CircleLoader />}
-            {!startWorkout
+            {!startWorkout && training !== 0
               ? exercises
                   ?.filter(
                     (i) => i.type === filter.typeA || i.type === filter.typeB
@@ -100,7 +102,8 @@ export const Workout = () => {
                       id={i._id}
                     />
                   ))
-              : exercises
+              : training !== 0 &&
+                exercises
                   ?.filter(
                     (i) => i.type === filter.typeA || i.type === filter.typeB
                   )

@@ -57,7 +57,7 @@ export const ButtonContainer = styled.div`
 export const ExerciseItemContainer = styled.li`
   display: flex;
   height: 96px;
-  width: 200px;
+  width: 240px;
   border: 1px solid;
   border-radius: 10px;
   margin: 5px 5px;

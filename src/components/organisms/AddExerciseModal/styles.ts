@@ -81,19 +81,25 @@ export const Form = styled.div`
   justify-content: flex-start;
   height: 100%;
 
+  span {
+    font-size: 12px;
+    color: ${(props) => props.theme.colors.error};
+    display: flex;
+    justify-content: center;
+  }
+
   form {
     justify-content: space-around;
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    margin-left: 40px;
 
     div {
       display: flex;
       width: 100%;
-      justify-content: flex-start;
-      gap: 5px;
+      justify-content: center;
+      gap: 10px;
 
       label {
         color: ${(props) => props.theme.colors.primary};
@@ -103,7 +109,7 @@ export const Form = styled.div`
 
       input {
         border: none;
-        min-width: 240px;
+        width: 140px;
         font-size: 14px;
         font-weight: 600;
         color: ${(props) => props.theme.colors.primary};

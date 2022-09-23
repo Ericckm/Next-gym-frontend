@@ -23,7 +23,7 @@ export const ExerciseList = ({ name, videoUrl, id, type, liked }) => {
     <ExerciseItemContainer>
       <ExerciseDesc>
         <p>
-          {name} -
+          {name}
           <a href={videoUrl} target="_blank">
             Vídeo
           </a>
