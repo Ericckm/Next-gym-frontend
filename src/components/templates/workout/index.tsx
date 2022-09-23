@@ -17,8 +17,6 @@ export const Workout = () => {
     (state: any) => state.exercise
   )
 
-  console.log('bla', exercises)
-
   const { name } = useSelector((state: any) => state.user.user.user)
   const { token } = useSelector((state: any) => state.user.user)
 
