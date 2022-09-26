@@ -14,14 +14,19 @@ export const Overlay = styled.div`
 
 export const Container = styled.div`
   padding: 10px;
-  width: 40%;
-  height: 60%;
+  width: 50%;
+  height: 70%;
   background-color: ${(props) => props.theme.colors.white};
   display: flex;
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
   opacity: 0.9;
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+    height: 80%;
+  }
 `
 
 export const Top = styled.div`
@@ -30,19 +35,24 @@ export const Top = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  gap: 2px;
 `
 
 export const Title = styled.div`
   flex: 8;
   display: flex;
   justify-content: center;
-  margin-left: 10px;
   color: ${(props) => props.theme.colors.primary};
 
   p {
     font-size: 22px;
     color: ${(props) => props.theme.colors.primary};
     font-weight: 500;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 `
 
@@ -71,11 +81,6 @@ export const Button = styled.div`
   }
 `
 
-export const Main = styled.div`
-  flex: 6;
-  width: 100%;
-`
-
 export const Bottom = styled.div`
   flex: 2;
   display: flex;
@@ -83,19 +88,26 @@ export const Bottom = styled.div`
 `
 
 export const FormContainer = styled.div`
+  flex: 6;
+  width: 100%;
   display: flex;
   height: 100%;
   flex-direction: column;
   width: 100%;
 
-  h2 {
+  p {
     display: flex;
-    padding: 15px;
+    padding: 8px;
+    font-size: 18px;
     align-items: center;
     justify-content: center;
     font-weight: 400;
     justify-content: center;
     color: ${(props) => props.theme.colors.primary};
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 `
 
@@ -104,6 +116,7 @@ export const Form = styled.div`
   height: 100%;
   width: 100%;
   justify-content: flex-start;
+  flex-direction: column;
 
   form {
     justify-content: space-around;

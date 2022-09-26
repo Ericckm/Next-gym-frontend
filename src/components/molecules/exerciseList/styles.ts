@@ -21,6 +21,7 @@ export const ExerciseDesc = styled.div`
     align-items: center;
     font-weight: 500;
     color: ${(props) => props.theme.colors.primary};
+    text-align: center;
 
     a {
       font-size: inherit;

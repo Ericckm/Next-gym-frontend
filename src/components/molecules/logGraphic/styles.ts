@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const Top = styled.div`
-  flex: 1;
   display: flex;
+  flex: 0.5;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -11,7 +11,7 @@ export const Top = styled.div`
   p {
     text-align: center;
     color: ${(props) => props.theme.colors.third};
-    margin-bottom: 10px;
+    margin-bottom: 6px;
   }
 `
 
@@ -29,14 +29,14 @@ export const Mid = styled.div`
 `
 
 export const ExercisesUl = styled.ul`
-  flex: 1;
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: center;
   gap: 8px;
-  width: 90%;
-  overflow-y: scroll;
+  width: 80%;
+  overflow-x: scroll;
+  overflow-x: hidden;
 
   .active button {
     border-color: ${(props) => props.theme.colors.white};

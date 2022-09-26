@@ -118,10 +118,10 @@ const ExercisesSection = () => {
       </Top>
       {!openLogGraph ? (
         <ExerciseContainer>
+          {error && <ApiError />}
           {allExercises.length === 0 && <CircleLoader />}
           {isFetching && !error && <Loader />}
           <ExerciseUl>
-            {error && <ApiError />}
             {currentItem?.map((i) => (
               <AllExercisesList
                 key={i._id}

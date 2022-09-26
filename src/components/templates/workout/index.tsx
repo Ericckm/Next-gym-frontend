@@ -83,8 +83,8 @@ export const Workout = () => {
           <Loader />
         ) : (
           <ExerciseUl>
-            {error && <ApiError />}
             {training == 0 && <CircleLoader />}
+            {error && <ApiError />}
             {!startWorkout && training !== 0
               ? exercises
                   ?.filter(

@@ -10,7 +10,6 @@ import {
   Container,
   Form,
   FormContainer,
-  Main,
   Overlay,
   Title,
   Top
@@ -70,56 +69,56 @@ export const AddLogModal = ({
             <button onClick={onClick}>x</button>
           </Button>
         </Top>
-        <Main>
-          <FormContainer>
-            <h2>{name}</h2>
-            <Form>
-              <form>
-                <div>
-                  <label>Load</label>
-                  <input
-                    type="number"
-                    placeholder={load}
-                    name="load"
-                    onChange={handleChange}
-                  />
-                  <label>kg</label>
-                </div>
-                <div>
-                  <label>Sets</label>
-                  <input
-                    type="number"
-                    placeholder={sets}
-                    name="sets"
-                    onChange={handleChange}
-                  />
-                  <label>x</label>
-                </div>
-                <div>
-                  <label>Repetitions</label>
-                  <input
-                    type="number"
-                    placeholder={reps}
-                    name="reps"
-                    onChange={handleChange}
-                  />
-                  <label>x</label>
-                </div>
-                <div>
-                  <label>Rest</label>
-                  <input
-                    type="number"
-                    placeholder={rest}
-                    name="rest"
-                    onChange={handleChange}
-                  />
-                  <label>seconds</label>
-                </div>
-                {postingError && <FormError />}
-              </form>
-            </Form>
-          </FormContainer>
-        </Main>
+
+        <FormContainer>
+          <Form>
+            <p>{name}</p>
+            <form>
+              <div>
+                <label>Load</label>
+                <input
+                  type="number"
+                  placeholder={load}
+                  name="load"
+                  onChange={handleChange}
+                />
+                <label>kg</label>
+              </div>
+              <div>
+                <label>Sets</label>
+                <input
+                  type="number"
+                  placeholder={sets}
+                  name="sets"
+                  onChange={handleChange}
+                />
+                <label>x</label>
+              </div>
+              <div>
+                <label>Repetitions</label>
+                <input
+                  type="number"
+                  placeholder={reps}
+                  name="reps"
+                  onChange={handleChange}
+                />
+                <label>x</label>
+              </div>
+              <div>
+                <label>Rest</label>
+                <input
+                  type="number"
+                  placeholder={rest}
+                  name="rest"
+                  onChange={handleChange}
+                />
+                <label>seconds</label>
+              </div>
+              {postingError && <FormError />}
+            </form>
+          </Form>
+        </FormContainer>
+
         <Bottom>
           <ButtonContainer>
             <button onClick={handleSubmit} disabled={isPosting || postingError}>

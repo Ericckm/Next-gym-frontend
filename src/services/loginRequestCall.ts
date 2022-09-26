@@ -15,10 +15,13 @@ import {
 export async function login(dispatch, email, password) {
   dispatch(loginStart())
   try {
-    const request = await axios.post('http://localhost:2500/login', {
-      email,
-      password
-    })
+    const request = await axios.post(
+      'https://gym-app-back-production.up.railway.app/login',
+      {
+        email,
+        password
+      }
+    )
     dispatch(loginSuccess(request.data))
   } catch (e) {
     dispatch(loginFailure())
@@ -28,9 +31,12 @@ export async function login(dispatch, email, password) {
 export async function register(dispatch, inputs) {
   dispatch(registerStart())
   try {
-    const request = await axios.post('http://localhost:2500/register', {
-      ...inputs
-    })
+    const request = await axios.post(
+      'https://gym-app-back-production.up.railway.app/register',
+      {
+        ...inputs
+      }
+    )
     dispatch(registerSuccess(request.data))
   } catch (e) {
     dispatch(registerFailure())
@@ -41,7 +47,7 @@ export async function updateUser(dispatch, inputs, token) {
   dispatch(userUpdateStart())
   try {
     const request = await axios.patch(
-      'http://localhost:2500/userUpdate',
+      'https://gym-app-back-production.up.railway.app/userUpdate',
       inputs,
       {
         headers: {

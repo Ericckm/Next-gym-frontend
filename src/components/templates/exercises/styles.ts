@@ -96,7 +96,11 @@ export const ExerciseUl = styled.ul`
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin-bottom: 36px;
+
+  @media only screen and (max-width: 900px) {
+    overflow-y: scroll;
+  }
 `
 
 export const Flipbtn = styled.button`

@@ -22,5 +22,7 @@ body {
   color: ${(props) => props.theme.colors.secundary};
   font: 400 16px Roboto, sans-serif;
   height: 100vh;
+
+
 }
 `

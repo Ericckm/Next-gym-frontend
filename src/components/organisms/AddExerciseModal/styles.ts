@@ -14,14 +14,19 @@ export const Overlay = styled.div`
 
 export const Container = styled.div`
   padding: 10px;
-  width: 40%;
-  height: 60%;
+  width: 50%;
+  height: 70%;
   background-color: ${(props) => props.theme.colors.white};
   opacity: 0.9;
   display: flex;
   justify-content: center;
   flex-direction: column;
   border-radius: 10px;
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+    height: 80%;
+  }
 `
 
 export const Top = styled.div`
@@ -30,19 +35,25 @@ export const Top = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  gap: 2px;
 `
 
 export const Title = styled.div`
   flex: 8;
   display: flex;
   justify-content: center;
-  margin-left: 10px;
+
   color: ${(props) => props.theme.colors.primary};
 
   p {
     font-size: 22px;
     color: ${(props) => props.theme.colors.primary};
     font-weight: 500;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 `
 
@@ -71,12 +82,9 @@ export const Button = styled.div`
   }
 `
 
-export const Main = styled.div`
+export const Form = styled.div`
   flex: 6;
   width: 100%;
-`
-
-export const Form = styled.div`
   display: flex;
   justify-content: flex-start;
   height: 100%;

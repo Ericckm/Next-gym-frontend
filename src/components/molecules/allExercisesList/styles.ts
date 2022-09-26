@@ -26,6 +26,7 @@ export const Title = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 14px;
   font-weight: 500;
   color: ${(props) => props.theme.colors.primary};
@@ -70,10 +71,15 @@ export const ButtonContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  width: 100%;
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100%;
+    width: 100%;
     border-style: none;
     padding: 4px;
     transition: all 1s ease;
@@ -96,9 +102,13 @@ export const ExerciseContainer = styled.li`
   width: 200px;
   border: 1px solid;
   border-radius: 10px;
-  margin: 5px 5px;
+  margin: 5px 10px;
   overflow: hidden;
   transition: all 1s ease;
+
+  @media only screen and (max-width: 540px) {
+    width: 90%;
+  }
 
   :hover {
     border-color: ${(props) => props.theme.colors.white};

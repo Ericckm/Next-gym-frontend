@@ -8,6 +8,9 @@ export const Container = styled.div`
   font-size: 20px;
   color: ${(props) => props.theme.colors.error};
   font-weight: 300;
+  align-items: center;
+  align-self: center;
+  padding: 10px;
 `
 
 export const ApiError = () => {

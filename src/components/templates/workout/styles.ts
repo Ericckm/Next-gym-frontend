@@ -7,6 +7,7 @@ export const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   gap: 4px;
 
   @media only screen and (max-width: 768px) {
@@ -16,7 +17,6 @@ export const Title = styled.div`
 
   h3 {
     font-size: 24px;
-    text-align: center;
     font-weight: 400;
     color: ${(props) => props.theme.colors.primary};
 
@@ -73,7 +73,11 @@ export const ExerciseUl = styled.ul`
   justify-content: space-around;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 10px;
+  margin: 5px 10px;
+
+  @media only screen and (max-width: 680px) {
+    overflow-y: scroll;
+  }
 `
 
 export const Bottom = styled.div`
