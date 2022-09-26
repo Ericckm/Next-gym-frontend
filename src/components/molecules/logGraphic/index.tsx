@@ -12,7 +12,7 @@ import {
   Top
 } from './styles'
 import { exerciseWithLogRequestCall } from '../../../services/exercisesWithLogs'
-import { CircleLoader } from '../../atoms/CircleLoader'
+import { Loader } from '../../atoms/loader'
 
 export const LogGraphic = ({ children, filters, token }) => {
   const { allLogs } = useSelector((state: any) => state.allLogs)
@@ -137,7 +137,7 @@ export const LogGraphic = ({ children, filters, token }) => {
             {currentItem ? (
               <GraphicChart chartData={chartData} chartOptions={chartOptions} />
             ) : (
-              <CircleLoader />
+              <Loader />
             )}
           </ProgressionContainer>
         </GraphContainer>
