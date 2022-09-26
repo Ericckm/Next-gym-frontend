@@ -54,6 +54,11 @@ export const AddLogModal = ({
     addLog(dispatch, inputs, token)
   }
 
+  const handleModalClose = () => {
+    dispatch(clearAddLogError())
+    onClick(!onClick)
+  }
+
   useEffect(() => {
     if (postingSuccess) onClick(!onClick)
     dispatch(clearAddLogSuccess())
@@ -67,10 +72,9 @@ export const AddLogModal = ({
             <p>Fill the information below to create a new log</p>
           </Title>
           <Button>
-            <button onClick={onClick}>x</button>
+            <button onClick={handleModalClose}>x</button>
           </Button>
         </Top>
-
         <FormContainer>
           <Form>
             {isPosting && !postingError ? (

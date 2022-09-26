@@ -52,6 +52,11 @@ export const AddExerciseModal = ({ onClick }) => {
     addExercise(dispatch, inputs, token)
   }
 
+  const handleModalClose = () => {
+    dispatch(clearAddExerciseError())
+    onClick(!onClick)
+  }
+
   useEffect(() => {
     if (postingSuccess) onClick(!onClick)
     dispatch(clearAddExerciseSuccess())
@@ -65,7 +70,7 @@ export const AddExerciseModal = ({ onClick }) => {
             <p>Fill the information below to create a new Exercise</p>
           </Title>
           <Button>
-            <button onClick={onClick}>x</button>
+            <button onClick={handleModalClose}>x</button>
           </Button>
         </Top>
         <Form>
