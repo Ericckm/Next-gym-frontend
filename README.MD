@@ -5,12 +5,9 @@ You can create your own custom exercises, add to the workout routine and keep re
 
 # Install & Run
 
-yarn
-yarn dev
+yarn & yarn run dev
 
-# Features per page
-
-# Exercises
+# Exercises Page
 - Visualize the exercises execpt the ones in the workout
 
 - Add exercise to the workout routine
@@ -22,7 +19,7 @@ yarn dev
 Flip
 - Visualize your progression in each exercise
 
-# Workout
+# Workout Page
 - Visualize your workout routine
 
 - Video to check the execution of the exercise
@@ -31,7 +28,7 @@ Flip
 
 - Remove exercise from the workout routine
 
-# User
+# User Page
 - Visualize your profile information
 
 - By setting heigth ('cm') and weigth ('kg') you can check your body mass index
@@ -41,7 +38,3 @@ Flip
 # Stacks
 
 Nextjs, Reactjs, Styled-components, Typescript, Redux / Redux Toolkit, Material UI, Axios.
-
-# Images
-
-
