@@ -9,6 +9,7 @@ const Container = styled.div`
   position: relative;
   flex-direction: column;
   justify-content: center;
+  overflow-y: scroll;
 `
 
 export const ExerciseContainer = ({ children }) => {

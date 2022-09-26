@@ -8,6 +8,10 @@ export const Top = styled.div`
   align-items: center;
   gap: 8px;
   width: 80%;
+
+  @media only screen and (max-width: 768px) {
+    flex: 0.3;
+  }
 `
 
 export const FilterContainer = styled.div`
@@ -26,6 +30,11 @@ export const FilterContainer = styled.div`
     color: ${(props) => props.theme.colors.third};
     font-weight: 400;
 
+    @media only screen and (max-width: 768px) {
+      gap: 1px;
+      font-size: 13px;
+    }
+
     select {
       padding: 4px;
       color: ${(props) => props.theme.colors.primary};
@@ -36,8 +45,13 @@ export const FilterContainer = styled.div`
       background: none;
       color: ${(props) => props.theme.colors.third};
       font-weight: 400;
-
       border-bottom: 1px solid ${(props) => props.theme.colors.primary};
+
+      @media only screen and (max-width: 768px) {
+        margin-bottom: 10px;
+        font-size: 12px;
+        width: 100px;
+      }
 
       &:focus {
         outline: none;
@@ -53,6 +67,12 @@ export const FilterContainer = styled.div`
       font-size: 14px;
       background: none;
       width: 120px;
+
+      @media only screen and (max-width: 768px) {
+        margin-bottom: 10px;
+        width: 100px;
+        font-size: 12px;
+      }
 
       &::placeholder {
         color: ${(props) => props.theme.colors.third};

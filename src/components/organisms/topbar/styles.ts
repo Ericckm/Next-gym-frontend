@@ -14,6 +14,7 @@ export const Container = styled.ul`
   width: 80%;
   justify-content: space-between;
   align-items: center;
+  gap: 4px;
 
   .active {
     border-color: ${(props) => props.theme.colors.white};
@@ -53,6 +54,10 @@ export const Container = styled.ul`
       display: flex;
       color: ${(props) => props.theme.colors.primary};
       transition: all 1s ease;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
 
     a {
@@ -67,6 +72,9 @@ export const Container = styled.ul`
       align-items: center;
       justify-content: center;
       gap: 2px;
+      @media only screen and (max-width: 768px) {
+        font-size: 12px;
+      }
     }
   }
 `
@@ -79,6 +87,14 @@ export const MenuContainer = styled.li`
   border-radius: 20px;
   display: flex;
   transition: all 2s ease;
+
+  @media only screen and (max-width: 768px) {
+    width: 58px;
+    height: 50px;
+    border-radius: 5px;
+    flex-direction: column;
+  }
+
   :hover {
     border-color: ${(props) => props.theme.colors.white};
   }
