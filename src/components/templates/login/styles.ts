@@ -11,6 +11,11 @@ export const Container = styled.div`
   flex-direction: column;
   border-radius: 20px;
   opacity: 0.95;
+
+  @media only screen and (max-width: 768px) {
+    width: 70%;
+    min-height: 80%;
+  }
 `
 
 export const Title = styled.div`
