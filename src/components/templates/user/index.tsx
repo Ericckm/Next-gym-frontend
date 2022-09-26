@@ -51,55 +51,59 @@ const UserSection = () => {
           good job.
         </h3>
       </Top>
-      {!isFetching ? (
-        <Middle>
-          <img src="assets/userIcon.png" alt="" />
+      <Middle>
+        {!isFetching ? (
+          <>
+            <img src="assets/userIcon.png" alt="" />
 
-          <form action="">
-            <div>
-              <label>Name</label>
-              <input
-                type="string"
-                placeholder={name}
-                name="name"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Weight</label>
-              <input
-                type="number"
-                placeholder={weight + ' kg'}
-                name="weight"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Height</label>
-              <input
-                type="number"
-                placeholder={height + ' cm'}
-                name="height"
-                onChange={handleChange}
-              />
-            </div>
-            <FormBottom>
-              <label className="bmi">{email}</label>
-              <label className="bmi">
-                Your BMI is <span>{calcBmi()}</span>
-              </label>
-              {calcBmi() <= 18.5 && <span>Underweight</span>}
-              {calcBmi() <= 24.9 && calcBmi() > 18.5 && (
-                <span>Normal Weight</span>
-              )}
-              {calcBmi() <= 29.9 && calcBmi() > 24.9 && <span>Overweight</span>}
-              {calcBmi() >= 30 && <span>Obesity</span>}
-            </FormBottom>
-          </form>
-        </Middle>
-      ) : (
-        <Loader />
-      )}
+            <form action="">
+              <div>
+                <label>Name</label>
+                <input
+                  type="string"
+                  placeholder={name}
+                  name="name"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Weight</label>
+                <input
+                  type="number"
+                  placeholder={weight + ' kg'}
+                  name="weight"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Height</label>
+                <input
+                  type="number"
+                  placeholder={height + ' cm'}
+                  name="height"
+                  onChange={handleChange}
+                />
+              </div>
+              <FormBottom>
+                <label className="bmi">{email}</label>
+                <label className="bmi">
+                  Your BMI is <span>{calcBmi()}</span>
+                </label>
+                {calcBmi() <= 18.5 && <span>Underweight</span>}
+                {calcBmi() <= 24.9 && calcBmi() > 18.5 && (
+                  <span>Normal Weight</span>
+                )}
+                {calcBmi() <= 29.9 && calcBmi() > 24.9 && (
+                  <span>Overweight</span>
+                )}
+                {calcBmi() >= 30 && <span>Obesity</span>}
+              </FormBottom>
+            </form>
+          </>
+        ) : (
+          <Loader />
+        )}
+      </Middle>
       <Bottom>
         <button type="submit" onClick={handleUpdate}>
           Update
