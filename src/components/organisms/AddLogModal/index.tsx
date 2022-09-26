@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { clearAddLogError, clearAddLogSuccess } from '../../../redux/logSlice'
 import { addLog } from '../../../services/logRequestCall'
 import { FormError } from '../../atoms/formError'
+import { Loader } from '../../atoms/loader'
 import {
   Bottom,
   Button,
@@ -72,50 +73,56 @@ export const AddLogModal = ({
 
         <FormContainer>
           <Form>
-            <p>{name}</p>
-            <form>
-              <div>
-                <label>Load</label>
-                <input
-                  type="number"
-                  placeholder={load}
-                  name="load"
-                  onChange={handleChange}
-                />
-                <label>kg</label>
-              </div>
-              <div>
-                <label>Sets</label>
-                <input
-                  type="number"
-                  placeholder={sets}
-                  name="sets"
-                  onChange={handleChange}
-                />
-                <label>x</label>
-              </div>
-              <div>
-                <label>Repetitions</label>
-                <input
-                  type="number"
-                  placeholder={reps}
-                  name="reps"
-                  onChange={handleChange}
-                />
-                <label>x</label>
-              </div>
-              <div>
-                <label>Rest</label>
-                <input
-                  type="number"
-                  placeholder={rest}
-                  name="rest"
-                  onChange={handleChange}
-                />
-                <label>seconds</label>
-              </div>
-              {postingError && <FormError />}
-            </form>
+            {isPosting && !postingError ? (
+              <Loader />
+            ) : (
+              <>
+                <p>{name}</p>
+                <form>
+                  <div>
+                    <label>Load</label>
+                    <input
+                      type="number"
+                      placeholder={load}
+                      name="load"
+                      onChange={handleChange}
+                    />
+                    <label>kg</label>
+                  </div>
+                  <div>
+                    <label>Sets</label>
+                    <input
+                      type="number"
+                      placeholder={sets}
+                      name="sets"
+                      onChange={handleChange}
+                    />
+                    <label>x</label>
+                  </div>
+                  <div>
+                    <label>Repetitions</label>
+                    <input
+                      type="number"
+                      placeholder={reps}
+                      name="reps"
+                      onChange={handleChange}
+                    />
+                    <label>x</label>
+                  </div>
+                  <div>
+                    <label>Rest</label>
+                    <input
+                      type="number"
+                      placeholder={rest}
+                      name="rest"
+                      onChange={handleChange}
+                    />
+                    <label>seconds</label>
+                  </div>
+                  {postingError && <FormError />}
+                </form>
+              </>
+            )}
           </Form>
         </FormContainer>
 

@@ -7,6 +7,7 @@ import {
 import { addExercise } from '../../../services/allExerciseRequestCall'
 import { matchYoutubeUrl } from '../../../utils/validateYtUrl'
 import { FormError } from '../../atoms/formError'
+import { Loader } from '../../atoms/loader'
 
 import {
   Bottom,
@@ -67,45 +68,47 @@ export const AddExerciseModal = ({ onClick }) => {
             <button onClick={onClick}>x</button>
           </Button>
         </Top>
-
         <Form>
-          <form>
-            <div>
-              <label>Name</label>
-              <input
-                type="string"
-                placeholder="exercise name"
-                name="name"
-                onChange={handleChange}
-              />
-            </div>
-            <div>
-              <label>Link</label>
-              <input
-                type="string"
-                placeholder="youtube link url"
-                name="videoUrl"
-                onChange={handleChange}
-              />
-            </div>
-            {ytError && <span>not valid youtube url</span>}
+          {isPosting && !postingError ? (
+            <Loader />
+          ) : (
+            <form>
+              <div>
+                <label>Name</label>
+                <input
+                  type="string"
+                  placeholder="exercise name"
+                  name="name"
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <label>Link</label>
+                <input
+                  type="string"
+                  placeholder="youtube link url"
+                  name="videoUrl"
+                  onChange={handleChange}
+                />
+              </div>
+              {ytError && <span>not valid youtube url</span>}
 
-            <div>
-              <label>Type</label>
-              <select name="type" onChange={handleChange}>
-                <option defaultChecked>must select</option>
-                <option value="Chest">chest</option>
-                <option value="Triceps">triceps</option>
-                <option value="Back">back</option>
-                <option value="Biceps">biceps</option>
-                <option value="Leg">leg</option>
-                <option value="Shoulder">shoulder</option>
-              </select>
-            </div>
-            {postingError && <FormError />}
-          </form>
+              <div>
+                <label>Type</label>
+                <select name="type" onChange={handleChange}>
+                  <option defaultChecked>must select</option>
+                  <option value="Chest">chest</option>
+                  <option value="Triceps">triceps</option>
+                  <option value="Back">back</option>
+                  <option value="Biceps">biceps</option>
+                  <option value="Leg">leg</option>
+                  <option value="Shoulder">shoulder</option>
+                </select>
+              </div>
+              {postingError && <FormError />}
+            </form>
+          )}
         </Form>
-
         <Bottom>
           <ButtonContainer>
             <button
