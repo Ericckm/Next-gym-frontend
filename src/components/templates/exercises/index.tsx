@@ -118,21 +118,23 @@ const ExercisesSection = () => {
       </Top>
       {!openLogGraph ? (
         <ExerciseContainer>
+          {isFetching && !error ? (
+            <Loader />
+          ) : (
+            <ExerciseUl>
+              {currentItem?.map((i) => (
+                <AllExercisesList
+                  key={i._id}
+                  name={i.name}
+                  type={i.type}
+                  videoUrl={i.videoUrl}
+                  id={i._id}
+                />
+              ))}
+              <Flipbtn onClick={handleLogGraphModal}>Flip</Flipbtn>
+            </ExerciseUl>
+          )}
           {error && <ApiError />}
-          {allExercises.length === 0 && <CircleLoader />}
-          {isFetching && !error && <Loader />}
-          <ExerciseUl>
-            {currentItem?.map((i) => (
-              <AllExercisesList
-                key={i._id}
-                name={i.name}
-                type={i.type}
-                videoUrl={i.videoUrl}
-                id={i._id}
-              />
-            ))}
-            <Flipbtn onClick={handleLogGraphModal}>Flip</Flipbtn>
-          </ExerciseUl>
         </ExerciseContainer>
       ) : (
         <LogGraphic filters={filters} token={token}>

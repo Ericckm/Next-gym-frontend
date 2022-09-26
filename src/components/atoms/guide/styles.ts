@@ -15,7 +15,7 @@ export const GuideContainer = styled.div`
   flex-direction: column;
 
   @media only screen and (max-width: 768px) {
-    bottom: 0;
+    bottom: 40px;
     left: auto;
     right: auto;
     border-left: 1px solid ${(props) => props.theme.colors.white};
