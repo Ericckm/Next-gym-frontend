@@ -6,7 +6,7 @@ You can create your own custom exercises, add to the workout routine and keep re
 
 # Deployed
 
-https://gym-app-mu.vercel.app/workout
+https://gym-app-mu.vercel.app/
 
 # Install & Run
 
