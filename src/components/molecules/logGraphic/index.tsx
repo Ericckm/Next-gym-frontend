@@ -89,7 +89,7 @@ export const LogGraphic = ({ children, filters, token }) => {
     <ExerciseContainer>
       {children}
       <Top>
-        <h2>Select an exercise to check your progress</h2>
+        <p>Select an exercise to check your progress</p>
         <ExercisesUl>
           {/* onclick grab exercise id to find in the graphcontainer and map logs */}
           {filteredExercises?.map((i: any) => (

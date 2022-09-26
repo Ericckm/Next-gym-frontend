@@ -7,8 +7,11 @@ export const Top = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  h2 {
+
+  p {
+    text-align: center;
     color: ${(props) => props.theme.colors.third};
+    margin-bottom: 10px;
   }
 `
 
@@ -33,7 +36,7 @@ export const ExercisesUl = styled.ul`
   justify-content: center;
   gap: 8px;
   width: 90%;
-  overflow-y: hidden;
+  overflow-y: scroll;
 
   .active button {
     border-color: ${(props) => props.theme.colors.white};
@@ -57,6 +60,10 @@ export const ExercisesUl = styled.ul`
       color: ${(props) => props.theme.colors.third};
       background-color: ${(props) => props.theme.colors.white};
       border-color: ${(props) => props.theme.colors.secundary};
+
+      @media only screen and (max-width: 768px) {
+        font-size: 10px;
+      }
 
       :hover {
         border-color: ${(props) => props.theme.colors.white};
@@ -102,6 +109,10 @@ export const SpanContainer = styled.div`
     background-color: ${(props) => props.theme.colors.white};
     border-color: ${(props) => props.theme.colors.secundary};
 
+    @media only screen and (max-width: 768px) {
+      font-size: 10px;
+    }
+
     :hover {
       border-color: ${(props) => props.theme.colors.white};
       color: ${(props) => props.theme.colors.white};
@@ -114,4 +125,9 @@ export const ProgressionContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    justify-content: flex-start;
+    margin-left: 5px;
+  }
 `

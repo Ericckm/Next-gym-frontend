@@ -119,6 +119,11 @@ export const Flipbtn = styled.button`
   background-color: ${(props) => props.theme.colors.third};
   border-color: ${(props) => props.theme.colors.white};
 
+  @media only screen and (max-width: 768px) {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
   :hover {
     border-color: ${(props) => props.theme.colors.secundary};
     color: ${(props) => props.theme.colors.secundary};
@@ -135,8 +140,12 @@ export const Bottom = styled.div`
   gap: 12px;
   width: 80%;
 
+  @media only screen and (max-width: 768px) {
+    flex: 0.3;
+    margin: 10px 0;
+  }
+
   button {
-    size: 12px;
     background-color: ${(props) => props.theme.colors.third};
     border: 1.4px solid ${(props) => props.theme.colors.white};
     color: ${(props) => props.theme.colors.white};
@@ -146,6 +155,16 @@ export const Bottom = styled.div`
     justify-content: center;
     transition: all 1s ease;
     cursor: pointer;
+
+    svg {
+      @media only screen and (max-width: 768px) {
+        font-size: 20px;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      font-size: 10px;
+    }
 
     :hover {
       border-color: ${(props) => props.theme.colors.secundary};
@@ -158,7 +177,6 @@ export const Bottom = styled.div`
     display: flex;
     border: 2px;
     gap: 4px;
-    font-size: 14px;
     font-weight: 400;
 
     .active {
@@ -180,6 +198,13 @@ export const Bottom = styled.div`
       border-radius: 10px;
       transition: all 0.5s ease;
       cursor: pointer;
+      font-size: 14px;
+
+      @media only screen and (max-width: 768px) {
+        padding: 6px;
+        border-radius: 4px;
+        font-size: 12px;
+      }
 
       :hover {
         color: ${(props) => props.theme.colors.white};

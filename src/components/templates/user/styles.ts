@@ -7,18 +7,21 @@ export const Top = styled.div`
   align-items: center;
   width: 80%;
 
-  div {
-    h3 {
-      margin-top: 10px;
-      font-size: 24px;
-      font-weight: 400;
-      align-items: center;
-      color: ${(props) => props.theme.colors.primary};
+  h3 {
+    padding: 10px 0;
+    font-size: 24px;
+    font-weight: 400;
+    align-items: center;
+    text-align: center;
+    color: ${(props) => props.theme.colors.primary};
 
-      span {
-        color: ${(props) => props.theme.colors.white};
-        font-weight: 500;
-      }
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
+
+    span {
+      color: ${(props) => props.theme.colors.white};
+      font-weight: 500;
     }
   }
 `
@@ -31,26 +34,17 @@ export const Middle = styled.div`
   overflow: hidden;
   width: 80%;
 
-  div {
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 20%;
-
-    img {
-      border: 1px solid ${(props) => props.theme.colors.white};
-      border-radius: 10px;
-      height: 80px;
-    }
+  img {
+    border: 1px solid ${(props) => props.theme.colors.white};
+    border-radius: 10px;
+    height: 60px;
   }
 
   form {
+    justify-content: space-around;
     height: 70%;
     display: flex;
     flex-direction: column;
-    padding: 10px;
 
     .bmi {
       color: ${(props) => props.theme.colors.primary};
@@ -59,18 +53,27 @@ export const Middle = styled.div`
         color: ${(props) => props.theme.colors.white};
         font-weight: 500;
       }
+
+      @media only screen and (max-width: 768px) {
+        font-size: 12px;
+      }
     }
 
     label {
       font-size: 16px;
       font-weight: 400;
       color: ${(props) => props.theme.colors.primary};
+
+      @media only screen and (max-width: 768px) {
+        font-size: 12px;
+      }
     }
 
     div {
       display: flex;
       justify-content: space-between;
       gap: 12px;
+      align-items: center;
 
       input {
         padding: 4px;
@@ -79,6 +82,10 @@ export const Middle = styled.div`
         font-weight: 600;
         background-color: ${(props) => props.theme.colors.white};
         opacity: 0.9;
+
+        @media only screen and (max-width: 768px) {
+          padding: 2px;
+        }
 
         &::placeholder {
           color: ${(props) => props.theme.colors.secundary};
@@ -94,11 +101,16 @@ export const Middle = styled.div`
 
 export const FormBottom = styled.div`
   flex-direction: column;
+  text-align: center;
 
   span {
     font-size: 18px;
     color: ${(props) => props.theme.colors.white};
     font-weight: 500;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 12px;
+    }
   }
 `
 

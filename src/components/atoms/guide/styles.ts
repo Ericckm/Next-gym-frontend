@@ -13,6 +13,18 @@ export const GuideContainer = styled.div`
   background-color: ${(props) => props.theme.colors.third};
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 768px) {
+    bottom: 0;
+    left: auto;
+    right: auto;
+    border-left: 1px solid ${(props) => props.theme.colors.white};
+    border-radius: 20px 20px 0 0;
+    opacity: 1;
+    z-index: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 `
 
 export const Top = styled.div`
@@ -22,20 +34,35 @@ export const Top = styled.div`
   align-items: center;
   color: ${(props) => props.theme.colors.white};
   padding: 10px;
+  font-size: 16px;
+
+  @media only screen and (max-width: 768px) {
+    flex: 0.3;
+
+    h3 {
+      font-size: 12px;
+    }
+  }
 `
 
 export const Mid = styled.div`
   flex: 8;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   padding: 12px 5px 0 12px;
   background-color: ${(props) => props.theme.colors.white};
   gap: 8px;
+  line-height: 24px;
 
   p {
     font-size: 13px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 20px;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 10px;
+    }
   }
 
   h4 {
@@ -51,21 +78,15 @@ export const Mid = styled.div`
 `
 
 export const ExerciseGuide = styled.div`
-  flex: 1;
   padding: 0 0 5px 0;
-  line-height: 24px;
 `
 
 export const WorkoutGuide = styled.div`
-  flex: 1;
   padding: 0 0 5px 0;
-  line-height: 24px;
 `
 
 export const UserGuide = styled.div`
-  flex: 1;
   padding: 0 0 5px 0;
-  line-height: 24px;
 `
 
 export const Bottom = styled.div`
@@ -77,4 +98,8 @@ export const Bottom = styled.div`
   font-size: 12px;
   font-weight: 400;
   padding: 10px;
+
+  @media only screen and (max-width: 768px) {
+    flex: 0.2;
+  }
 `

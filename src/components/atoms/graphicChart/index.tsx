@@ -10,6 +10,10 @@ import styled from 'styled-components'
 const GraphicChartContainer = styled.div`
   height: 80%;
   width: 50%;
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+  }
 `
 
 ChartJS.register(BarElement, CategoryScale, LinearScale)

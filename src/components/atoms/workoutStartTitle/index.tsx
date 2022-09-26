@@ -7,12 +7,24 @@ const Title = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+  @media only screen and (max-width: 768px) {
+    flex: 0.3;
+    margin: 10px 0;
+  }
 
   h3 {
     font-size: 24px;
     font-weight: 400;
     align-items: center;
+    display: flex;
+    justify-content: center;
     color: ${(props) => props.theme.colors.primary};
+
+    @media only screen and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 `
 

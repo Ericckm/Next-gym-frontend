@@ -30,6 +30,11 @@ export const Guidebtn = styled.button`
   color: ${(props) => props.theme.colors.white};
   background-color: ${(props) => props.theme.colors.third};
   border-color: ${(props) => props.theme.colors.white};
+  z-index: 20;
+
+  @media only screen and (max-width: 768px) {
+    padding: 8px 16px;
+  }
 
   :hover {
     border-color: ${(props) => props.theme.colors.secundary};

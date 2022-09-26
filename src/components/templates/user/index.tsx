@@ -44,20 +44,17 @@ const UserSection = () => {
   return (
     <>
       <Top>
-        <div>
-          <h3>
-            Hello <span>{name.charAt().toUpperCase() + name.slice(1)},</span>{' '}
-            you are an active member since{' '}
-            <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep
-            the good job.
-          </h3>
-        </div>
+        <h3>
+          Hello <span>{name.charAt().toUpperCase() + name.slice(1)},</span> you
+          are an active member since{' '}
+          <span>{longEnUSFormatter.format(new Date(createdAt))}</span> keep the
+          good job.
+        </h3>
       </Top>
       {!isFetching ? (
         <Middle>
-          <div>
-            <img src="assets/userIcon.png" alt="" />
-          </div>
+          <img src="assets/userIcon.png" alt="" />
+
           <form action="">
             <div>
               <label>Name</label>
