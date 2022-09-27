@@ -74,6 +74,7 @@ export const ExerciseUl = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+  overflow-y: auto;
 
   @media only screen and (max-width: 1000px) {
     grid-template-columns: repeat(2, 1fr);
