@@ -15,13 +15,14 @@ export const GuideContainer = styled.div`
   flex-direction: column;
 
   @media only screen and (max-width: 768px) {
-    bottom: 40px;
-    left: auto;
-    right: auto;
     border-left: 1px solid ${(props) => props.theme.colors.white};
-    border-radius: 20px 20px 0 0;
+    border-radius: 10px;
     opacity: 1;
     z-index: 0;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    right: auto;
     margin-left: 10px;
     margin-right: 10px;
   }
