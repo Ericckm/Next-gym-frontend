@@ -12,10 +12,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
+        <meta name="viewport" content="viewport-fit=cover" />
         <link rel="shortcut icon" href="/assets/favicon.ico" />
         <meta charSet="utf-8" />
       </Head>
