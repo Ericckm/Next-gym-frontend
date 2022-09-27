@@ -7,8 +7,10 @@ const Container = styled.div`
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   position: relative;
-  overflow-y: auto;
   flex-direction: column;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-y: hidden;
 `
 
 export const ExerciseContainer = ({ children }) => {

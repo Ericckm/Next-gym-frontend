@@ -16,6 +16,9 @@ const ExercisesSection = () => {
   const { isFetching, error, allExercises } = useSelector(
     (state: any) => state.allExercises
   )
+  const { exerciseWithLogs } = useSelector(
+    (state: any) => state.exercisesWithLogs
+  )
 
   // FILTER
   const [filters, setFilters] = useState({})

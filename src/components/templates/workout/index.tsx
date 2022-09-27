@@ -9,6 +9,7 @@ import { ExerciseContainer } from '../../organisms/exerciseContainer'
 import { PlayArrow, Stop } from '@material-ui/icons'
 import { WorkoutStart } from '../../molecules/workoutStart'
 import { WorkoutStartTitle } from '../../atoms/workoutStartTitle'
+import { CircleLoader } from '../../atoms/CircleLoader'
 
 export const Workout = () => {
   const dispatch = useDispatch()
@@ -82,6 +83,7 @@ export const Workout = () => {
           <Loader />
         ) : (
           <ExerciseUl>
+            {training == 0 && <CircleLoader />}
             {error && <ApiError />}
             {!startWorkout && training !== 0
               ? exercises

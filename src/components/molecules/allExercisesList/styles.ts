@@ -102,9 +102,13 @@ export const ExerciseContainer = styled.li`
   width: 200px;
   border: 1px solid;
   border-radius: 10px;
-  margin: auto auto;
+  margin: 5px 10px;
   overflow: hidden;
   transition: all 1s ease;
+
+  @media only screen and (max-width: 540px) {
+    width: 90%;
+  }
 
   :hover {
     border-color: ${(props) => props.theme.colors.white};
