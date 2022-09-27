@@ -16,13 +16,10 @@ export default createGlobalStyle`
   -moz-appearance: textfield;
 }
 }
-
-body {
+body { 
   background: linear-gradient(#5C6984, #C3C9D5);
   color: ${(props) => props.theme.colors.secundary};
   font: 400 16px Roboto, sans-serif;
   height: 100vh;
-
-
 }
 `

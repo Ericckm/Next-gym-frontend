@@ -13,6 +13,7 @@ export const Register = () => {
   const dispatch = useDispatch()
   const [inputs, setInputs] = useState({})
   const [emailError, setEmailError] = useState(false)
+  const [passwordError, setPasswordError] = useState(false)
   const { isFetching, error, loggedIn } = useSelector(
     (state: any) => state.user
   )
@@ -28,6 +29,7 @@ export const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    if (emailError || passwordError) return
     register(dispatch, inputs)
   }
 
@@ -38,6 +40,12 @@ export const Register = () => {
     } else {
       setEmailError(false)
     }
+  }
+
+  const handlePassword = (e) => {
+    const pass = e.target.value
+    if (pass.length < 7) setPasswordError(true)
+    if (pass.length >= 7) setPasswordError(false)
   }
 
   useEffect(() => {
@@ -71,7 +79,11 @@ export const Register = () => {
             name="password"
             placeholder="password"
             onChange={handleChange}
+            onBlur={handlePassword}
           />
+          {passwordError && (
+            <span>password must have at least 7 characters</span>
+          )}
           {!error && !emailError && isFetching && <Loader />}
           {error && !emailError && <span>something has gone wrong</span>}
         </form>
