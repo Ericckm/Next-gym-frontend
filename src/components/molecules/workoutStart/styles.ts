@@ -19,6 +19,7 @@ export const ExerciseDesc = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-weight: 500;
     color: ${(props) => props.theme.colors.primary};
 
@@ -57,7 +58,7 @@ export const ButtonContainer = styled.div`
 export const ExerciseItemContainer = styled.li`
   display: flex;
   height: 96px;
-  min-width: 200px;
+  width: 200px;
   border: 1px solid;
   border-radius: 10px;
   margin: auto auto;
