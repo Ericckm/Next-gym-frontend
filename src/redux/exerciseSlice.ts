@@ -35,7 +35,6 @@ export const exerciseSlice = createSlice({
       state.error = true
     },
     startExercise: (state, action) => {
-      console.log(action.payload)
       state.exercises = state.exercises.filter((i) => i._id !== action.payload)
     }
   }

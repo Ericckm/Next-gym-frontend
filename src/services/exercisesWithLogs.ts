@@ -16,7 +16,7 @@ export async function exerciseWithLogRequestCall(dispatch, token) {
         }
       }
     )
-    console.log(request)
+
     dispatch(getExercisesWithLogsSuccess(request.data))
   } catch (e) {
     dispatch(getExercisesWithLogsFailure())

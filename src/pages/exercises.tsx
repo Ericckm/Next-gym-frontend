@@ -7,11 +7,6 @@ const ExercisesPage = () => {
   return (
     <>
       <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
         <title>Exercises</title>
       </Head>
       <Topbar />

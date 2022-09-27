@@ -15,11 +15,6 @@ const NotFoundPage = () => {
   return (
     <>
       <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-        <link rel="shortcut icon" href="/assets/favicon.ico" />
         <title>404</title>
       </Head>
       <NotFound />
