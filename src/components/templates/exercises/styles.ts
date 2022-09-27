@@ -95,7 +95,7 @@ export const ExerciseUl = styled.ul`
   height: 100%;
   width: 100%;
   display: grid;
-  overflow-y: scroll;
+  overflow-y: auto;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 

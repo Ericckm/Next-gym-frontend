@@ -61,6 +61,7 @@ export const ExerciseItemContainer = styled.li`
   border: 1px solid;
   border-radius: 10px;
   margin: auto auto;
+  overflow-x: hidden;
 
   transition: all 1s ease;
 

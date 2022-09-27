@@ -63,6 +63,7 @@ export const ExerciseItemContainer = styled.li`
   border-radius: 10px;
   margin: auto auto;
   transition: all 1s ease;
+  overflow-x: hidden;
 
   :hover {
     border-color: ${(props) => props.theme.colors.white};
