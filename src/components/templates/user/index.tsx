@@ -86,9 +86,13 @@ const UserSection = () => {
               </div>
               <FormBottom>
                 <label className="bmi">{email}</label>
-                <label className="bmi">
-                  Your BMI is <span>{calcBmi()}</span>
-                </label>
+                {!weight || !height ? (
+                  <label>Fill your weight and heigth to check your BMI</label>
+                ) : (
+                  <label className="bmi">
+                    Your BMI is <span>{calcBmi()}</span>
+                  </label>
+                )}
                 {calcBmi() <= 18.5 && <span>Underweight</span>}
                 {calcBmi() <= 24.9 && calcBmi() > 18.5 && (
                   <span>Normal Weight</span>
