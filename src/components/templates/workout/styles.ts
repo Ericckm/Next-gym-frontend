@@ -68,15 +68,20 @@ export const Title = styled.div`
 `
 
 export const ExerciseUl = styled.ul`
-  align-items: flex-start;
-  flex: 3;
-  justify-content: space-around;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5px 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  overflow-y: auto;
 
-  @media only screen and (max-width: 680px) {
-    overflow-y: scroll;
+  @media only screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 660px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 
