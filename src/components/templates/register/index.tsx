@@ -73,7 +73,7 @@ export const Register = () => {
             onChange={handleChange}
             onBlur={handleEmail}
           />
-          {emailError && <span>invalid email</span>}
+
           <input
             type="password"
             name="password"
@@ -81,6 +81,7 @@ export const Register = () => {
             onChange={handleChange}
             onBlur={handlePassword}
           />
+          {emailError && <span>invalid email</span>}
           {passwordError && (
             <span>password must have at least 7 characters</span>
           )}
