@@ -91,15 +91,20 @@ export const FilterContainer = styled.div`
 `
 
 export const ExerciseUl = styled.ul`
-  align-items: flex-start;
-  flex: 3;
-  justify-content: space-around;
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 36px;
+  padding: 10px;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  overflow-y: scroll;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 
-  @media only screen and (max-width: 900px) {
-    overflow-y: scroll;
+  @media only screen and (max-width: 840px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (max-width: 580px) {
+    grid-template-columns: repeat(1, 1fr);
   }
 `
 

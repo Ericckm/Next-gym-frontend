@@ -60,8 +60,8 @@ export const ExerciseItemContainer = styled.li`
   min-width: 200px;
   border: 1px solid;
   border-radius: 10px;
-  margin: 5px 5px;
-  overflow-y: hidden;
+  margin: auto auto;
+
   transition: all 1s ease;
 
   :hover {

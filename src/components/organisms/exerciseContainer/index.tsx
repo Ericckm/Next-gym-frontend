@@ -10,7 +10,6 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   overflow-y: scroll;
-  overflow-y: hidden;
 `
 
 export const ExerciseContainer = ({ children }) => {
