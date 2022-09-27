@@ -60,10 +60,10 @@ export const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            {emailError && <span>Invalid email</span>}
-            {!error && !emailError && isFetching && <Loader />}
-            {error && !emailError && <span>something has gone wrong</span>}
           </form>
+          {emailError && <span>Invalid email</span>}
+          {!error && !emailError && isFetching && <Loader />}
+          {error && !emailError && <span>something has gone wrong</span>}
         </FormContainer>
         <ButtonContainer>
           <button onClick={handleLogin} disabled={isFetching} name="test">

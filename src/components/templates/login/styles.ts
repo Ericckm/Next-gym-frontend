@@ -32,8 +32,16 @@ export const FormContainer = styled.div`
   flex: 4;
   display: flex;
   align-items: center;
+  flex-direction: column;
+
+  span {
+    font-size: 12px;
+    color: ${(props) => props.theme.colors.error};
+    margin-bottom: 20px;
+  }
 
   form {
+    flex: 3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,11 +70,6 @@ export const FormContainer = styled.div`
       &:focus {
         outline: none;
       }
-    }
-
-    span {
-      font-size: 12px;
-      color: ${(props) => props.theme.colors.error};
     }
   }
 `

@@ -81,13 +81,11 @@ export const Register = () => {
             onChange={handleChange}
             onBlur={handlePassword}
           />
-          {emailError && <span>invalid email</span>}
-          {passwordError && (
-            <span>password must have at least 7 characters</span>
-          )}
-          {!error && !emailError && isFetching && <Loader />}
-          {error && !emailError && <span>something has gone wrong</span>}
         </form>
+        {emailError && <span>invalid email</span>}
+        {passwordError && <span>password must have at least 7 characters</span>}
+        {!error && !emailError && isFetching && <Loader />}
+        {error && !emailError && <span>problem communicating with server</span>}
       </FormContainer>
       <ButtonContainer>
         <button onClick={handleSubmit} disabled={isFetching}>
