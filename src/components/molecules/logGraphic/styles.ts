@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Top = styled.div`
   display: flex;
-  flex: 0.5;
+  flex: 0.8;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -35,8 +35,8 @@ export const ExercisesUl = styled.ul`
   justify-content: center;
   gap: 8px;
   width: 80%;
-  overflow-x: scroll;
-  overflow-x: hidden;
+  height: 100%;
+  overflow-x: auto;
 
   .active button {
     border-color: ${(props) => props.theme.colors.white};

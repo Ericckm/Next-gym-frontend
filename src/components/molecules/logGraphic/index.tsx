@@ -26,21 +26,6 @@ export const LogGraphic = ({ children, filters, token }) => {
     (state: any) => state.exercisesWithLogs
   )
 
-  useEffect(() => {
-    exerciseWithLogRequestCall(dispatch, token)
-  }, [])
-
-  // make another api call to get all exercises, liked or not liked
-  useEffect(() => {
-    setFilteredExercises(
-      exerciseWithLogs.filter((item) =>
-        Object.entries(filters).every(([key, value]) =>
-          item[key].includes(value)
-        )
-      )
-    )
-  }, [filters, exerciseWithLogs])
-
   const handleExerciseId = (e) => {
     const id = e.target.value
     allLogsRequestCall(dispatch, id, token)
@@ -50,6 +35,20 @@ export const LogGraphic = ({ children, filters, token }) => {
   const handleParams = (e) => {
     setParam(e.target.value)
   }
+
+  useEffect(() => {
+    exerciseWithLogRequestCall(dispatch, token)
+  }, [])
+
+  useEffect(() => {
+    setFilteredExercises(
+      exerciseWithLogs.filter((item) =>
+        Object.entries(filters).every(([key, value]) =>
+          item[key].includes(value)
+        )
+      )
+    )
+  }, [filters, exerciseWithLogs])
 
   useEffect(() => {
     setChartData({
@@ -89,16 +88,22 @@ export const LogGraphic = ({ children, filters, token }) => {
     <ExerciseContainer>
       {children}
       <Top>
-        <p>Select an exercise to check your progress</p>
         <ExercisesUl>
           {/* onclick grab exercise id to find in the graphcontainer and map logs */}
-          {filteredExercises?.map((i: any) => (
-            <li key={i._id} className={currentItem == i._id ? 'active' : null}>
-              <button onClick={handleExerciseId} value={i._id}>
-                {i.name}
-              </button>
-            </li>
-          ))}
+          {!isFetching ? (
+            filteredExercises.map((i: any) => (
+              <li
+                key={i._id}
+                className={currentItem == i._id ? 'active' : null}
+              >
+                <button onClick={handleExerciseId} value={i._id}>
+                  {i.name}
+                </button>
+              </li>
+            ))
+          ) : (
+            <Loader />
+          )}
         </ExercisesUl>
       </Top>
       <Mid>
@@ -137,7 +142,13 @@ export const LogGraphic = ({ children, filters, token }) => {
             {currentItem ? (
               <GraphicChart chartData={chartData} chartOptions={chartOptions} />
             ) : (
-              <Loader />
+              <span
+                style={{
+                  textAlign: 'center'
+                }}
+              >
+                Select an exercise above to check your progress
+              </span>
             )}
           </ProgressionContainer>
         </GraphContainer>
