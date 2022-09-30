@@ -18,7 +18,7 @@ export async function logRequestCall(dispatch, id, token) {
   dispatch(getLogStart())
   try {
     const request = await axios.get(
-      `https://gym-app-mu.vercel.app/exercise/${id}`,
+      `https://gym-app-back-production.up.railway.app/exercise/${id}`,
       {
         headers: {
           Authorization: token
@@ -36,7 +36,7 @@ export async function addLog(dispatch, inputs, token) {
   dispatch(addLogStart())
   try {
     const request = await axios.post(
-      `https://gym-app-mu.vercel.app/log`,
+      `https://gym-app-back-production.up.railway.app/log`,
       inputs,
       {
         headers: {
@@ -55,7 +55,7 @@ export async function allLogsRequestCall(dispatch, id, token) {
   dispatch(getAllLogStart())
   try {
     const request = await axios.get(
-      `https://gym-app-mu.vercel.app/exercise/logs/${id}`,
+      `https://gym-app-back-production.up.railway.app/exercise/logs/${id}`,
       {
         headers: {
           Authorization: token

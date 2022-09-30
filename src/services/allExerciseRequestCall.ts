@@ -14,11 +14,14 @@ import {
 export async function allExerciseRequestCall(dispatch, token) {
   dispatch(getAllExerciseStart())
   try {
-    const request = await axios.get('https://gym-app-mu.vercel.app/exercises', {
-      headers: {
-        Authorization: token
+    const request = await axios.get(
+      'https://gym-app-back-production.up.railway.app/exercises',
+      {
+        headers: {
+          Authorization: token
+        }
       }
-    })
+    )
     dispatch(getAllExerciseSuccess(request.data))
   } catch (e) {
     dispatch(getAllExerciseFailure())
@@ -29,7 +32,7 @@ export async function unLikeExercisePutCall(dispatch, token, id) {
   dispatch(unlikeExerciseStart())
   try {
     const request = await axios.put(
-      `https://gym-app-mu.vercel.app/exercises/${id}`,
+      `https://gym-app-back-production.up.railway.app/exercises/${id}`,
       {
         headers: {
           Authorization: token
@@ -46,7 +49,7 @@ export async function addExercise(dispatch, inputs, token) {
   dispatch(addExerciseStart())
   try {
     const request = await axios.post(
-      `https://gym-app-mu.vercel.app/addExercise`,
+      `https://gym-app-back-production.up.railway.app/addExercise`,
       inputs,
       {
         headers: {
