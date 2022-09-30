@@ -20,6 +20,7 @@ const Title = styled.div`
     align-items: center;
     display: flex;
     justify-content: center;
+    letter-spacing: 3px;
     color: ${(props) => props.theme.colors.primary};
 
     @media only screen and (max-width: 768px) {

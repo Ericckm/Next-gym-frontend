@@ -9,4 +9,3 @@ const theme = {
 }
 
 export default theme
-//  background: '#BDD4E7'

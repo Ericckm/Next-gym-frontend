@@ -13,6 +13,7 @@ export const Top = styled.div`
     font-weight: 400;
     align-items: center;
     text-align: center;
+    letter-spacing: 3px;
     color: ${(props) => props.theme.colors.primary};
 
     @media only screen and (max-width: 768px) {

@@ -9,6 +9,8 @@ export const Title = styled.div`
   align-items: center;
   text-align: center;
   gap: 4px;
+  line-height: 30px;
+  letter-spacing: 3px;
 
   @media only screen and (max-width: 768px) {
     flex: 0.3;
@@ -108,7 +110,7 @@ export const Bottom = styled.div`
       font-weight: 500;
       font-size: 18px;
       color: ${(props) => props.theme.colors.third};
-
+      letter-spacing: 3px;
       @media only screen and (max-width: 768px) {
         font-size: 14px;
       }
@@ -116,6 +118,7 @@ export const Bottom = styled.div`
 
     .start {
       font-size: 64px;
+
       @media only screen and (max-width: 768px) {
         font-size: 38px;
       }
