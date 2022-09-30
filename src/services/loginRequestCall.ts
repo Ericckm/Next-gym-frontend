@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { useEffect } from 'react'
 import {
   loginFailure,
   loginStart,
@@ -16,7 +15,7 @@ export async function login(dispatch, email, password) {
   dispatch(loginStart())
   try {
     const request = await axios.post(
-      'https://gym-app-back-production.up.railway.app/exercises/login',
+      'https://gym-app-back-production.up.railway.app/login',
       {
         email,
         password
@@ -32,7 +31,7 @@ export async function register(dispatch, inputs) {
   dispatch(registerStart())
   try {
     const request = await axios.post(
-      'https://gym-app-back-production.up.railway.app/exercises/register',
+      'https://gym-app-back-production.up.railway.app/register',
       {
         ...inputs
       }
