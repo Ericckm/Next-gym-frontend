@@ -15,10 +15,13 @@ import {
 export async function login(dispatch, email, password) {
   dispatch(loginStart())
   try {
-    const request = await axios.post('http://localhost:2500/exercises/login', {
-      email,
-      password
-    })
+    const request = await axios.post(
+      'https://gym-app-mu.vercel.app/exercises/login',
+      {
+        email,
+        password
+      }
+    )
     dispatch(loginSuccess(request.data))
   } catch (e) {
     dispatch(loginFailure())
@@ -29,7 +32,7 @@ export async function register(dispatch, inputs) {
   dispatch(registerStart())
   try {
     const request = await axios.post(
-      'http://localhost:2500/exercises/register',
+      'https://gym-app-mu.vercel.app/exercises/register',
       {
         ...inputs
       }
@@ -44,7 +47,7 @@ export async function updateUser(dispatch, inputs, token) {
   dispatch(userUpdateStart())
   try {
     const request = await axios.patch(
-      'http://localhost:2500/userUpdate',
+      'https://gym-app-mu.vercel.app/userUpdate',
       inputs,
       {
         headers: {

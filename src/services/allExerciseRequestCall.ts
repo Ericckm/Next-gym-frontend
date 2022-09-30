@@ -14,7 +14,7 @@ import {
 export async function allExerciseRequestCall(dispatch, token) {
   dispatch(getAllExerciseStart())
   try {
-    const request = await axios.get('http://localhost:2500/exercises', {
+    const request = await axios.get('https://gym-app-mu.vercel.app/exercises', {
       headers: {
         Authorization: token
       }
@@ -28,11 +28,14 @@ export async function allExerciseRequestCall(dispatch, token) {
 export async function unLikeExercisePutCall(dispatch, token, id) {
   dispatch(unlikeExerciseStart())
   try {
-    const request = await axios.put(`http://localhost:2500/exercises/${id}`, {
-      headers: {
-        Authorization: token
+    const request = await axios.put(
+      `https://gym-app-mu.vercel.app/exercises/${id}`,
+      {
+        headers: {
+          Authorization: token
+        }
       }
-    })
+    )
     dispatch(unlikeExerciseSuccess(request.data))
   } catch (e) {
     dispatch(unlikeExerciseFailure())
@@ -43,7 +46,7 @@ export async function addExercise(dispatch, inputs, token) {
   dispatch(addExerciseStart())
   try {
     const request = await axios.post(
-      `http://localhost:2500/addExercise`,
+      `https://gym-app-mu.vercel.app/addExercise`,
       inputs,
       {
         headers: {

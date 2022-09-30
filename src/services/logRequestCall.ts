@@ -17,11 +17,14 @@ import {
 export async function logRequestCall(dispatch, id, token) {
   dispatch(getLogStart())
   try {
-    const request = await axios.get(`http://localhost:2500/exercise/${id}`, {
-      headers: {
-        Authorization: token
+    const request = await axios.get(
+      `https://gym-app-mu.vercel.app/exercise/${id}`,
+      {
+        headers: {
+          Authorization: token
+        }
       }
-    })
+    )
     dispatch(getLogSuccess(request.data))
   } catch (e) {
     dispatch(getLogFailure())
@@ -32,11 +35,15 @@ export async function logRequestCall(dispatch, id, token) {
 export async function addLog(dispatch, inputs, token) {
   dispatch(addLogStart())
   try {
-    const request = await axios.post(`http://localhost:2500/log`, inputs, {
-      headers: {
-        Authorization: token
+    const request = await axios.post(
+      `https://gym-app-mu.vercel.app/log`,
+      inputs,
+      {
+        headers: {
+          Authorization: token
+        }
       }
-    })
+    )
     dispatch(addLogSuccess(request.data))
   } catch (e) {
     dispatch(addLogFailure())
@@ -48,7 +55,7 @@ export async function allLogsRequestCall(dispatch, id, token) {
   dispatch(getAllLogStart())
   try {
     const request = await axios.get(
-      `http://localhost:2500/exercise/logs/${id}`,
+      `https://gym-app-mu.vercel.app/exercise/logs/${id}`,
       {
         headers: {
           Authorization: token
