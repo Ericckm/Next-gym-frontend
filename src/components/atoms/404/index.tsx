@@ -1,6 +1,6 @@
 import { Container, Content, Left, Right } from './styles'
 
-export const NotFound = () => {
+export const NotFound: React.FC = () => {
   return (
     <Container>
       <Content>

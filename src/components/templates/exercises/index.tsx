@@ -9,12 +9,13 @@ import { Loader } from '../../atoms/loader'
 import { ApiError } from '../../atoms/500'
 import { ExerciseContainer } from '../../organisms/exerciseContainer'
 import { LogGraphic } from '../../molecules/logGraphic'
+import { useAppSelector } from '../../../redux/hooks'
 
 const ExercisesSection = () => {
   const dispatch = useDispatch()
   const token = useSelector((state: any) => state.user.user.token)
-  const { isFetching, error, allExercises } = useSelector(
-    (state: any) => state.allExercises
+  const { isFetching, error, allExercises } = useAppSelector(
+    (state) => state.allExercises
   )
 
   // FILTER

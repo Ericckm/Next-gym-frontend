@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import styled from 'styled-components'
+import { ReactNode, useState } from 'react'
 import { Guide } from '../../atoms/guide'
 import { Guidebtn, Section } from './styles'
 
-export const SectionTemplate = ({ children }) => {
+export const SectionTemplate = ({ children }: { children: ReactNode }) => {
   const [openGuide, setOpenGuide] = useState(false)
 
   const handleClick = () => {

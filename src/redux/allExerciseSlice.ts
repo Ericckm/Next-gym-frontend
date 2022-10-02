@@ -1,21 +1,46 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+
+type Exercise = {
+  _id: string
+  name: string
+  videoUrl: string
+  type: string
+  liked: boolean
+  owner: string
+  createdAt: string
+  updatedAt: string
+}
+
+type initalState = {
+  allExercises: Exercise[]
+  isFetching: boolean
+  error: boolean
+  isPosting: boolean
+  postingError: boolean
+  postingSuccess: boolean
+}
+
+const initialState: initalState = {
+  allExercises: [],
+  isFetching: false,
+  error: false,
+  isPosting: false,
+  postingError: false,
+  postingSuccess: false
+}
 
 export const allExercisesSlice = createSlice({
   name: 'allExercises',
-  initialState: {
-    allExercises: [],
-    isFetching: false,
-    error: false,
-    isPosting: false,
-    postingError: false,
-    postingSuccess: false
-  },
+  initialState,
   reducers: {
     getAllExerciseStart: (state) => {
       state.isFetching = true
       state.error = false
     },
-    getAllExerciseSuccess: (state, action) => {
+    getAllExerciseSuccess: (
+      state: initalState,
+      action: PayloadAction<Exercise[]>
+    ) => {
       state.allExercises = action.payload
       state.isFetching = false
     },

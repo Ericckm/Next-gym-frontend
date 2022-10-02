@@ -1,3 +1,4 @@
+import { ReactNode } from 'react'
 import styled from 'styled-components'
 
 const Container = styled.div`
@@ -11,6 +12,6 @@ const Container = styled.div`
   flex-direction: column;
 `
 
-export const ExerciseContainer = ({ children }) => {
+export const ExerciseContainer = ({ children }: { children: ReactNode }) => {
   return <Container>{children}</Container>
 }

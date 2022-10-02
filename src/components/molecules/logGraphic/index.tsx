@@ -13,6 +13,7 @@ import {
 } from './styles'
 import { exerciseWithLogRequestCall } from '../../../services/exercisesWithLogs'
 import { Loader } from '../../atoms/loader'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 
 export const LogGraphic = ({ children, filters, token }) => {
   const { allLogs } = useSelector((state: any) => state.allLogs)
@@ -21,9 +22,9 @@ export const LogGraphic = ({ children, filters, token }) => {
   const [chartData, setChartData] = useState({})
   const [chartOptions, setChartOptions] = useState({})
   const [param, setParam] = useState('load')
-  const dispatch = useDispatch()
-  const { isFetching, error, exerciseWithLogs } = useSelector(
-    (state: any) => state.exercisesWithLogs
+  const dispatch = useAppDispatch()
+  const { isFetching, error, exercisesWithLogs } = useAppSelector(
+    (state) => state.exercisesWithLogs
   )
 
   const handleExerciseId = (e) => {
@@ -42,13 +43,13 @@ export const LogGraphic = ({ children, filters, token }) => {
 
   useEffect(() => {
     setFilteredExercises(
-      exerciseWithLogs.filter((item) =>
+      exercisesWithLogs.filter((item) =>
         Object.entries(filters).every(([key, value]) =>
           item[key].includes(value)
         )
       )
     )
-  }, [filters, exerciseWithLogs])
+  }, [filters, exercisesWithLogs])
 
   useEffect(() => {
     setChartData({

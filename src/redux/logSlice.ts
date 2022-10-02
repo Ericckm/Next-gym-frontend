@@ -74,6 +74,6 @@ export const {
   clearAddLogSuccess
 } = logSlice.actions
 
-export const selectlog = (state) => state.log.log
+export const selectLog = (state) => state.log.log
 
 export default logSlice.reducer

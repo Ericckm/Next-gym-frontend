@@ -8,12 +8,12 @@ import {
   Title
 } from './styles'
 import { Grade } from '@material-ui/icons'
-import { useDispatch, useSelector } from 'react-redux'
 import { unLikeExercisePutCall } from '../../../services/allExerciseRequestCall'
+import { useAppDispatch, useAppSelector } from '../../../redux/hooks'
 
 export const AllExercisesList = ({ name, type, videoUrl, id }) => {
-  const dispatch = useDispatch()
-  const token = useSelector((state: any) => state.user.user.token)
+  const dispatch = useAppDispatch()
+  const token = useAppSelector((state) => state.user.user.token)
 
   const handleLiked = () => {
     unLikeExercisePutCall(dispatch, token, id)

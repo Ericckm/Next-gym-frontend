@@ -16,6 +16,11 @@ const GraphicChartContainer = styled.div`
   }
 `
 
+// type Props = {
+//   chartData: object[]
+//   chartOptions: object[]
+// }
+
 ChartJS.register(BarElement, CategoryScale, LinearScale)
 
 export const GraphicChart = ({ chartData, chartOptions }) => {
