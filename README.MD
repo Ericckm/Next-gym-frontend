@@ -12,6 +12,9 @@ https://gym-app-mu.vercel.app/
 
 yarn & yarn run dev
 
+# Video Demo
+[![Gym App](https://img.youtube.com/vi/5F1S8C9-srA/0.jpg)](https://www.youtube.com/watch?v=5F1S8C9-srA)
+
 # Exercises Page
 
 - Visualize the exercises execpt the ones in the workout
