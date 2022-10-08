@@ -37,7 +37,7 @@ Flip
 
 - Create inside the exercise your records to keep track of your progression
 
-- Remove exercise from the workout routine
+- Remove exercise from workout routine
 
 # User Page
 
