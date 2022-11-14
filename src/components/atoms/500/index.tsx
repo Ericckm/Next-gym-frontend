@@ -16,7 +16,7 @@ export const Container = styled.div`
 export const ApiError = () => {
   return (
     <Container>
-      Sorry something went wrong with the server, try again later.
+      Sorry something went wrong connecting with the server, try again later.
     </Container>
   )
 }
