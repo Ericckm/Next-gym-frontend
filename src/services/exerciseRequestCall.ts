@@ -23,7 +23,7 @@ export async function exerciseRequestCall(dispatch, token) {
   dispatch(getExerciseStart())
   try {
     const request = await axios.get(
-      'https://gym-app-back-production.up.railway.app/exerciseLiked',
+      'https://gym-app-backend-bd2l.onrender.com/exerciseLiked',
       {
         headers: {
           Authorization: token
@@ -40,7 +40,7 @@ export async function likedExercisePutCall(dispatch, token, id) {
   dispatch(likeExerciseStart())
   try {
     const request = await axios.put(
-      `https://gym-app-back-production.up.railway.app/exercise/${id}`,
+      `https://gym-app-backend-bd2l.onrender.com/exercise/${id}`,
       {
         headers: {
           Authorization: token

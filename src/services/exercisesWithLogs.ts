@@ -9,7 +9,7 @@ export async function exerciseWithLogRequestCall(dispatch, token) {
   dispatch(getExercisesWithLogsStart())
   try {
     const request = await axios.get(
-      'https://gym-app-back-production.up.railway.app/exerciseWithLogs',
+      'https://gym-app-backend-bd2l.onrender.com/exerciseWithLogs',
       {
         headers: {
           Authorization: token

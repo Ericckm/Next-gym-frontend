@@ -15,7 +15,7 @@ export async function login(dispatch, email, password) {
   dispatch(loginStart())
   try {
     const request = await axios.post(
-      'https://gym-app-back-production.up.railway.app/login',
+      'https://gym-app-backend-bd2l.onrender.com/login',
       {
         email,
         password
@@ -31,7 +31,7 @@ export async function register(dispatch, inputs) {
   dispatch(registerStart())
   try {
     const request = await axios.post(
-      'https://gym-app-back-production.up.railway.app/register',
+      'https://gym-app-backend-bd2l.onrender.com/register',
       {
         ...inputs
       }
@@ -46,7 +46,7 @@ export async function updateUser(dispatch, inputs, token) {
   dispatch(userUpdateStart())
   try {
     const request = await axios.patch(
-      'https://gym-app-back-production.up.railway.app/userUpdate',
+      'https://gym-app-backend-bd2l.onrender.com/userUpdate',
       inputs,
       {
         headers: {
